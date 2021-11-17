@@ -1,3 +1,8 @@
+
+<div>
+  <h6 class="card-subtitle text-muted">Sale</h6>
+</div>
+
 <div class="card mb-1" *ngFor="let salevalue of sales; index as i">
   <div class="card-block row m-1 col-12">
     <div class="card-body row align-items-center">
@@ -8,7 +13,7 @@
           </div>
           <div class="col-9">
             <h6 class="card-subtitle text-muted">Description:</h6>
-            <a class="card-text" [routerLink]="['/sales', salevalue.id]"></a>
+            <a class="card-text" [routerLink]="['/sales', salevalue.id]">{{salevalue.id}}</a>
             <div class="card-text"><b>Creation date:</b> {{salevalue.creationDate| date : 'dd/MM/yyyy'}}</div>
           </div>
         </div>
