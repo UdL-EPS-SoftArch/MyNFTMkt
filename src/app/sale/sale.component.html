@@ -1,0 +1,18 @@
+<div class="card mb-1" *ngFor="let salevalue of sales; index as i">
+  <div class="card-block row m-1 col-12">
+    <div class="card-body row align-items-center">
+      <div class="col-8 mt-1">
+        <div class="row">
+          <div class="col-1">
+            <p>{{i+1}}.</p>
+          </div>
+          <div class="col-9">
+            <h6 class="card-subtitle text-muted">Description:</h6>
+            <a class="card-text" [routerLink]="['/sales', salevalue.id]"></a>
+            <div class="card-text"><b>Creation date:</b> {{salevalue.creationDate| date : 'dd/MM/yyyy'}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
