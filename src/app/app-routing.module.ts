@@ -8,7 +8,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
-import {SaleComponent} from "./sale/sale.component";
+import {SaleComponent} from './sale/sale.component';
 
 
 
