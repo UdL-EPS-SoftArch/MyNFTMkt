@@ -1,5 +1,11 @@
 # MyNFTMkt
 
+Frontend for an open-source NFT marketplace
+
+[![Open Issues](https://img.shields.io/github/issues-raw/UdL-EPS-SoftArch/MyNFTMkt?logo=github)](https://github.com/orgs/UdL-EPS-SoftArch/projects/11)
+[![CI/CD](https://github.com/UdL-EPS-SoftArch/MyNFTMkt/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UdL-EPS-SoftArch/MyNFTMkt/actions)
+[![Heroku App Status](https://heroku-shields.herokuapp.com/mynftmkt)](https://mynftmkt.herokuapp.com)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
 
 ## Development server
