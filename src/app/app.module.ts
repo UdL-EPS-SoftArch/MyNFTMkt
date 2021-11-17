@@ -22,7 +22,7 @@ import {ExternalConfigurationService} from './external-configuration-service';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
-import {SaleComponent} from "./sale/sale.component";
+import {SaleComponent} from './sale/sale.component';
 
 @NgModule({
   declarations: [
