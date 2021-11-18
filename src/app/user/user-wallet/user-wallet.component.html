@@ -13,27 +13,61 @@
   </div>
 </div>
 <!-- Deposit, create a modal view -->
-<form id="deposit-form" (ngSubmit)="onSubmitDeposit()" #form="ngForm">
-  <fieldset>
-    <div class="form-group">
-      <label class="control-label" for="deposit">Deposit</label>
-      <input id="deposit" name="deposit" type="number" class="form-control" [(ngModel)]="moneyToAdd" >
-      <button id="submitDeposit" type="submit" class="btn m-1 btn-success pull-right"
-              [disabled]="!form.form.valid">Submit</button>
-    </div>
-  </fieldset>
-</form>
+<label class="control-label" for="deposit" (click)="open(content)">Deposit</label>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add money to your account!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form id="deposit-form" (ngSubmit)="onSubmitDeposit()" #form="ngForm">
+      <fieldset>
+        <div class="form-group">
+
+          <input id="deposit" name="deposit" type="number" class="form-control" [(ngModel)]="moneyToAdd" >
+
+        </div>
+      </fieldset>
+      <div class="modal-footer">
+        <button id="submitDeposit" type="submit" class="btn m-1 btn-success pull-right"
+                [disabled]="!form.form.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
+
+
 <!-- Withdrawal, create a modal view -->
-<form id="withdrawal-form" (ngSubmit)="onSubmitWithdrawal()" #form="ngForm">
-  <fieldset>
-    <div class="form-group">
-      <label class="control-label" for="withdrawal">Withdrawal</label>
-      <input id="withdrawal" name="withdrawal" type="text" class="form-control" [(ngModel)]="moneyToWithdraw" >
-      <button id="submitWithdrawal" type="submit" class="btn m-1 btn-success pull-right"
-              [disabled]="!form.form.valid">Submit</button>
-    </div>
-  </fieldset>
-</form>
+<div>
+  <label class="control-label" for="withdrawal" (click)="open(content2)">Withdrawal</label>
+</div>
+<ng-template #content2 let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Withdraw money from your account!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form id="withdrawal-form" (ngSubmit)="onSubmitWithdrawal()" #form="ngForm">
+      <fieldset>
+        <div class="form-group">
+
+          <input id="withdrawal" name="withdrawal" type="text" class="form-control" [(ngModel)]="moneyToWithdraw" >
+
+        </div>
+      </fieldset>
+      <div class="modal-footer">
+        <button id="submitWithdrawal" type="submit" class="btn m-1 btn-success pull-right"
+                [disabled]="!form.form.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
 <!-- Change the currency, default to euro -->
 <div>
   <label>Change currency</label>

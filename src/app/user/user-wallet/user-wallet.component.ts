@@ -4,10 +4,13 @@ import { Router } from '@angular/router';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import { UserService } from '../user.service';
 import { User } from '../../login-basic/user';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-user-wallet',
-  templateUrl: './user-wallet.component.html'
+  templateUrl: './user-wallet.component.html',
+  // add NgbModalConfig and NgbModal to the component providers
+  providers: [NgbModalConfig, NgbModal],
 })
 export class UserWalletComponent implements OnInit {
   public user: User = new User();
@@ -17,9 +20,15 @@ export class UserWalletComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private userService: UserService,
-              private authenticationService: AuthenticationBasicService) {
+              private authenticationService: AuthenticationBasicService,
+              config: NgbModalConfig, private modalService: NgbModal) {
+    config.backdrop = 'static';
+    config.keyboard = false;
   }
 
+  open(content) {
+    this.modalService.open(content);
+  }
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.userService.get(id).subscribe(
@@ -60,3 +69,5 @@ export class UserWalletComponent implements OnInit {
     return this.authenticationService.getCurrentUser().id;
   }
 }
+
+
