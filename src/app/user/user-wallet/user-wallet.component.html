@@ -1,6 +1,6 @@
 <div class="d-flex">
   <div class="flex-fill">
-    <h1 class="display-5 fw-bold lh-1 mb-3">€{{user.balance}}</h1>
+    <h1 class="display-5 fw-bold lh-1 mb-3">{{user.getCurrencySymbol()}}{{user.balance}}</h1>
     <p class="lead">Account balance</p>
   </div>
   <div class="flex-fill">
