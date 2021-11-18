@@ -22,6 +22,7 @@ import {ExternalConfigurationService} from './external-configuration-service';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import {BidListComponent} from './bid/bid-list/bid-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {UserService} from './user/user.service';
     UserRegisterComponent,
     UserEditComponent,
     UserDeleteComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    BidListComponent
   ],
   imports: [
     BrowserModule,
