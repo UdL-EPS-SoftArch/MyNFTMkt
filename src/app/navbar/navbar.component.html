@@ -18,6 +18,14 @@
              [routerLink]="['/users']"><span class="fas fa-user-circle"></span> List</a>
         </div>
       </li>
+      <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="playerDropdownBid" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Bid</a>
+        <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/bids']"><span class="fas fa-user-circle"></span> List Bid</a>
+        </div>
+      </li>
     </ul>
     <ul class="navbar-nav" app-login-navbar></ul>
   </div>
