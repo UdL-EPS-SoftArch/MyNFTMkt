@@ -4,6 +4,7 @@ import { Resource } from '@lagoshny/ngx-hal-client';
 export class User extends Resource {
   id: string;
   email: string;
+  balance: number;
   authorities: Authority[] = [];
   authorization = '';
   password = '';

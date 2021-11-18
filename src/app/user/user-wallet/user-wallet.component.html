@@ -1,0 +1,38 @@
+<!-- Show the amount -->
+<div>
+  <label>Balance</label>
+  <p id="balance" class="card-text">{{user.balance}}</p>
+</div>
+
+<!-- Deposit, create a modal view -->
+<form id="deposit-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+    <div class="form-group">
+      <label class="control-label" for="deposit">Deposit</label>
+      <input id="deposit" name="deposit" type="text" class="form-control" >
+      <button id="submitDeposit" type="submit" class="btn m-1 btn-success pull-right"
+              [disabled]="!form.form.valid">Submit</button>
+    </div>
+  </fieldset>
+</form>
+<!-- Withdrawal, create a modal view -->
+<form id="withdrawal-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+    <div class="form-group">
+      <label class="control-label" for="withdrawal">Withdrawal</label>
+      <input id="withdrawal" name="withdrawal" type="text" class="form-control" >
+      <button id="submitWithdrawal" type="submit" class="btn m-1 btn-success pull-right"
+              [disabled]="!form.form.valid">Submit</button>
+    </div>
+  </fieldset>
+</form>
+<!-- Change the currency, default to euro -->
+<div>
+  <label>Change currency</label>
+</div>
+
+<!-- Button go back-->
+<button id="userDetail" type="button" [routerLink]="['/users/'+getCurrentUserName()]"
+        class="btn m-1 btn-outline-primary pull-right">Back</button>
+
+
