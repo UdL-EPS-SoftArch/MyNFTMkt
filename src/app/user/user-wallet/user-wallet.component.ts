@@ -11,6 +11,8 @@ import { User } from '../../login-basic/user';
 })
 export class UserWalletComponent implements OnInit {
   public user: User = new User();
+  moneyToAdd: number;
+  moneyToWithdraw: number;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -24,16 +26,32 @@ export class UserWalletComponent implements OnInit {
       (user: User) => this.user = user);
   }
 
-  onSubmit(): void {
+  onSubmitDeposit(): void {
+    this.user.balance = this.user.balance + this.moneyToAdd;
     this.user.password = this.user.passwordReset ? this.user.password : undefined; // Don't edit if not a reset
     this.userService.patch(this.user).subscribe(
       (patchedUser: User) => {
         if (this.user.passwordReset) {
           this.authenticationService.logout();
           this.authenticationService.login(this.user.id, this.user.password).subscribe(
-            (user: User) => this.router.navigate(['users', user.id]));
+            (user: User) => this.router.navigate(['users', user.id, 'wallet']));
         } else {
-          this.router.navigate(['users', patchedUser.id]);
+          this.router.navigate(['users', patchedUser.id, 'wallet']);
+        }
+      });
+  }
+
+  onSubmitWithdrawal(): void {
+    this.user.balance = this.user.balance - this.moneyToWithdraw;
+    this.user.password = this.user.passwordReset ? this.user.password : undefined; // Don't edit if not a reset
+    this.userService.patch(this.user).subscribe(
+      (patchedUser: User) => {
+        if (this.user.passwordReset) {
+          this.authenticationService.logout();
+          this.authenticationService.login(this.user.id, this.user.password).subscribe(
+            (user: User) => this.router.navigate(['users', user.id, 'wallet']));
+        } else {
+          this.router.navigate(['users', patchedUser.id, 'wallet']);
         }
       });
   }

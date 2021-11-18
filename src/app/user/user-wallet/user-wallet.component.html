@@ -5,22 +5,22 @@
 </div>
 
 <!-- Deposit, create a modal view -->
-<form id="deposit-form" (ngSubmit)="onSubmit()" #form="ngForm">
+<form id="deposit-form" (ngSubmit)="onSubmitDeposit()" #form="ngForm">
   <fieldset>
     <div class="form-group">
       <label class="control-label" for="deposit">Deposit</label>
-      <input id="deposit" name="deposit" type="text" class="form-control" >
+      <input id="deposit" name="deposit" type="number" class="form-control" [(ngModel)]="moneyToAdd" >
       <button id="submitDeposit" type="submit" class="btn m-1 btn-success pull-right"
               [disabled]="!form.form.valid">Submit</button>
     </div>
   </fieldset>
 </form>
 <!-- Withdrawal, create a modal view -->
-<form id="withdrawal-form" (ngSubmit)="onSubmit()" #form="ngForm">
+<form id="withdrawal-form" (ngSubmit)="onSubmitWithdrawal()" #form="ngForm">
   <fieldset>
     <div class="form-group">
       <label class="control-label" for="withdrawal">Withdrawal</label>
-      <input id="withdrawal" name="withdrawal" type="text" class="form-control" >
+      <input id="withdrawal" name="withdrawal" type="text" class="form-control" [(ngModel)]="moneyToWithdraw" >
       <button id="submitWithdrawal" type="submit" class="btn m-1 btn-success pull-right"
               [disabled]="!form.form.valid">Submit</button>
     </div>
