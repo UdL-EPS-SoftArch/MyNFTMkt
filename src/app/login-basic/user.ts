@@ -9,7 +9,7 @@ export class User extends Resource {
   authorization = '';
   password = '';
   passwordReset = false;
-
+  currency: string;
   uri: string;
 
   constructor(values: object = {}) {
@@ -19,5 +19,14 @@ export class User extends Resource {
 
   getRoles(): string[] {
     return this.authorities.map(a => a.authority.split('_')[1].toLowerCase());
+  }
+  getCurrencySymbol(): string {
+    const myMap = new Map([
+      ['euro', '€'],
+      ['USD', '$'],
+      ['JPY', '¥'],
+      ['GBP', '£']
+    ]);
+    return myMap.get(this.currency);
   }
 }
