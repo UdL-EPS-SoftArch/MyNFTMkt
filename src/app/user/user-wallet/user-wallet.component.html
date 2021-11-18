@@ -1,9 +1,17 @@
-<!-- Show the amount -->
-<div>
-  <label>Balance</label>
-  <p id="balance" class="card-text">{{user.balance}}</p>
+<div class="d-flex">
+  <div class="flex-fill">
+    <h1 class="display-5 fw-bold lh-1 mb-3">€{{user.balance}}</h1>
+    <p class="lead">Account balance</p>
+  </div>
+  <div class="flex-fill">
+    <h1 class="display-5 fw-bold lh-1 mb-3">0</h1>
+    <p class="lead">NFTs owned</p>
+  </div>
+  <div class="flex-fill">
+    <h1 class="display-5 fw-bold lh-1 mb-3">Places</h1>
+    <p class="lead">Placeholder</p>
+  </div>
 </div>
-
 <!-- Deposit, create a modal view -->
 <form id="deposit-form" (ngSubmit)="onSubmitDeposit()" #form="ngForm">
   <fieldset>
@@ -34,5 +42,4 @@
 <!-- Button go back-->
 <button id="userDetail" type="button" [routerLink]="['/users/'+getCurrentUserName()]"
         class="btn m-1 btn-outline-primary pull-right">Back</button>
-
 
