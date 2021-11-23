@@ -31,8 +31,8 @@
         </div>
       </fieldset>
       <div class="modal-footer">
-        <button id="submitDeposit" type="submit" class="btn m-1 btn-success pull-right"
-                [disabled]="!form.form.valid">Submit</button>
+        <button id="submitDeposit" type="submit" class="btn m-1 btn-success pull-right" (click)="d('Submit')"
+                [disabled]="!form.form.valid" >Submit</button>
       </div>
     </form>
   </div>
@@ -61,7 +61,7 @@
         </div>
       </fieldset>
       <div class="modal-footer">
-        <button id="submitWithdrawal" type="submit" class="btn m-1 btn-success pull-right"
+        <button id="submitWithdrawal" type="submit" class="btn m-1 btn-success pull-right" (click)="d('Submit')"
                 [disabled]="!form.form.valid">Submit</button>
       </div>
     </form>
