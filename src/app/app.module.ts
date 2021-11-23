@@ -23,6 +23,8 @@ import {AuthenticationBasicService} from './login-basic/authentication-basic.ser
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import {BidListComponent} from './bid/bid-list/bid-list.component';
+import {BidService} from './bid/bid.service';
+import {BidMakeComponent} from './bid/bid-make/bid-make.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,7 @@ import {BidListComponent} from './bid/bid-list/bid-list.component';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService
   ],
   bootstrap: [AppComponent]
 })

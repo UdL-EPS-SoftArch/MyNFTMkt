@@ -5,7 +5,7 @@ export class Bid extends Resource {
   id: number;
   price: number;
   status: StatusTypes;
-  ZonedDateTime: Date;
+  dateTime: Date;
   uri: string;
 
 

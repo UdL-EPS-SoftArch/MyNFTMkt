@@ -9,6 +9,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import { BidListComponent } from './bid/bid-list/bid-list.component';
+import { BidMakeComponent } from './bid/bid-make/bid-make.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
   { path: 'bids', component: BidListComponent, canActivate: [LoggedInGuard]},
+  { path: 'bids/make', component: BidMakeComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
