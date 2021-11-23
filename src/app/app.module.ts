@@ -36,7 +36,8 @@ import {BidMakeComponent} from './bid/bid-make/bid-make.component';
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
-    BidListComponent
+    BidListComponent,
+    BidMakeComponent
   ],
   imports: [
     BrowserModule,
