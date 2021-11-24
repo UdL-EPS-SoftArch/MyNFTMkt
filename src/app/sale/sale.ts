@@ -3,7 +3,7 @@ import {Resource} from '@lagoshny/ngx-hal-client';
 export class Sale extends Resource{
 
   id: number;
-  creationDate: Date;
+  dateTime: Date;
 
   uri: string;
 

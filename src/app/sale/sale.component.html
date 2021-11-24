@@ -14,7 +14,7 @@
           <div class="col-9">
             <h6 class="card-subtitle text-muted">id:</h6>
             <a class="card-text" [routerLink]="['/sales', salevalue.id]">{{salevalue.id}}</a>
-            <div class="card-text"><b>Creation date:</b> {{salevalue.creationDate| date : 'dd/MM/yyyy'}}</div>
+            <div class="card-text"><b>Creation date:</b> {{salevalue.dateTime| date : 'dd/MM/yyyy hh:mm:ss'}}</div>
           </div>
         </div>
       </div>
