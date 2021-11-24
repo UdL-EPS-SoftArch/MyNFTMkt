@@ -1,19 +1,26 @@
-<div class="d-flex">
-  <div class="flex-fill">
-    <h1 class="display-5 fw-bold lh-1 mb-3">{{user.getCurrencySymbol()}}{{user.balance}}</h1>
+<div class="d-flex justify-content-center flex-row">
+  <div class="flex-fill d-flex justify-content-center flex-column">
+    <h1 class="display-5 fw-bold lh-1 mb-3 m-auto">{{user.getCurrencySymbol()}}{{user.balance}}</h1>
     <p class="lead">Account balance</p>
   </div>
-  <div class="flex-fill">
-    <h1 class="display-5 fw-bold lh-1 mb-3">0</h1>
+  <div class="flex-fill d-flex justify-content-center flex-column">
+    <h1 class="display-5 fw-bold lh-1 mb-3 m-auto">0</h1>
     <p class="lead">NFTs owned</p>
   </div>
-  <div class="flex-fill">
-    <h1 class="display-5 fw-bold lh-1 mb-3">Places</h1>
+  <div class="flex-fill d-flex justify-content-center flex-column">
+    <h1 class="display-5 fw-bold lh-1 mb-3 m-auto">Places</h1>
     <p class="lead">Placeholder</p>
   </div>
 </div>
 <!-- Deposit, create a modal view -->
-<label class="control-label" for="deposit" (click)="open(content)">Deposit</label>
+<div class="labelContainer">
+  <h5 class="lead">Change balance</h5>
+  <div class="d-flex justify-content-end">
+<label class="control-label labels " for="deposit" (click)="open(content)">+</label>
+<label class="control-label labels " for="withdrawal" (click)="open(content2)">-</label>
+  </div>
+</div>
+
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Add money to your account!</h4>
@@ -41,9 +48,9 @@
 
 
 <!-- Withdrawal, create a modal view -->
-<div>
-  <label class="control-label" for="withdrawal" (click)="open(content2)">Withdrawal</label>
-</div>
+
+
+
 <ng-template #content2 let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title2">Withdraw money from your account!</h4>

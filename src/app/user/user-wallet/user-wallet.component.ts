@@ -5,12 +5,14 @@ import { AuthenticationBasicService } from '../../login-basic/authentication-bas
 import { UserService } from '../user.service';
 import { User } from '../../login-basic/user';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import './user-wallet.component.css';
 
 @Component({
   selector: 'app-user-wallet',
   templateUrl: './user-wallet.component.html',
   // add NgbModalConfig and NgbModal to the component providers
   providers: [NgbModalConfig, NgbModal],
+  styleUrls: ['user-wallet.component.css'],
 })
 export class UserWalletComponent implements OnInit {
   public user: User = new User();
@@ -26,6 +28,7 @@ export class UserWalletComponent implements OnInit {
     config.keyboard = false;
   }
 
+  // tslint:disable-next-line:typedef
   open(content) {
     this.modalService.open(content);
   }
