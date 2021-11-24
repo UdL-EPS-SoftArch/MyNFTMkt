@@ -5,7 +5,7 @@
   padding: 4px;
   border-radius: 0.9rem;
   margin:10px;
-  width: 30px;
+  width: fit-content;
   font-weight: bolder;
 }
 .labels:hover{
@@ -16,23 +16,30 @@
 }
 
 .labelContainer{
-  width:100%;
-  margin:auto;
+  width:50%;
+
   margin-top: 4%;
   margin-bottom: 4%;
   border-radius: 0.8rem;
   background-color: #f8f9fa;
   display: flex;
+  padding:10px;
   flex-direction: row;
   vertical-align: center;
   text-align: center;
   align-content: center;
   align-self: center;
-  justify-content: space-between !important;
+  justify-content:space-around !important;
 }
 
 .lead{
   align-self: center;
   padding-left: 10px;
 
+
+}
+
+.bigButton{
+  font-size: larger;
+  padding:20px;
 }

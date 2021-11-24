@@ -7,18 +7,18 @@
     <h1 class="display-5 fw-bold lh-1 mb-3 m-auto">0</h1>
     <p class="lead">NFTs owned</p>
   </div>
-  <div class="flex-fill d-flex justify-content-center flex-column">
-    <h1 class="display-5 fw-bold lh-1 mb-3 m-auto">Places</h1>
-    <p class="lead">Placeholder</p>
-  </div>
+
 </div>
 <!-- Deposit, create a modal view -->
 <div class="labelContainer">
-  <h5 class="lead">Change balance</h5>
-  <div class="d-flex justify-content-end">
-<label class="control-label labels " for="deposit" (click)="open(content)">+</label>
-<label class="control-label labels " for="withdrawal" (click)="open(content2)">-</label>
+  <div class="d-flex justify-content-start align-content-center align-self-center">
+    <h2 class="lead">Change balance </h2>
   </div>
+<div>
+<label class="btn m-1 btn-outline-success bigButton" for="deposit" (click)="open(content)">Deposit</label>
+<label class="btn m-1 btn-outline-secondary bigButton" for="withdrawal" (click)="open(content2)">Withdraw</label>
+</div>
+
 </div>
 
 <ng-template #content let-c="close" let-d="dismiss">
@@ -76,9 +76,7 @@
 
 </ng-template>
 <!-- Change the currency, default to euro -->
-<div>
-  <label>Change currency</label>
-</div>
+
 
 <!-- Button go back-->
 <button id="userDetail" type="button" [routerLink]="['/users/'+getCurrentUserName()]"
