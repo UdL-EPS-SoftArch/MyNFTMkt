@@ -39,7 +39,8 @@ import {HighestBidOfferAddComponent} from './highestBidOffer/highestBidOffer-add
     UserDeleteComponent,
     UserSearchComponent,
     BidListComponent,
-    BidMakeComponent
+    BidMakeComponent,
+    HighestBidOfferAddComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +60,7 @@ import {HighestBidOfferAddComponent} from './highestBidOffer/highestBidOffer-add
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService , BidService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService
   ],
   bootstrap: [AppComponent]
 })
