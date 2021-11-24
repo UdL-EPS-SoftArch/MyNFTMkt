@@ -1,11 +1,12 @@
 <!-- <app-bid-search (emitResults)="detail($event)"></app-bid-search> -->
 
+
 <div class="card mb-1" *ngFor="let bid of bids">
   <div class="card-block row m-1 col-12">
     <div class="card-body row align-items-center">
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">ID</h6>
-        <a class="card-text" [routerLink]="['/bids', bid.id]">{{bid.id}}</a>
+        <a class="card-text" [routerLink]="['/bids', bid.id]">{{bid.uri.split('/')[2]}}</a>
       </div>
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">Price</h6>
@@ -16,8 +17,8 @@
         <p class="card-text">{{bid.status}}</p>
       </div>
       <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">ZonedDateTime</h6>
-        <p class="card-text">{{bid.dateTime}}</p>
+        <h6 class="card-subtitle text-muted">Date Time</h6>
+        <p class="card-text" >{{ bid.dateTime | date : "medium"  }}</p>
       </div>
     </div>
   </div>

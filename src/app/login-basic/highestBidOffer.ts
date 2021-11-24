@@ -1,14 +1,12 @@
 import { Authority } from './authority';
 import { Resource } from '@lagoshny/ngx-hal-client';
 
-export class Bid extends Resource {
+export class HighestBidOffer extends Resource {
   id: string;
-  price: number;
-  status: StatusTypes;
-  dateTime: Date;
+  minimumBid: number;
+  reservePrice: number;
+  expiration: Date;
   uri: string;
-
-
 
   constructor(values: object = {}) {
     super();
@@ -20,4 +18,4 @@ export class Bid extends Resource {
   }*/
 }
 
-export enum StatusTypes{ACTIVE, PURCHASED, SURPASSED}
+

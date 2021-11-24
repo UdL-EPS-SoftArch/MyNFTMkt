@@ -25,6 +25,8 @@ import {UserService} from './user/user.service';
 import {BidListComponent} from './bid/bid-list/bid-list.component';
 import {BidService} from './bid/bid.service';
 import {BidMakeComponent} from './bid/bid-make/bid-make.component';
+import {HighestBidOfferService} from './highestBidOffer/highestBidOffer.service';
+import {HighestBidOfferAddComponent} from './highestBidOffer/highestBidOffer-add/highestBidOffer-add.component';
 
 @NgModule({
   declarations: [
