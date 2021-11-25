@@ -9,18 +9,11 @@
   </div>
 
 </div>
-<p *ngIf=withdrawSuccess>
-  <ngb-alert [type]="alerts[0].type" (closed)="close(alerts[0])">{{ alerts[0].message }}</ngb-alert>
-</p>
-<p *ngIf=withdrawNotPossible>
-  <ngb-alert [type]="alerts[1].type" (closed)="close(alerts[1])">{{ alerts[1].message }}</ngb-alert>
-</p>
-<p *ngIf=depositSuccess>
-  <ngb-alert [type]="alerts[2].type" (closed)="close(alerts[2])">{{ alerts[2].message }}</ngb-alert>
-</p>
-<p *ngIf=negativeAmount>
-  <ngb-alert [type]="alerts[3].type" (closed)="close(alerts[3])">{{ alerts[3].message }}</ngb-alert>
-</p>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}
+</ngb-alert>
+<ngb-alert #selfClosingAlert *ngIf="warningMessage" type="warning" (closed)="warningMessage = ''">{{ warningMessage }}
+</ngb-alert>
+
 <!-- Deposit, create a modal view -->
 <div class="labelContainer">
   <div class="d-flex justify-content-start align-content-center align-self-center">

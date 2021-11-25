@@ -1,31 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import { UserService } from '../user.service';
 import { User } from '../../login-basic/user';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalConfig, NgbModal, NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import './user-wallet.component.css';
-
-interface Alert {
-  type: string;
-  message: string;
-}
-
-const ALERTS: Alert[] = [{
-  type: 'success',
-  message: 'Successful Withdrawal!',
-}, {
-  type: 'warning',
-  message: 'You do not have the sufficient amount',
-}, {
-  type: 'success',
-  message: 'Successful Deposit!',
-}, {
-  type: 'warning',
-  message: 'You are not allowed to put a negative or null amount',
-}
-];
+import {debounceTime} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-user-wallet',
@@ -38,11 +20,14 @@ export class UserWalletComponent implements OnInit {
   public user: User = new User();
   moneyToAdd: number;
   moneyToWithdraw: number;
-  withdrawNotPossible: boolean;
-  withdrawSuccess: boolean;
-  depositSuccess: boolean;
-  negativeAmount: boolean;
-  alerts: Alert[];
+  // tslint:disable-next-line:variable-name
+  private _success = new Subject<string>();
+  successMessage = '';
+  // tslint:disable-next-line:variable-name
+  private _warning = new Subject<string>();
+  warningMessage = '';
+
+  @ViewChild('selfClosingAlert', {static: false}) selfClosingAlert: NgbAlert;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -51,11 +36,6 @@ export class UserWalletComponent implements OnInit {
               config: NgbModalConfig, private modalService: NgbModal) {
     config.backdrop = 'static';
     config.keyboard = false;
-    this.withdrawNotPossible = false;
-    this.withdrawSuccess = false;
-    this.depositSuccess = false;
-    this.negativeAmount = false;
-    this.reset();
   }
 
   // tslint:disable-next-line:typedef
@@ -66,13 +46,27 @@ export class UserWalletComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.userService.get(id).subscribe(
       (user: User) => this.user = user);
+    this._success.subscribe(message => this.successMessage = message);
+    this._success.pipe(debounceTime(5000)).subscribe(() => {
+      if (this.selfClosingAlert) {
+        this.selfClosingAlert.close();
+      }
+    });
+    this._warning.subscribe(message => this.warningMessage = message);
+    this._warning.pipe(debounceTime(5000)).subscribe(() => {
+      if (this.selfClosingAlert) {
+        this.selfClosingAlert.close();
+      }
+    });
   }
 
   onSubmitDeposit(): void {
     if (this.moneyToAdd <= 0 || this.moneyToAdd == null) {
-      this.negativeAmount = true;
+      this.moneyToAdd = 0;
+      this._warning.next('You can not insert a negative or null amount');
     } else {
       this.user.balance = this.user.balance + this.moneyToAdd;
+      this.moneyToAdd = 0;
       this.user.password = this.user.passwordReset ? this.user.password : undefined; // Don't edit if not a reset
       this.userService.patch(this.user).subscribe(
         (patchedUser: User) => {
@@ -81,7 +75,7 @@ export class UserWalletComponent implements OnInit {
             this.authenticationService.login(this.user.id, this.user.password).subscribe(
               (user: User) => this.router.navigate(['users', user.id, 'wallet']));
           } else {
-            this.depositSuccess = true;
+            this._success.next('Successful Deposit!');
             this.router.navigate(['users', patchedUser.id, 'wallet']);
           }
         });
@@ -90,9 +84,11 @@ export class UserWalletComponent implements OnInit {
 
   onSubmitWithdrawal(): void {
     if (this.moneyToWithdraw <= 0 || this.moneyToWithdraw == null) {
-      this.negativeAmount = true;
+      this.moneyToWithdraw = 0;
+      this._warning.next('You can not insert a negative or null amount');
     } else if (this.user.balance >= this.moneyToWithdraw){
       this.user.balance = this.user.balance - this.moneyToWithdraw;
+      this.moneyToWithdraw = 0;
       this.user.password = this.user.passwordReset ? this.user.password : undefined; // Don't edit if not a reset
       this.userService.patch(this.user).subscribe(
         (patchedUser: User) => {
@@ -101,12 +97,13 @@ export class UserWalletComponent implements OnInit {
             this.authenticationService.login(this.user.id, this.user.password).subscribe(
               (user: User) => this.router.navigate(['users', user.id, 'wallet']));
           } else {
-            this.withdrawSuccess = true;
+            this._success.next('Successful Withdrawal!');
             this.router.navigate(['users', patchedUser.id, 'wallet']);
           }
         });
     } else {
-      this.withdrawNotPossible = true;
+      this.moneyToWithdraw = 0;
+      this._warning.next('You do not have the sufficient amount');
     }
   }
 
@@ -114,13 +111,6 @@ export class UserWalletComponent implements OnInit {
     return this.authenticationService.getCurrentUser().id;
   }
 
-  close(alert: Alert): void {
-    this.alerts.splice(this.alerts.indexOf(alert), 1);
-  }
-
-  reset(): void {
-    this.alerts = Array.from(ALERTS);
-  }
 }
 
 
