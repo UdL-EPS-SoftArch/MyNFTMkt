@@ -1,0 +1,25 @@
+
+
+<h1 class="card-subtitle text-muted">DecliningPriceOffers</h1>
+
+
+<div class="card mb-1" *ngFor="let decliningvalue of declines; index as i">
+  <div class="card-block row m-1 col-12">
+    <div class="card-body row align-items-center">
+      <div class="col-8 mt-1">
+        <div class="row">
+          <div class="col-1">
+            <p>{{i+1}}.</p>
+          </div>
+          <div class="col-9">
+            <h6 class="card-subtitle text-muted">id:</h6>
+            <a class="card-text" [routerLink]="['/declining', decliningvalue.id]">{{decliningvalue.id}}</a>
+            <div class="card-text"><b>Starting price:</b> {{decliningvalue.startingPrice}}</div>
+            <div class="card-text"><b>Ending price:</b> {{decliningvalue.endingPrice}}</div>
+            <div class="card-text"><b>Expiration date:</b> {{decliningvalue.expiration| date : 'dd/MM/yyyy hh:mm:ss'}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
