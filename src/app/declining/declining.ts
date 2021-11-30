@@ -1,7 +1,8 @@
 import {Resource} from '@lagoshny/ngx-hal-client';
 
-export class decliningPriceOffer extends Resource{
+export class Declining extends Resource{
 
+  id: number;
   startingPrice: number;
   endingPrice: number;
   expiration: Date;
