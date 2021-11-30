@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
@@ -23,7 +23,7 @@ import {AuthenticationBasicService} from './login-basic/authentication-basic.ser
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import {SaleComponent} from './sale/sale.component';
-import {DecliningPriceOfferComponent} from "./decliningPriceOffer/decliningPriceOffer.component";
+import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import {DecliningPriceOfferComponent} from "./decliningPriceOffer/decliningPrice
     UserDeleteComponent,
     UserSearchComponent,
     SaleComponent,
-    DecliningPriceOfferComponent
+    DecliningListComponent
   ],
   imports: [
     BrowserModule,

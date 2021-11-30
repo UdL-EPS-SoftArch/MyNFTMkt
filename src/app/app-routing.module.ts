@@ -1,17 +1,15 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LoggedInGuard } from './login-basic/loggedin.guard';
-import { AboutComponent } from './about/about.component';
-import { NotFoundComponent } from './error-handler/error-alert/not-found.component';
-import { UserListComponent } from './user/user-list/user-list.component';
-import { UserDetailComponent } from './user/user-detail/user-detail.component';
-import { UserRegisterComponent } from './user/user-register/user-register.component';
-import { UserEditComponent } from './user/user-edit/user-edit.component';
-import { UserDeleteComponent } from './user/user-delete/user-delete.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {LoggedInGuard} from './login-basic/loggedin.guard';
+import {AboutComponent} from './about/about.component';
+import {NotFoundComponent} from './error-handler/error-alert/not-found.component';
+import {UserListComponent} from './user/user-list/user-list.component';
+import {UserDetailComponent} from './user/user-detail/user-detail.component';
+import {UserRegisterComponent} from './user/user-register/user-register.component';
+import {UserEditComponent} from './user/user-edit/user-edit.component';
+import {UserDeleteComponent} from './user/user-delete/user-delete.component';
 import {SaleComponent} from './sale/sale.component';
-import {DecliningPriceOfferComponent} from "./decliningPriceOffer/decliningPriceOffer.component";
-
-
+import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 
 
 const routes: Routes = [
@@ -24,7 +22,7 @@ const routes: Routes = [
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
-  { path: 'decliningPriceOffer', component: DecliningPriceOfferComponent},
+  { path: 'declinings', component: DecliningListComponent},
 ];
 
 @NgModule({
