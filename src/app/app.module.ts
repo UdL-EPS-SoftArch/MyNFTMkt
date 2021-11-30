@@ -23,6 +23,7 @@ import {AuthenticationBasicService} from './login-basic/authentication-basic.ser
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import {SaleComponent} from './sale/sale.component';
+import {DecliningPriceOfferComponent} from "./decliningPriceOffer/decliningPriceOffer.component";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {SaleComponent} from './sale/sale.component';
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
-    SaleComponent
+    SaleComponent,
+    DecliningPriceOfferComponent
   ],
   imports: [
     BrowserModule,
