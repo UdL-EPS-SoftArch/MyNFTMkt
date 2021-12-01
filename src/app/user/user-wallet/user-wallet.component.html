@@ -1,30 +1,34 @@
-<div class="d-flex justify-content-center flex-row">
-  <div class="flex-fill d-flex justify-content-center flex-column">
-    <h1 class="display-5 fw-bold lh-1 mb-3 m-auto">{{user.getCurrencySymbol()}}{{user.balance}}</h1>
-    <p class="lead">Account balance</p>
+<!--- Account balance, NFTs owned --->
+<div class="w-100 h-100 bg-light">
+  <div class="d-flex flex-row w-100 h-25 mb-3">
+    <div class="w-50 d-flex">
+      <div class="w-25">
+      </div>
+      <div class="w-50 h-100 d-flex flex-column align-items-center justify-content-center rounded-pill bg-white mt-3">
+        <h1 class="display-5">{{user.getCurrencySymbol()}}{{user.balance.toPrecision(2)}}</h1>
+        <p class="lead">Account balance</p>
+      </div>
+    </div>
+    <div class="w-50 d-flex">
+      <div class="w-25">
+      </div>
+      <div class="w-50 h-100 d-flex flex-column align-items-center justify-content-center rounded-pill bg-white mt-3">
+        <h1 class="display-5">0</h1>
+        <p class="lead">NFTs owned</p>
+      </div>
+    </div>
   </div>
-  <div class="flex-fill d-flex justify-content-center flex-column">
-    <h1 class="display-5 fw-bold lh-1 mb-3 m-auto">0</h1>
-    <p class="lead">NFTs owned</p>
+  <!--- Deposit, Withdraw --->
+  <div class="h-50 w-50 text-left">
+    <div class="container-fluid btn-group mt-3">
+      <label class="btn m-1 btn-outline-success rounded-pill bigButton" for="deposit" (click)="open(content)">Deposit</label>
+      <label class="btn m-1 btn-outline-secondary rounded-pill bigButton" for="withdrawal" (click)="open(content2)">Withdraw</label>
+    </div>
   </div>
-
-</div>
 <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}
 </ngb-alert>
 <ngb-alert #selfClosingAlert *ngIf="warningMessage" type="warning" (closed)="warningMessage = ''">{{ warningMessage }}
 </ngb-alert>
-
-<!-- Deposit, create a modal view -->
-<div class="labelContainer">
-  <div class="d-flex justify-content-start align-content-center align-self-center">
-    <h2 class="lead">Change balance </h2>
-  </div>
-<div>
-<label class="btn m-1 btn-outline-success bigButton" for="deposit" (click)="open(content)">Deposit</label>
-<label class="btn m-1 btn-outline-secondary bigButton" for="withdrawal" (click)="open(content2)">Withdraw</label>
-</div>
-
-</div>
 
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
@@ -51,11 +55,6 @@
 
 </ng-template>
 
-
-<!-- Withdrawal, create a modal view -->
-
-
-
 <ng-template #content2 let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title2">Withdraw money from your account!</h4>
@@ -80,10 +79,7 @@
   </div>
 
 </ng-template>
-<!-- Change the currency, default to euro -->
-
-
 <!-- Button go back-->
 <button id="userDetail" type="button" [routerLink]="['/users/'+getCurrentUserName()]"
         class="btn m-1 btn-outline-primary pull-right">Back</button>
-
+</div>
