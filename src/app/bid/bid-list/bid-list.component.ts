@@ -22,7 +22,7 @@ export class BidListComponent implements OnInit {
 
   ngOnInit(): void {
     this.bidService.getAll({size: this.pageSize, sort: this.sorting}).subscribe(
-      (bids: Bid[]) => {
+      (offers: Offer[]) => {
         this.bids = bids;
         this.totalBids = this.bidService.totalElement();
       });
