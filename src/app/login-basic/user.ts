@@ -1,6 +1,16 @@
 import { Authority } from './authority';
 import { Resource } from '@lagoshny/ngx-hal-client';
 
+interface NFT {
+  id: number;
+  title: string;
+  description: string;
+  keywords: string[];
+  category: string;
+  mediaType: string;
+  content: string;
+}
+
 export class User extends Resource {
   id: string;
   email: string;
@@ -11,6 +21,7 @@ export class User extends Resource {
   passwordReset = false;
   currency: string;
   uri: string;
+  favoriteNFTs: NFT[] = [];
 
   constructor(values: object = {}) {
     super();
