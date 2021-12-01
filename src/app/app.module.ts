@@ -27,7 +27,7 @@ import {BidService} from './bid/bid.service';
 import {BidMakeComponent} from './bid/bid-make/bid-make.component';
 import {HighestBidOfferService} from './highestBidOffer/highestBidOffer.service';
 import {HighestBidOfferAddComponent} from './highestBidOffer/highestBidOffer-add/highestBidOffer-add.component';
-
+import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-list/highestBidOffer-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +40,8 @@ import {HighestBidOfferAddComponent} from './highestBidOffer/highestBidOffer-add
     UserSearchComponent,
     BidListComponent,
     BidMakeComponent,
-    HighestBidOfferAddComponent
+    HighestBidOfferAddComponent,
+    HighestBidOfferListComponent
   ],
   imports: [
     BrowserModule,

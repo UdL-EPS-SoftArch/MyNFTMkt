@@ -7,6 +7,7 @@ export class Bid extends Resource {
   status: StatusTypes;
   dateTime: Date;
   uri: string;
+  uriOffer: string;
 
 
 
