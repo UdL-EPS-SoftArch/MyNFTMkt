@@ -29,7 +29,7 @@ export class SaleComponent implements OnInit {
         this.totalSales = this.saleService.totalElement();
       });
   }
-  isRole(): boolean {
+  isAdmin(): boolean {
     return this.authenticationService.isRole('admin');
   }
 }
