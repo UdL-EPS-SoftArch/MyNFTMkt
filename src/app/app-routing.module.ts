@@ -9,6 +9,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import {SaleComponent} from './sale/sale.component';
+import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
   { path: 'declinings', component: DecliningListComponent},
+  { path: 'sales/:id/delete', component: SaleDeleteComponent},
 ];
 
 @NgModule({
