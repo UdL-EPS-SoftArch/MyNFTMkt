@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
@@ -23,6 +22,7 @@ import {ExternalConfigurationService} from './external-configuration-service';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import {SaleComponent} from './sale/sale.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import {UserService} from './user/user.service';
     UserDeleteComponent,
     UserSearchComponent,
     UserWalletComponent
+    SaleComponent
   ],
   imports: [
     BrowserModule,
