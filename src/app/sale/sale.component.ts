@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {Sale} from './sale';
 import {SaleService} from './sale.service';
 import {Sort} from '@lagoshny/ngx-hal-client';
+import {AuthenticationBasicService} from '../login-basic/authentication-basic.service';
 
 @Component({
   selector: 'app-sale-list',
@@ -18,7 +19,8 @@ export class SaleComponent implements OnInit {
   public totalSales = 0;
 
   constructor(public router: Router,
-              private saleService: SaleService) { }
+              private saleService: SaleService,
+              private authenticationService: AuthenticationBasicService) { }
 
   ngOnInit(): void {
     this.saleService.getAll({size: this.pageSize, sort: this.sorting}).subscribe(
@@ -26,5 +28,8 @@ export class SaleComponent implements OnInit {
         this.sales = sales;
         this.totalSales = this.saleService.totalElement();
       });
+  }
+  isRole(): boolean {
+    return this.authenticationService.isRole('admin');
   }
 }
