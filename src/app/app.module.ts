@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
@@ -10,6 +9,7 @@ import {UserListComponent} from './user/user-list/user-list.component';
 import {UserEditComponent} from './user/user-edit/user-edit.component';
 import {UserDeleteComponent} from './user/user-delete/user-delete.component';
 import {UserSearchComponent} from './user/user-search/user-search.component';
+import {UserWalletComponent} from './user/user-wallet/user-wallet.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgbCollapseModule, NgbDropdownModule, NgbModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
@@ -34,7 +34,8 @@ import {SaleComponent} from './sale/sale.component';
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
-    SaleComponent
+    UserWalletComponent,
+    SaleComponent,
   ],
   imports: [
     BrowserModule,

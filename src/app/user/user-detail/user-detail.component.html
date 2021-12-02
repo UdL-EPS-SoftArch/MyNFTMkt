@@ -16,6 +16,9 @@
       </div>
     </div>
     <div class="card-footer text-right">
+      <button id="walletBtn" type="button" *ngIf="getCurrentUser().id == user.id" [routerLink]="['wallet']"
+              class="btn m-1 btn-outline-secondary">Wallet
+      </button>
       <button id="listBtn" type="button" [routerLink]="['/users']"
               class="btn m-1 btn-outline-primary">User List
       </button>
