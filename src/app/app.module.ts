@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
@@ -24,6 +24,8 @@ import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import {SaleComponent} from './sale/sale.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
+import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import {DecliningListComponent} from './declining/declining-list/declining-list.
     UserDeleteComponent,
     UserSearchComponent,
     SaleComponent,
+    SaleDeleteComponent,
     DecliningListComponent
   ],
   imports: [

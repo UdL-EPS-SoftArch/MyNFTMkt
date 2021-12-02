@@ -24,7 +24,7 @@ export class SaleDeleteComponent implements OnInit {
   delete(): void {
     this.SaleSerice.delete(this.sale).subscribe(
       () => {
-        this.router.navigate(['']);
+        this.router.navigate(['/sales']);
       });
   }
 
