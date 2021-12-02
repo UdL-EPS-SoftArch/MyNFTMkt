@@ -23,7 +23,6 @@ import {AuthenticationBasicService} from './login-basic/authentication-basic.ser
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import {SaleComponent} from './sale/sale.component';
-import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 
 
@@ -39,7 +38,7 @@ import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
     UserSearchComponent,
     SaleComponent,
     SaleDeleteComponent,
-    DecliningListComponent
+
   ],
   imports: [
     BrowserModule,
