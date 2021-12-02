@@ -5,7 +5,7 @@
       <div class="w-25">
       </div>
       <div class="w-50 h-100 d-flex flex-column align-items-center justify-content-center rounded-pill bg-white mt-3">
-        <h1 class="display-5">{{user.getCurrencySymbol()}}{{user.balance.toPrecision(2)}}</h1>
+        <h1 class="display-5">{{user.getCurrencySymbol()}}{{roundNumber(user.balance)}}</h1>
         <p class="lead">Account balance</p>
       </div>
     </div>

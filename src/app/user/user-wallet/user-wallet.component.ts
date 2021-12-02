@@ -8,7 +8,6 @@ import { NgbModalConfig, NgbModal, NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import './user-wallet.component.css';
 import {debounceTime} from 'rxjs/operators';
 import {Subject} from 'rxjs';
-
 @Component({
   selector: 'app-user-wallet',
   templateUrl: './user-wallet.component.html',
@@ -110,7 +109,9 @@ export class UserWalletComponent implements OnInit {
   getCurrentUserName(): string {
     return this.authenticationService.getCurrentUser().id;
   }
-
+  roundNumber(balance): number{
+    return Math.round((balance + Number.EPSILON) * 100) / 100;
+  }
 }
 
 

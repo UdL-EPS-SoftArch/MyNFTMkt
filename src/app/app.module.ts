@@ -34,8 +34,8 @@ import {SaleComponent} from './sale/sale.component';
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
-    UserWalletComponent
-    SaleComponent
+    UserWalletComponent,
+    SaleComponent,
   ],
   imports: [
     BrowserModule,
