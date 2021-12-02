@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
+import { Router} from '@angular/router';
+
 import { BidService } from '../bid.service';
 import { Bid } from '../../login-basic/bid';
 import { Location } from '@angular/common';
@@ -21,7 +21,7 @@ export class BidMakeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.idOffer = this.route.url.split('/')[3];
+    this.idOffer = this.route.url.split('/')[2];
     this.bid = new Bid();
   }
   onSubmit(): void {
