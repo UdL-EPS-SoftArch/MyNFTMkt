@@ -2,11 +2,12 @@
 
 
 <div class="card mb-1" *ngFor="let offer of offers">
+
   <div class="card-block row m-1 col-12">
     <div class="card-body row align-items-center">
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">ID</h6>
-        <a class="card-text" [routerLink]="['/bids', bid.id]">{{bid.uri.split('/')[2]}}</a>
+        <a class="card-text" [routerLink]="[offer.uri]">{{offer.uri.split('/')[2]}}</a>
       </div>
 
       <div class="col-6 mt-1">
@@ -14,35 +15,6 @@
         <p class="card-text">{{offer.price}}</p>
       </div>
 
-      <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Status</h6>
-        <p class="card-text">{{offer.startingPrice}}</p>
-      </div>
-
-      <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Status</h6>
-        <p class="card-text">{{offer.endingPrice}}</p>
-      </div>
-
-      <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Status</h6>
-        <p class="card-text">{{offer.expiration}}</p>
-      </div>
-
-      <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Status</h6>
-        <p class="card-text">{{offer.minimumBid}}</p>
-      </div>
-
-      <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Status</h6>
-        <p class="card-text">{{offer.reservePrice}}</p>
-      </div>
-
-      <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Status</h6>
-        <p class="card-text">{{offer.expiration}}</p>
-      </div>
 
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">Date Time</h6>

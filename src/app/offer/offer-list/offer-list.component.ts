@@ -1,39 +1,39 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Sort } from '@lagoshny/ngx-hal-client';
-import { HighestBidOfferService } from '../highestBidOffer.service';
-import { HighestBidOffer } from '../../login-basic/highestBidOffer';
+import {OfferService} from '../offer.service';
+import {Offer} from '../../login-basic/offer';
 
 @Component({
   selector: 'app-bid-list',
-  templateUrl: './highestBidOffer-list.component.html'
+  templateUrl: './offer-list.component.html'
 })
-export class HighestBidOfferListComponent implements OnInit {
-  public highestBidOffers: HighestBidOffer[] = [];
+export class OfferListComponent implements OnInit {
+  public offers: Offer[] = [];
   public pageSize = 5;
   public page = 1;
-  public totalHighestBidOffer = 0;
-  private sorting: Sort[] = [{ path: 'username', order: 'ASC' }];
+  public totalOffers = 0;
+  private sorting: Sort[] = [{ path: 'id', order: 'ASC' }];
 
   constructor(
     public router: Router,
-    private highestBidOfferService: HighestBidOfferService) {
+    private offerService: OfferService) {
   }
 
   ngOnInit(): void {
-    this.highestBidOfferService.getAll({size: this.pageSize, sort: this.sorting}).subscribe(
-      (highestBidOffers: HighestBidOffer[]) => {
-        this.highestBidOffers = highestBidOffers;
-        this.totalHighestBidOffer = this.highestBidOfferService.totalElement();
+    this.offerService.getAll({size: this.pageSize, sort: this.sorting}).subscribe(
+      (offers: Offer[]) => {
+        this.offers = offers;
+        this.totalOffers = this.offerService.totalElement();
       });
   }
 
   changePage(): void {
-    this.highestBidOfferService.page(this.page - 1).subscribe(
-      (highestBidOffer: HighestBidOffer[]) => this.highestBidOffers = highestBidOffer);
+    this.offerService.page(this.page - 1).subscribe(
+      (offers: Offer[]) => this.offers = offers);
   }
 
-  detail(highestBidOffer: HighestBidOffer): void {
-    this.router.navigate(['HighestBidOffer', highestBidOffer.id]);
+  detail(offer: Offer): void {
+    this.router.navigate(['Offer', offer.id]);
   }
 }

@@ -3,10 +3,9 @@ import { Resource } from '@lagoshny/ngx-hal-client';
 
 export class Offer extends Resource {
   uri: string;
+  id: string;
   dateTime: Date;
-  minimumBid: number;
-  reservePrice: number;
-  expiration: Date;
+  nft: string;
 
   constructor(values: object = {}) {
     super();

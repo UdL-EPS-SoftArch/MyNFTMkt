@@ -21,8 +21,13 @@ const routes: Routes = [
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
   { path: 'bids', component: BidListComponent, canActivate: [LoggedInGuard]},
   { path: 'bids/make/:id', component: BidMakeComponent, canActivate: [LoggedInGuard]},
+
   { path: 'highestBidOffers/add', component: HighestBidOfferAddComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers', component: HighestBidOfferListComponent, canActivate: [LoggedInGuard]},
+ // { path: 'highestBidOffers/:id', component: highestBidOfferDetailComponent, canActivate: [LoggedInGuard]},
+  { path: 'highestBidOffers/:id/bid', component: BidMakeComponent , canActivate: [LoggedInGuard]},
+
+  { path: 'offers', component: OfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
