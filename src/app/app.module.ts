@@ -30,6 +30,7 @@ import {HighestBidOfferAddComponent} from './highestBidOffer/highestBidOffer-add
 import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-list/highestBidOffer-list.component';
 import {OfferService} from './offer/offer.service';
 import {OfferListComponent} from './offer/offer-list/offer-list.component';
+import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-detail/highestBidOffer-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import {OfferListComponent} from './offer/offer-list/offer-list.component';
     BidMakeComponent,
     HighestBidOfferAddComponent,
     HighestBidOfferListComponent,
+    HighestBidOfferDetailComponent,
     OfferListComponent,
   ],
   imports: [
