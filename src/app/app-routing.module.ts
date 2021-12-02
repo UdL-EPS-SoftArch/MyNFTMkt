@@ -12,6 +12,7 @@ import { BidListComponent } from './bid/bid-list/bid-list.component';
 import { BidMakeComponent } from './bid/bid-make/bid-make.component';
 import { HighestBidOfferAddComponent } from './highestBidOffer/highestBidOffer-add/highestBidOffer-add.component';
 import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-list/highestBidOffer-list.component';
+import {OfferListComponent} from './offer/offer-list/offer-list.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},

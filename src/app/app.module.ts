@@ -28,6 +28,8 @@ import {BidMakeComponent} from './bid/bid-make/bid-make.component';
 import {HighestBidOfferService} from './highestBidOffer/highestBidOffer.service';
 import {HighestBidOfferAddComponent} from './highestBidOffer/highestBidOffer-add/highestBidOffer-add.component';
 import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-list/highestBidOffer-list.component';
+import {OfferService} from './offer/offer.service';
+import {OfferListComponent} from './offer/offer-list/offer-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,8 @@ import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-
     BidListComponent,
     BidMakeComponent,
     HighestBidOfferAddComponent,
-    HighestBidOfferListComponent
+    HighestBidOfferListComponent,
+    OfferListComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,7 @@ import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService
   ],
   bootstrap: [AppComponent]
 })

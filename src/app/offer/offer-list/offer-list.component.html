@@ -12,19 +12,16 @@
 
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">Price</h6>
-        <p class="card-text">{{offer.price}}</p>
+        <p class="card-text">{{offer.dateTime}}</p>
       </div>
 
 
       <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Date Time</h6>
-        <p class="card-text" >{{ bid.dateTime | date : "medium"  }}</p>
+        <h6 class="card-subtitle text-muted">Tipus</h6>
+        <p class="card-text" >{{offer.uri.split('/')[1]}}</p>
       </div>
 
-      <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">offer</h6>
-        <p class="card-text" >{{ bid.uriOffer }}</p>
-      </div>
+
     </div>
   </div>
 </div>

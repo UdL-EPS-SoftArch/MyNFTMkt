@@ -2,7 +2,7 @@ import { Authority } from './authority';
 import { Resource } from '@lagoshny/ngx-hal-client';
 import {Offer} from './offer';
 
-export class HighestBidOffer extends Resource {
+export class HighestBidOffer extends Offer {
   id: string;
   minimumBid: number;
   reservePrice: number;
