@@ -1,7 +1,4 @@
-
-
-<h1 class="card-subtitle text-muted">Sale</h1>
-
+<h1 class="card-subtitle text-muted">Sales</h1>
 
 <div class="card mb-1" *ngFor="let salevalue of sales; index as i">
   <div class="card-block row m-1 col-12">
@@ -11,12 +8,21 @@
           <div class="col-1">
             <p>{{i+1}}.</p>
           </div>
-          <div class="col-9">
-            <h6 class="card-subtitle text-muted">id:</h6>
-            <a class="card-text" [routerLink]="['/sales', salevalue.id]">{{salevalue.id}}</a>
-            <div class="card-text"><b>Creation date:</b> {{salevalue.dateTime| date : 'dd/MM/yyyy hh:mm:ss'}}</div>
+          <div class="col-11">
+            <h4 class="card-subtitle text-muted">NFT Tittle</h4>
+            <div class="card-text"  [routerLink]="['/sales', salevalue.id]"><b>ID:</b> {{salevalue.id}}</div>
+            <!--<div class="card-text"><b>Creation date:</b> {{salevalue.dateTime| date : 'dd/MM/yyyy hh:mm:ss'}}</div> -->
+            <div class="card-text"><b>Creation date:</b> {{salevalue.dateTime| date : 'full'}}</div>
           </div>
         </div>
+      </div>
+      <div class="col-4">
+        <button id="editBtn" type="button"  [routerLink]="['edit']"
+                class="btn m-1 btn-outline-success">Edit
+        </button>
+        <button id="deleteBtn" type="button" [routerLink]="[salevalue.id, 'delete']"
+                class="btn m-1 btn-outline-danger">Delete
+        </button>
       </div>
     </div>
   </div>
