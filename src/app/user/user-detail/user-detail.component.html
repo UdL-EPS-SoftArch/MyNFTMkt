@@ -14,8 +14,15 @@
         <h6 class="card-subtitle text-muted">Role</h6>
         <p class="card-text">{{user.getRoles().join(', ')}}</p>
       </div>
+      <div class="col-md-4 p-3">
+        <h6 class="card-subtitle text-muted" >Favorite NFTs:</h6>
+        <p class="card-text" *ngFor="let item of user.favoriteNFTs">{{item.title}}</p>
+      </div>
     </div>
     <div class="card-footer text-right">
+      <button id="walletBtn" type="button" *ngIf="getCurrentUser().id == user.id" [routerLink]="['wallet']"
+              class="btn m-1 btn-outline-secondary">Wallet
+      </button>
       <button id="listBtn" type="button" [routerLink]="['/users']"
               class="btn m-1 btn-outline-primary">User List
       </button>
