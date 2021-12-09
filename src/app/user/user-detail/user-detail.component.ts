@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
-import { User } from '../../login-basic/user';
+import { User, NFT} from '../../login-basic/user';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 
 @Component({
@@ -21,6 +21,10 @@ export class UserDetailComponent implements OnInit {
     this.userService.get(id).subscribe(
       user => {
         this.user = user;
+        user.getRelationArray(NFT, 'favoriteNFTs').subscribe( (favorites: any) => {
+          this.user.favoriteNFTs = favorites;
+        });
+        console.log(this.user);
       });
   }
 
