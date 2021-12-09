@@ -8,7 +8,7 @@ import {Declining} from './declining';
 })
 export class DecliningService extends RestService<Declining>{
   constructor(injector: Injector) {
-    super(Declining, 'declinings', injector);
+    super(Declining, '`decliningPriceOffers`', injector);
   }
 
   public findById(uri: string): Observable<Declining> {
