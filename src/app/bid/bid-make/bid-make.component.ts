@@ -21,10 +21,11 @@ export class BidMakeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.idOffer = this.route.url.split('/')[2];
+    this.idOffer = this.route.url.substr(0, this.route.url.lastIndexOf('/bid'));
     this.bid = new Bid();
   }
   onSubmit(): void {
+    this.bid.offer = this.idOffer;
     this.bidService.create(this.bid).subscribe(
       (newBid: Bid) => {
         this.route.navigate(['bids']);
