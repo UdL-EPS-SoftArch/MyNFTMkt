@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { User, NFT} from '../../login-basic/user';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
+import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-user-detail',
@@ -13,8 +14,14 @@ export class UserDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private userService: UserService,
-              private authenticationService: AuthenticationBasicService) {
+              private authenticationService: AuthenticationBasicService,
+              config: NgbModalConfig, private modalService: NgbModal) {
   }
+
+  open(content) {
+    this.modalService.open(content);
+  }
+
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
