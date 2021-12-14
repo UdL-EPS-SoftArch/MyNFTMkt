@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PreviewCard} from '../PreviewCard';
+import {PREVIEWCARDS} from '../mock-previewCards';
 
 @Component({
   selector: 'app-search-by-price',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-by-price.component.css']
 })
 export class SearchByPriceComponent implements OnInit {
+  previewCards: PreviewCard[]= PREVIEWCARDS;
+  imageTestSource:string = '';
+
 
   constructor() { }
 
