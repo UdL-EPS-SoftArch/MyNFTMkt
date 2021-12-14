@@ -9,6 +9,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import {SaleComponent} from './sale/sale.component';
+import {SearchByPriceComponent} from './search-by-price/search-by-price.component';
 
 
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
+  { path: 'search-by-price', component: SearchByPriceComponent},
 ];
 
 @NgModule({
