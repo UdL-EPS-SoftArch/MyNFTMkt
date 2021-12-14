@@ -14,9 +14,32 @@
         <h6 class="card-subtitle text-muted">Role</h6>
         <p class="card-text">{{user.getRoles().join(', ')}}</p>
       </div>
-      <div class="col-md-4 p-3">
+      <div class="col-md-4 p-3" >
         <h6 class="card-subtitle text-muted" >Favorite NFTs:</h6>
-        <p class="card-text" *ngFor="let item of user.favoriteNFTs">{{item.title}}</p>
+        <div *ngFor="let item of user.favoriteNFTs, let i = index">
+        <p class="card-text"  [attr.data-index]="i" (click)="open(content3)">{{item.title}}</p>
+        <ng-template #content3 let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h3 class="modal-title m-auto" id="modal-basic-title">NFT details</h3>
+            <button type="button" class="close border-0" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body container">
+            <h5 class="card-subtitle text-muted ">- Description: </h5>
+            <p class="ml-3 pl-3 pt-2">{{item.description}}</p>
+            <h5 class="card-subtitle text-muted ">- Keywords: </h5>
+            <p *ngFor="let keyword of item.keywords" class="ml-3 pl-3 pt-2 pb-0">{{keyword}}</p>
+            <h5 class="card-subtitle text-muted ">- Category: </h5>
+            <p class="ml-3 pl-3 pt-2">{{item.category}}</p>
+            <h5 class="card-subtitle text-muted ">- Media type: </h5>
+            <p class="ml-3 pl-3 pt-2">{{item.mediaType}}</p>
+            <h5 class="card-subtitle text-muted ">- Content: </h5>
+            <p class="ml-3 pl-3 pt-2">{{item.content}}</p>
+          </div>
+
+        </ng-template>
+      </div>
       </div>
     </div>
     <div class="card-footer text-right">
@@ -34,4 +57,5 @@
       </button>
     </div>
   </div>
+
 </div>
