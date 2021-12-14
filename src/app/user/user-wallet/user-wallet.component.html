@@ -1,0 +1,85 @@
+<!--- Account balance, NFTs owned --->
+<div class="w-100 h-100 bg-light">
+  <div class="d-flex flex-row w-100 h-25 mb-3">
+    <div class="w-50 d-flex">
+      <div class="w-25">
+      </div>
+      <div class="w-50 h-100 d-flex flex-column align-items-center justify-content-center rounded-pill bg-white mt-3">
+        <h1 class="display-5">{{user.getCurrencySymbol()}}{{roundNumber(user.balance)}}</h1>
+        <p class="lead">Account balance</p>
+      </div>
+    </div>
+    <div class="w-50 d-flex">
+      <div class="w-25">
+      </div>
+      <div class="w-50 h-100 d-flex flex-column align-items-center justify-content-center rounded-pill bg-white mt-3">
+        <h1 class="display-5">0</h1>
+        <p class="lead">NFTs owned</p>
+      </div>
+    </div>
+  </div>
+  <!--- Deposit, Withdraw --->
+  <div class="h-50 w-50 text-left">
+    <div class="container-fluid btn-group mt-3">
+      <label class="btn m-1 btn-outline-success rounded-pill bigButton" for="deposit" (click)="open(content)">Deposit</label>
+      <label class="btn m-1 btn-outline-secondary rounded-pill bigButton" for="withdrawal" (click)="open(content2)">Withdraw</label>
+    </div>
+  </div>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}
+</ngb-alert>
+<ngb-alert #selfClosingAlert *ngIf="warningMessage" type="warning" (closed)="warningMessage = ''">{{ warningMessage }}
+</ngb-alert>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add money to your account!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form id="deposit-form" (ngSubmit)="onSubmitDeposit()" #form="ngForm">
+      <fieldset>
+        <div class="form-group">
+
+          <input id="deposit" name="deposit" type="number" class="form-control" [(ngModel)]="moneyToAdd" >
+
+        </div>
+      </fieldset>
+      <div class="modal-footer">
+        <button id="submitDeposit" type="submit" class="btn m-1 btn-success pull-right" (click)="d('Submit')"
+                [disabled]="!form.form.valid" >Submit</button>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
+
+<ng-template #content2 let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Withdraw money from your account!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form id="withdrawal-form" (ngSubmit)="onSubmitWithdrawal()" #form="ngForm">
+      <fieldset>
+        <div class="form-group">
+
+          <input id="withdrawal" name="withdrawal" type="text" class="form-control" [(ngModel)]="moneyToWithdraw" >
+
+        </div>
+      </fieldset>
+      <div class="modal-footer">
+        <button id="submitWithdrawal" type="submit" class="btn m-1 btn-success pull-right" (click)="d('Submit')"
+                [disabled]="!form.form.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
+<!-- Button go back-->
+<button id="userDetail" type="button" [routerLink]="['/users/'+getCurrentUserName()]"
+        class="btn m-1 btn-outline-primary pull-right">Back</button>
+</div>

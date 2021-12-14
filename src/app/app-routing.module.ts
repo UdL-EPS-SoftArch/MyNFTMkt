@@ -14,11 +14,14 @@ import { HighestBidOfferAddComponent } from './highestBidOffer/highestBidOffer-a
 import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-list/highestBidOffer-list.component';
 import {OfferListComponent} from './offer/offer-list/offer-list.component';
 import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-detail/highestBidOffer-list.component';
+import {UserWalletComponent} from './user/user-wallet/user-wallet.component';
+import {SaleComponent} from './sale/sale.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
   { path: 'users/:id/delete', component: UserDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
+  { path: 'users/:id/wallet', component: UserWalletComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
   { path: 'bids', component: BidListComponent, canActivate: [LoggedInGuard]},
@@ -33,6 +36,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
+  { path: 'sales', component: SaleComponent},
 ];
 
 @NgModule({
