@@ -18,11 +18,6 @@ export class UserDetailComponent implements OnInit {
               config: NgbModalConfig, private modalService: NgbModal) {
   }
 
-  open(content) {
-    this.modalService.open(content);
-  }
-
-
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.userService.get(id).subscribe(
@@ -33,6 +28,10 @@ export class UserDetailComponent implements OnInit {
         });
         console.log(this.user);
       });
+  }
+
+  open(content): void {
+    this.modalService.open(content);
   }
 
   getCurrentUser(): User {
