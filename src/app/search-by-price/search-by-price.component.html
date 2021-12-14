@@ -1,1 +1,12 @@
 <p>search-by-price works!</p>
+
+
+<h2>Shows while typing</h2>
+<input type="text" (keyup)="getText($event.target.value)"/>
+<h2>{{actualText1}}</h2>
+<h2>-------</h2>
+
+<h2>Shows after clicking</h2>
+<input type="text" #boxSearch />
+<button (click)="getTextClick(boxSearch.value)">Get Value</button>
+<h2>{{actualText2}}</h2>

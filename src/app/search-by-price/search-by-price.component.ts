@@ -12,4 +12,17 @@ export class SearchByPriceComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  actualText1: string = "";
+  actualText2: string = "";
+
+  getText(textInput){
+    console.warn(textInput);
+    this.actualText1 = textInput;
+  }
+
+  getTextClick(textInput){
+      console.warn(textInput);
+      this.actualText2 = textInput;
+   }
+
 }
