@@ -22,6 +22,15 @@ import {ExternalConfigurationService} from './external-configuration-service';
 import {AuthenticationBasicService} from './login-basic/authentication-basic.service';
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
+import {BidListComponent} from './bid/bid-list/bid-list.component';
+import {BidService} from './bid/bid.service';
+import {BidMakeComponent} from './bid/bid-make/bid-make.component';
+import {HighestBidOfferService} from './highestBidOffer/highestBidOffer.service';
+import {HighestBidOfferAddComponent} from './highestBidOffer/highestBidOffer-add/highestBidOffer-add.component';
+import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-list/highestBidOffer-list.component';
+import {OfferService} from './offer/offer.service';
+import {OfferListComponent} from './offer/offer-list/offer-list.component';
+import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-detail/highestBidOffer-list.component';
 import {SaleComponent} from './sale/sale.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -35,6 +44,13 @@ import { environment } from '../environments/environment';
     UserRegisterComponent,
     UserEditComponent,
     UserDeleteComponent,
+    UserSearchComponent,
+    BidListComponent,
+    BidMakeComponent,
+    HighestBidOfferAddComponent,
+    HighestBidOfferListComponent,
+    HighestBidOfferDetailComponent,
+    OfferListComponent,
     UserSearchComponent,
     UserWalletComponent,
     SaleComponent,
@@ -60,7 +76,7 @@ import { environment } from '../environments/environment';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService
   ],
   bootstrap: [AppComponent]
 })

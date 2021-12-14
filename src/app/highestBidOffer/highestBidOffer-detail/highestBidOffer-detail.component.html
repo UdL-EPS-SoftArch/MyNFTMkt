@@ -1,0 +1,25 @@
+
+
+<div class="card mb-1">
+  <div class="card-block row m-1 col-12">
+    <div class="card-body row align-items-center">
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">ID</h6>
+        <a class="card-text" [routerLink]="['bid']" >{{highestBidOffer?.uri?.split('/')[2]}}</a>
+      </div>
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Minimum Bid price </h6>
+        <p class="card-text">{{highestBidOffer.minimumBid}}</p>
+      </div>
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Reserve Price Bid</h6>
+        <p class="card-text">{{highestBidOffer.reservePrice}}</p>
+      </div>
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Expiration date Bid </h6>
+        <p class="card-text" >{{ highestBidOffer.expiration | date : "medium"  }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
