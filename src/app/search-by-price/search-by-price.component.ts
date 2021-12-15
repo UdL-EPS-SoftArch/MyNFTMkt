@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PreviewCard} from '../PreviewCard';
 import {PREVIEWCARDS} from '../mock-previewCards';
 
@@ -8,26 +8,25 @@ import {PREVIEWCARDS} from '../mock-previewCards';
   styleUrls: ['./search-by-price.component.css']
 })
 export class SearchByPriceComponent implements OnInit {
-  previewCards: PreviewCard[]= PREVIEWCARDS;
-  imageTestSource:string = '';
-
-
+  actualText = '';
+  previewCards: PreviewCard[];
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  actualText1: string = "";
-  actualText2: string = "";
-
-  getText(textInput){
+  getTextClick(textInput): void{
     console.warn(textInput);
-    this.actualText1 = textInput;
+    this.actualText = textInput;
+    // Cridaria funcio de cerca
+    this.searchForResults();
+  }
+  private searchForResults(): void{
+    // Enlloc de PREVIEWCARDS ficaria la llista que haguerem aconseguit de la cerca
+
+    this.previewCards = PREVIEWCARDS;
   }
 
-  getTextClick(textInput){
-      console.warn(textInput);
-      this.actualText2 = textInput;
-   }
+
 
 }

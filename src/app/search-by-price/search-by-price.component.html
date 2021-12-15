@@ -1,50 +1,7 @@
-<p>search-by-price works!</p>
-
-
-<h2>Shows while typing</h2>
-<input type="text" (keyup)="getText($event.target.value)"/>
-<h2>{{actualText1}}</h2>
-<h2>-------</h2>
-
 <h2>Shows after clicking</h2>
 <input type="text" #boxSearch />
 <button (click)="getTextClick(boxSearch.value)">Get Value</button>
-<h2>{{actualText2}}</h2>
+<h2>{{actualText}}</h2>
 
-<div class="previewCardComponent" *ngFor="let previewCard of previewCards">
-  <h3>{{previewCard.title}}</h3>
-  <h2>Preu Actual: {{previewCard.actualPrice}}</h2>
-  <p>Temps restant: {{previewCard.time}}</p>
-</div>
+<app-preview-card [previewCards]="previewCards"></app-preview-card>
 
-
-
-<p *ngFor="let previewCard of previewCards">{{previewCard.title}}</p>
-
-<div class="css_card">
-  <p>Testejant css per la imatge</p>
-  <button class="css_botton_card">Heeeey</button>
-</div>
-
-<div class="css_card">
-  <div class="div_image">
-    <p>a</p>
-  </div>
-  <div class="div_info">
-    <h3>Títol NFT</h3>
-    <h4>Preu Actual</h4>
-    <p>Temps</p>
-    <button class="css_botton_card">Heeeey</button>
-  </div>
-</div>
-
-<button class="css_card">
-  <div class="div_image">
-    <img src={{imageTestSource}}>
-  </div>
-  <div class="div_info">
-    <h3>Títol NFT</h3>
-    <h4>Preu Actual</h4>
-    <p>Temps</p>
-  </div>
-</button>

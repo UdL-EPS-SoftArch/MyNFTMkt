@@ -3,4 +3,5 @@ export interface PreviewCard{
   title: string;
   actualPrice: number;
   date: string;
+  content: string;
 }

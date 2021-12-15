@@ -23,6 +23,8 @@ import {AuthenticationBasicService} from './login-basic/authentication-basic.ser
 import {LoggedInGuard} from './login-basic/loggedin.guard';
 import {UserService} from './user/user.service';
 import {SaleComponent} from './sale/sale.component';
+import {PreviewCardComponent} from './search-by-price/components/preview-card/preview-card.component';
+import {SearchByPriceComponent} from './search-by-price/search-by-price.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {SaleComponent} from './sale/sale.component';
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
-    SaleComponent
+    SaleComponent,
+    SearchByPriceComponent,
+    PreviewCardComponent
   ],
   imports: [
     BrowserModule,
