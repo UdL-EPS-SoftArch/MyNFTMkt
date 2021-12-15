@@ -17,6 +17,7 @@ import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-
 import {UserWalletComponent} from './user/user-wallet/user-wallet.component';
 import {SaleComponent} from './sale/sale.component';
 import {NftAddComponent} from './nft/nft-add/ntf-add.component';
+import {NftListComponent} from './nft/nft-list/ntf-list.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -35,7 +36,7 @@ const routes: Routes = [
 
 
   { path: 'ntf/add', component: NftAddComponent , canActivate: [LoggedInGuard]},
-
+  { path: 'ntfs', component: NftListComponent , canActivate: [LoggedInGuard]},
 
   { path: 'offers', component: OfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
