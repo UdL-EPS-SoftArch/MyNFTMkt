@@ -23,9 +23,19 @@
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Bid</a>
         <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
           <a class="dropdown-item"
-             [routerLink]="['/bids']"><span class="fas fa-user-circle"></span> List Bid</a>
+             [routerLink]="['/bids']"><span class="fas fa-list"></span> List Bid</a>
           <a class="dropdown-item"
-             [routerLink]="['/offers']"><span class="fas fa-user-circle"></span> Offers </a>
+             [routerLink]="['/offers']"><span class="fas fa-list"></span> Offers </a>
+        </div>
+      </li>
+      <li class="nav-item" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="playerDropdownNTF" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>NFT</a>
+        <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
+          <a class="dropdown-item"
+             [routerLink]="['/bids']"><span class="fas fa-list"></span> List NFT</a>
+          <a class="dropdown-item"
+             [routerLink]="['/offers']"><span class="fas fa-plus-circle"></span> Create a new NTF</a>
         </div>
       </li>
     </ul>
