@@ -1,0 +1,19 @@
+<div class="card-block row m-1 col-12">
+  <div class="card-body row align-items-center">
+
+      <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let previewCard of previewCards">
+          <p>{{previewCard.content}}</p>
+          <div class="card-body">
+            <h5 class="card-title">Títol NFT: {{previewCard.title}}</h5>
+            <p class="card-text"><b>Preu Actual: {{previewCard.actualPrice}}</b></p>
+            <p class="card-text">Data: {{previewCard.date}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
