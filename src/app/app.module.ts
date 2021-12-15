@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
@@ -10,6 +9,7 @@ import {UserListComponent} from './user/user-list/user-list.component';
 import {UserEditComponent} from './user/user-edit/user-edit.component';
 import {UserDeleteComponent} from './user/user-delete/user-delete.component';
 import {UserSearchComponent} from './user/user-search/user-search.component';
+import {UserWalletComponent} from './user/user-wallet/user-wallet.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgbCollapseModule, NgbDropdownModule, NgbModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
@@ -31,6 +31,10 @@ import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-
 import {OfferService} from './offer/offer.service';
 import {OfferListComponent} from './offer/offer-list/offer-list.component';
 import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-detail/highestBidOffer-list.component';
+import {SaleComponent} from './sale/sale.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +51,9 @@ import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-
     HighestBidOfferListComponent,
     HighestBidOfferDetailComponent,
     OfferListComponent,
+    UserSearchComponent,
+    UserWalletComponent,
+    SaleComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +68,9 @@ import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-
     ErrorHandlerModule,
     NgbModule,
     ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
