@@ -34,6 +34,8 @@ import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-
 import {SaleComponent} from './sale/sale.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {NftAddComponent} from './nft/nft-add/ntf-add.component';
+import {NftService} from './nft/nft.service';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { environment } from '../environments/environment';
     UserSearchComponent,
     UserWalletComponent,
     SaleComponent,
+    NftAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,7 @@ import { environment } from '../environments/environment';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService, NftService
   ],
   bootstrap: [AppComponent]
 })

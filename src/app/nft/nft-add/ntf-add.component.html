@@ -1,0 +1,44 @@
+<form id="bid-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+    <!-- Username input -->
+    <div class="form-group">
+      <label class="control-label" for="title">Title*</label>
+      <input id="title" name="title" type="text" class="form-control" required
+             [(ngModel)]="nft.title" #price="ngModel">
+      <div class="invalid-feedback">A price is required</div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="description">Description*</label>
+      <input id="description" name="description" type="text" class="form-control" required
+             [(ngModel)]="nft.description" #price="ngModel">
+      <div class="invalid-feedback">A price is required</div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="mediaType">MediaType*</label>
+      <input id="mediaType" name="mediaType" type="text" class="form-control" required
+             [(ngModel)]="nft.mediaType" #price="ngModel">
+      <div class="invalid-feedback">A price is required</div>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="category">Category*</label>
+      <input id="category" name="category" type="text" class="form-control" required
+             [(ngModel)]="nft.category" #price="ngModel">
+      <div class="invalid-feedback">A price is category</div>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="content">Content*</label>
+      <input id="content" name="content" type="text" class="form-control" required
+             [(ngModel)]="nft.content" #price="ngModel">
+      <div class="invalid-feedback">A price is content</div>
+    </div>
+
+    <div class="form-group">
+      <button id="submit" type="submit" class="btn m-1 btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
+      <button id="listBtn" type="button" (click)="onCancel()" class="btn m-1 btn-outline-primary pull-right">Back</button>
+    </div>
+
+  </fieldset>
+</form>
