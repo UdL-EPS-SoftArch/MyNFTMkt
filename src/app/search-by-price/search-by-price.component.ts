@@ -9,7 +9,7 @@ import {PREVIEWCARDS} from '../mock-previewCards';
 })
 export class SearchByPriceComponent implements OnInit {
   actualText = '';
-  previewCards: PreviewCard[];
+  previewCards: PreviewCard[] = [];
   searchedPrice: number;
   constructor() { }
 
@@ -24,22 +24,16 @@ export class SearchByPriceComponent implements OnInit {
     this.searchForResults();
   }
   private searchForResults(): void{
-    //this.previewCards = PREVIEWCARDS;
+    this.previewCards = [];
     console.log(this.previewCards);
     // Enlloc de PREVIEWCARDS ficaria la llista que haguerem aconseguit de la cerca
     var i:number = 0;
-    for(i;PREVIEWCARDS.length;i++) {
+    for(i;PREVIEWCARDS.length-1;i++) {
       if (this.searchedPrice >= PREVIEWCARDS[i].actualPrice) {
         this.previewCards.push(PREVIEWCARDS[i]);
       }
     };
-    //PREVIEWCARDS.forEach(function(card){
-    //if(this.searchedPrice >= card.actualPrice){
-    //  this.previewCards.push(card);
-    //  console.log(card);
-    //  console.log(this.previewCards);
-    //}
-    //});
+
   }
 
 
