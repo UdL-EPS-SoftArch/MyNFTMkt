@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import {NFTListComponent} from './nft/nft-list/nft-list.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {UserListComponent} from './user/user-list/user-list.component';
@@ -34,6 +35,7 @@ import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-
 import {SaleComponent} from './sale/sale.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {NftService} from './nft/nft.service';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { environment } from '../environments/environment';
     UserSearchComponent,
     UserWalletComponent,
     SaleComponent,
+    NFTListComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,7 @@ import { environment } from '../environments/environment';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService, NftService
   ],
   bootstrap: [AppComponent]
 })
