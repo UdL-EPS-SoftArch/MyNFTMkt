@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FixedPriceOffer} from '../offer/fixedPriceOffer/fixedpriceoffer';
+import {FixedPriceOfferService} from '../offer/fixedPriceOffer/fixed-price-offer.service';
 
 @Component({
   selector: 'app-search-by-price',
@@ -10,7 +11,8 @@ export class SearchByPriceComponent implements OnInit {
   actualText = '';
   fixedPriceOffers: FixedPriceOffer[] = [];
   searchedPrice: number;
-  constructor() { }
+  constructor(private fixedPriceOfferService: FixedPriceOfferService) {
+  }
 
   ngOnInit(): void {
   }
@@ -25,8 +27,11 @@ export class SearchByPriceComponent implements OnInit {
   private searchForResults(): void{
     this.fixedPriceOffers = [];
     console.log(this.fixedPriceOffers);
-    //Ficar el metode de search del service amb el this.searchedPrice
-
+    this.fixedPriceOfferService.search( this.searchedPrice).subscribe(
+      (fixedPriceOffers: FixedPriceOffer[]) => {
+        this.fixedPriceOffers = fixedPriceOffers;
+      }
+    );
 
     // Enlloc de PREVIEWCARDS ficaria la llista que haguerem aconseguit de la cerca
     /*var i:number = 0;
