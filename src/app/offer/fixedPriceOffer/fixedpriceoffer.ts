@@ -6,7 +6,7 @@ export class FixedPriceOffer extends Resource {
   id: string;
   dateTime: Date;
   nft: string;
-  price: BigInteger;
+  price: number;
 
   constructor(values: object = {}) {
     super();
