@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
-  { path: 'declinings', component: DecliningListComponent},
+  { path: 'decliningPriceOffers', component: DecliningListComponent},
   { path: 'sales/:id/delete', component: SaleDeleteComponent},
 ];
 

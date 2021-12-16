@@ -17,9 +17,6 @@
         </div>
       </div>
       <div class="col-4">
-        <button id="editBtn" type="button"  *ngIf=" isAdmin() == true " [routerLink]="['edit']"
-                class="btn m-1 btn-outline-success">Edit
-        </button>
         <button id="deleteBtn" type="button"  *ngIf=" isAdmin() == true " [routerLink]="[salevalue.id, 'delete']"
                 class="btn m-1 btn-outline-danger">Delete
         </button>
