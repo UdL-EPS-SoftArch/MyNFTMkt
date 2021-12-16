@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
-import { User } from '../../login-basic/user';
+import { User, NFT} from '../../login-basic/user';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
+import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-user-detail',
@@ -13,7 +14,8 @@ export class UserDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private userService: UserService,
-              private authenticationService: AuthenticationBasicService) {
+              private authenticationService: AuthenticationBasicService,
+              config: NgbModalConfig, private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -21,7 +23,15 @@ export class UserDetailComponent implements OnInit {
     this.userService.get(id).subscribe(
       user => {
         this.user = user;
+        user.getRelationArray(NFT, 'favoriteNFTs').subscribe( (favorites: any) => {
+          this.user.favoriteNFTs = favorites;
+        });
+        console.log(this.user);
       });
+  }
+
+  open(content): void {
+    this.modalService.open(content);
   }
 
   getCurrentUser(): User {
