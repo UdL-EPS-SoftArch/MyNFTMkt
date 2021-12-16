@@ -9,4 +9,8 @@ export class NftService extends RestService<NFT> {
   constructor(injector: Injector) {
     super(NFT, 'NFTs', injector);
   }
+  public findByTitle(text: string): Observable<NFT[]> {
+    const options: any = {params: [{key: 'text', value: text}]};
+    return this.search('findByTitle', options);
+  }
 }

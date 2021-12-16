@@ -1,20 +1,16 @@
-<div class="w-100 h-100 bg-light">
-  <div class="d-flex flex-row w-100 h-25 mb-3">
-    <div class="w-50 d-flex">
-      <div class="w-25">
-      </div>
-      <div class="w-50 h-100 d-flex flex-column align-items-center justify-content-center rounded-pill bg-white mt-3">
-        <h1 class="display-5">0</h1>
-        <p class="lead">Account balance</p>
-      </div>
-    </div>
-    <div class="w-50 d-flex">
-      <div class="w-25">
-      </div>
-      <div class="w-50 h-100 d-flex flex-column align-items-center justify-content-center rounded-pill bg-white mt-3">
-        <h1 class="display-5">0</h1>
-        <p class="lead">NFTs owned</p>
+<app-nft-search (emitResults)="detail($event)"></app-nft-search>
+
+<div class="card mb-1" *ngFor="let nft of NFTs">
+  <div class="card-block row m-1 col-12">
+    <div class="card-body row align-items-center">
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Username</h6>
+        <a class="card-text" [routerLink]="['/NFTs', nft.id]">{{nft.id}}</a>
       </div>
     </div>
   </div>
 </div>
+
+<ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalNFTs"
+                (pageChange)="changePage()"></ngb-pagination>
