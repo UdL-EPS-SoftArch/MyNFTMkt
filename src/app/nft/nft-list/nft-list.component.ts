@@ -13,7 +13,7 @@ export class NFTListComponent implements OnInit {
   public pageSize = 5;
   public page = 1;
   public totalNFTs = 0;
-  private sorting: Sort[] = [{ path: 'nft', order: 'ASC' }];
+  private sorting: Sort[] = [{ path: 'title', order: 'ASC' }];
 
   constructor(
     public router: Router,
@@ -21,7 +21,8 @@ export class NFTListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.nftService.getAll({size: this.pageSize, sort: this.sorting}).subscribe(
+    /*{size: this.pageSize, sort: this.sorting}*/
+    this.nftService.getAll().subscribe(
       (NFTs: NFT[]) => {
         this.NFTs = NFTs;
         this.totalNFTs = this.nftService.totalElement();

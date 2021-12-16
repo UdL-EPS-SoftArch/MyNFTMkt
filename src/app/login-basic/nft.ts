@@ -9,4 +9,10 @@ export class NFT extends Resource {
   category: string;
   mediaType: string;
   content: string;
+
+  constructor(values: object = {}) {
+    super();
+    Object.assign(this as any, values);
+  }
 }
+
