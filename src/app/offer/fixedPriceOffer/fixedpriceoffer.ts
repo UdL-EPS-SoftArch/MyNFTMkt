@@ -1,7 +1,7 @@
-import { Authority } from '../../login-basic//authority';
+import { Authority } from '../../login-basic/authority';
 import { Resource } from '@lagoshny/ngx-hal-client';
 
-export class Offer extends Resource {
+export class FixedPriceOffer extends Resource {
   uri: string;
   id: string;
   dateTime: Date;
