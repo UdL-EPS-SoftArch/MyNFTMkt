@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PreviewCard} from '../PreviewCard';
-import {PREVIEWCARDS} from '../mock-previewCards';
+import {FixedPriceOffer} from '../offer/fixedPriceOffer/fixedpriceoffer';
 
 @Component({
   selector: 'app-search-by-price',
@@ -9,7 +8,7 @@ import {PREVIEWCARDS} from '../mock-previewCards';
 })
 export class SearchByPriceComponent implements OnInit {
   actualText = '';
-  previewCards: PreviewCard[] = [];
+  fixedPriceOffers: FixedPriceOffer[] = [];
   searchedPrice: number;
   constructor() { }
 
@@ -24,15 +23,19 @@ export class SearchByPriceComponent implements OnInit {
     this.searchForResults();
   }
   private searchForResults(): void{
-    this.previewCards = [];
-    console.log(this.previewCards);
+    this.fixedPriceOffers = [];
+    console.log(this.fixedPriceOffers);
+    //Ficar el metode de search del service amb el this.searchedPrice
+
+
     // Enlloc de PREVIEWCARDS ficaria la llista que haguerem aconseguit de la cerca
-    var i:number = 0;
-    for(i;PREVIEWCARDS.length-1;i++) {
-      if (this.searchedPrice >= PREVIEWCARDS[i].actualPrice) {
-        this.previewCards.push(PREVIEWCARDS[i]);
+    /*var i:number = 0;
+    for(i;FIXED_PRICE_OFFERS.length-1;i++) {
+      if (this.searchedPrice >= FIXED_PRICE_OFFERS[i].actualPrice) {
+        this.fixedPriceOffers.push(FIXED_PRICE_OFFERS[i]);
       }
     };
+    */
 
   }
 

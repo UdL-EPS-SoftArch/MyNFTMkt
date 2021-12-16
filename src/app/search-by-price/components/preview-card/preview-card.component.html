@@ -2,13 +2,12 @@
   <div class="card-body row align-items-center">
 
       <div class="row">
-        <div class="card" style="width: 18rem;" *ngFor="let previewCard of previewCards">
-          <p>{{previewCard.content}}</p>
+        <div class="card" style="width: 18rem;" *ngFor="let fixedPriceOffer of fixedPriceOffers">
+          <p>{{fixedPriceOffer.nft}}</p>
           <div class="card-body">
-            <h5 class="card-title">Títol NFT: {{previewCard.title}}</h5>
-            <p class="card-text"><b>Preu Actual: {{previewCard.actualPrice}}</b></p>
-            <p class="card-text">Data: {{previewCard.date}}</p>
-            <a href="/NFT/{{previewCard.id}}" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">Preu Actual: {{fixedPriceOffer.price}}</h5>
+            <p class="card-text"><b>Data: {{fixedPriceOffer.dateTime}}</b></p>
+            <a href={{fixedPriceOffer.uri}} class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>

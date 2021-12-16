@@ -49,7 +49,7 @@ import { environment } from '../environments/environment';
     UserSearchComponent,
     SaleComponent,
     SearchByPriceComponent,
-    PreviewCardComponent
+    PreviewCardComponent,
     BidListComponent,
     BidMakeComponent,
     HighestBidOfferAddComponent,

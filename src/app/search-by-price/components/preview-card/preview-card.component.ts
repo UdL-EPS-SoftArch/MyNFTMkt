@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PreviewCard} from '../../../PreviewCard';
+import {FixedPriceOffer} from '../../../offer/fixedPriceOffer/fixedpriceoffer';
 
 @Component({
   selector: 'app-preview-card',
@@ -8,7 +8,7 @@ import {PreviewCard} from '../../../PreviewCard';
 })
 export class PreviewCardComponent implements OnInit {
   @Input()
-  previewCards: PreviewCard[];
+  fixedPriceOffers: FixedPriceOffer[];
   constructor() { }
 
   ngOnInit(): void {
