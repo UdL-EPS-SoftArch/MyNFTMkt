@@ -1,0 +1,31 @@
+<!-- <app-bid-search (emitResults)="detail($event)"></app-bid-search> -->
+
+
+<div class="card mb-1" *ngFor="let offer of offers">
+
+  <div class="card-block row m-1 col-12">
+    <div class="card-body row align-items-center">
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">ID</h6>
+        <a class="card-text" [routerLink]="[offer.uri]">{{offer.uri.split('/')[2]}}</a>
+      </div>
+
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Data</h6>
+        <p class="card-text">{{offer.dateTime | date : "medium"}}</p>
+      </div>
+
+
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Tipus</h6>
+        <p class="card-text" >{{offer.uri.split('/')[1]}}</p>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalOffers"
+                (pageChange)="changePage()"></ngb-pagination>
