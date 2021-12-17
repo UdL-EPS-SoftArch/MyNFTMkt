@@ -11,7 +11,9 @@ export class SearchByPriceComponent implements OnInit {
   actualText = '';
   fixedPriceOffers: FixedPriceOffer[] = [];
   searchedPrice: number;
-  constructor(private fixedPriceOfferService: FixedPriceOfferService) {
+  private fixedPriceOfferService: FixedPriceOfferService;
+  constructor(
+    /*private fixedPriceOfferService: FixedPriceOfferService*/) {
   }
 
   ngOnInit(): void {
@@ -27,7 +29,7 @@ export class SearchByPriceComponent implements OnInit {
   private searchForResults(): void{
     this.fixedPriceOffers = [];
     console.log(this.fixedPriceOffers);
-    this.fixedPriceOfferService.search( this.searchedPrice).subscribe(
+    this.fixedPriceOfferService.findAllByPriceIsLessThanEqual( this.searchedPrice).subscribe(
       (fixedPriceOffers: FixedPriceOffer[]) => {
         this.fixedPriceOffers = fixedPriceOffers;
       }

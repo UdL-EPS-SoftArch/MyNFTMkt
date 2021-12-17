@@ -1,8 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { RestService } from '@lagoshny/ngx-hal-client';
-import { Bid } from '../../login-basic/bid';
-import { User } from '../../login-basic/user';
+
 import { FixedPriceOffer} from './fixedpriceoffer';
 
 
@@ -10,7 +9,7 @@ import { FixedPriceOffer} from './fixedpriceoffer';
 export class FixedPriceOfferService extends RestService<FixedPriceOffer>{
 
   constructor(injector: Injector) {
-    super(FixedPriceOffer, 'fixedPriceOffers', injector);
+    super(FixedPriceOffer, 'FixedPriceOffers', injector);
   }
   public  findAllByPriceIsLessThanEqual(price: number): Observable<FixedPriceOffer[]> {
     const options: any = ({params: [{key: 'price', value: price}]});
