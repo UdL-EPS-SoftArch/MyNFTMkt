@@ -18,6 +18,8 @@ import {UserWalletComponent} from './user/user-wallet/user-wallet.component';
 import {SaleComponent} from './sale/sale.component';
 import {NftAddComponent} from './nft/nft-add/ntf-add.component';
 import {NftListComponent} from './nft/nft-list/ntf-list.component';
+import {DecliningListComponent} from './declining/declining-list/declining-list.component';
+import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -29,7 +31,7 @@ const routes: Routes = [
   { path: 'bids', component: BidListComponent, canActivate: [LoggedInGuard]},
   { path: 'bids/make/:id', component: BidMakeComponent, canActivate: [LoggedInGuard]},
 
-  { path: 'highestBidOffers/add/:id', component: HighestBidOfferAddComponent, canActivate: [LoggedInGuard]},
+  { path: 'highestBidOffers/add', component: HighestBidOfferAddComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers', component: HighestBidOfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/:id', component: HighestBidOfferDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/:id/bid', component: BidMakeComponent , canActivate: [LoggedInGuard]},
@@ -43,6 +45,8 @@ const routes: Routes = [
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
+  { path: 'decliningPriceOffers', component: DecliningListComponent},
+  { path: 'sales/:id/delete', component: SaleDeleteComponent},
 ];
 
 @NgModule({

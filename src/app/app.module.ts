@@ -32,6 +32,8 @@ import {OfferService} from './offer/offer.service';
 import {OfferListComponent} from './offer/offer-list/offer-list.component';
 import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-detail/highestBidOffer-list.component';
 import {SaleComponent} from './sale/sale.component';
+import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
+import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {NftAddComponent} from './nft/nft-add/ntf-add.component';
@@ -57,6 +59,8 @@ import {NftListComponent} from './nft/nft-list/ntf-list.component';
     UserSearchComponent,
     UserWalletComponent,
     SaleComponent,
+    SaleDeleteComponent,
+    DecliningListComponent,
     NftAddComponent,
     NftListComponent,
   ],
