@@ -19,6 +19,18 @@
         </div>
       </li>
       <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="playerDropdownNFT" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>NFT's</a>
+        <div class="dropdown-menu" aria-labelledby="playerDropdownNFT" ngbDropdownMenu>
+          <a class="dropdown-item"
+             [routerLink]="['/create']"><span class="fas fa-user-circle"></span> Create</a>
+          <a class="dropdown-item"
+             [routerLink]="['/modify']"><span class="fas fa-user-circle"></span> Modify </a>
+          <a class="dropdown-item"
+             [routerLink]="['/delete']"><span class="fas fa-user-circle"></span> Delete </a>
+        </div>
+      </li>
+      <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="playerDropdownBid" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Bid</a>
         <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
