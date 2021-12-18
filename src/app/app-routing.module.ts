@@ -29,14 +29,14 @@ const routes: Routes = [
   { path: 'bids', component: BidListComponent, canActivate: [LoggedInGuard]},
   { path: 'bids/make/:id', component: BidMakeComponent, canActivate: [LoggedInGuard]},
 
-  { path: 'highestBidOffers/add', component: HighestBidOfferAddComponent, canActivate: [LoggedInGuard]},
+  { path: 'highestBidOffers/add/:id', component: HighestBidOfferAddComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers', component: HighestBidOfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/:id', component: HighestBidOfferDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/:id/bid', component: BidMakeComponent , canActivate: [LoggedInGuard]},
 
 
-  { path: 'ntf/add', component: NftAddComponent , canActivate: [LoggedInGuard]},
-  { path: 'ntfs', component: NftListComponent , canActivate: [LoggedInGuard]},
+  { path: 'nFTs/add', component: NftAddComponent , canActivate: [LoggedInGuard]},
+  { path: 'nFTs', component: NftListComponent , canActivate: [LoggedInGuard]},
 
   { path: 'offers', component: OfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},

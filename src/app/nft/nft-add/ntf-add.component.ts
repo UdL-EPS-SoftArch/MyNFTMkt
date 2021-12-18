@@ -26,7 +26,7 @@ export class NftAddComponent implements OnInit {
   onSubmit(): void {
     this.nftService.create(this.nft).subscribe(
       (newNft: Nft) => {
-        this.route.navigate(['nfts']);
+        this.route.navigate(['nFTs']);
       }
     );
   }
