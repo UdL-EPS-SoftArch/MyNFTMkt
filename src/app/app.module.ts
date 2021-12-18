@@ -36,6 +36,7 @@ import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { NftCreateComponent } from './nft/nft-create/nft-create.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { environment } from '../environments/environment';
     SaleComponent,
     SaleDeleteComponent,
     DecliningListComponent,
+    NftCreateComponent,
   ],
   imports: [
     BrowserModule,
