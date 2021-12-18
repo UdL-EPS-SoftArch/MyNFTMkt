@@ -11,9 +11,9 @@ export class SearchByPriceComponent implements OnInit {
   actualText = '';
   fixedPriceOffers: FixedPriceOffer[] = [];
   searchedPrice: number;
-  private fixedPriceOfferService: FixedPriceOfferService;
+  /*private fixedPriceOfferService: FixedPriceOfferService;*/
   constructor(
-    /*private fixedPriceOfferService: FixedPriceOfferService*/) {
+    private fixedPriceOfferService: FixedPriceOfferService) {
   }
 
   ngOnInit(): void {
