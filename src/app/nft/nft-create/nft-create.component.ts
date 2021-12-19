@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {Location } from '@angular/common'
 
 import {NFT} from '../../login-basic/nft';
 
@@ -9,7 +11,11 @@ import {NFT} from '../../login-basic/nft';
 export class NftCreateComponent implements OnInit {
   public nft: NFT;
 
-  constructor() { }
+  constructor(private route: Router,
+              private location: Location,
+             // private bidService: BidService,
+  ) {
+  }
 
   ngOnInit(): void {
   }
