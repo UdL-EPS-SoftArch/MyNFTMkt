@@ -23,7 +23,7 @@
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>NFT's</a>
         <div class="dropdown-menu" aria-labelledby="playerDropdownNFT" ngbDropdownMenu>
           <a class="dropdown-item"
-             [routerLink]="['/create']"><span class="fas fa-user-circle"></span> Create</a>
+             [routerLink]="['/nFTs/create']"><span class="fas fa-user-circle"></span> Create</a>
           <a class="dropdown-item"
              [routerLink]="['/modify']"><span class="fas fa-user-circle"></span> Modify </a>
           <a class="dropdown-item"
@@ -43,6 +43,8 @@
       <li class="nav-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" [routerLink]="['/sales']">Sales</a>
       </li>
+
+
     </ul>
     <ul class="navbar-nav" app-login-navbar></ul>
   </div>
