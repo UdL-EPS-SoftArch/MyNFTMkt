@@ -16,6 +16,7 @@ import {OfferListComponent} from './offer/offer-list/offer-list.component';
 import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-detail/highestBidOffer-list.component';
 import {UserWalletComponent} from './user/user-wallet/user-wallet.component';
 import {SaleComponent} from './sale/sale.component';
+import {SearchByPriceComponent} from './search-by-price/search-by-price.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
+  { path: 'search-by-price', component: SearchByPriceComponent},
   { path: 'decliningPriceOffers', component: DecliningListComponent},
   { path: 'sales/:id/delete', component: SaleDeleteComponent},
 ];
