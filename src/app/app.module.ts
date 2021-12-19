@@ -37,6 +37,7 @@ import {DecliningListComponent} from './declining/declining-list/declining-list.
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NftCreateComponent } from './nft/nft-create/nft-create.component';
+import { NftService } from './nft/nft.service';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,7 @@ import { NftCreateComponent } from './nft/nft-create/nft-create.component';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService, NftService
   ],
   bootstrap: [AppComponent]
 })

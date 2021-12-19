@@ -1,1 +1,25 @@
-<p>nft-create works!</p>
+<form id="bid-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+    <!-- Username input -->
+    <div class="form-group">
+      <label class="control-label" for="price">Price*</label>
+      <input id="price" name="price" type="number" class="form-control" required
+             [(ngModel)]="nft" #price="ngModel">
+      <div class="invalid-feedback">A price is required</div>
+    </div>
+
+    <!--    <div class="form-group">-->
+    <!--      <input id="offer" name="uriOffer" type="text" class="form-control" required-->
+    <!--             [(ngModel)]="bid.uriOffer" #price="ngModel" placeholder="highestBidOffers/{{idOffer}}">-->
+    <!--      <div class="invalid-feedback">A price is required</div>-->
+    <!--    </div>-->
+
+    <!-- Button -->
+    <div class="form-group">
+      <button id="submit" type="submit" class="btn m-1 btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
+      <button id="listBtn" type="button" (click)="onCancel()" class="btn m-1 btn-outline-primary pull-right">Back</button>
+    </div>
+
+  </fieldset>
+</form>
