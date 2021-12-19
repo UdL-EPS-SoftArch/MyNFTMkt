@@ -93,7 +93,8 @@ import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService, FixedPriceOfferService, NftService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService,
+    FixedPriceOfferService, NftService
   ],
   bootstrap: [AppComponent]
 })
