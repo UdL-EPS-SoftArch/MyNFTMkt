@@ -19,6 +19,7 @@ import {SaleComponent} from './sale/sale.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {NftCreateComponent} from './nft/nft-create/nft-create.component';
+import {NftDeleteComponent} from './nft/nft-delete/nft-delete.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: 'highestBidOffers/:id', component: HighestBidOfferDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/:id/bid', component: BidMakeComponent , canActivate: [LoggedInGuard]},
 
-  { path: 'nft/create/', component: NftCreateComponent},
+  { path: 'nft/create', component: NftCreateComponent},
+  { path: 'nft/delete', component: NftDeleteComponent},
 
   { path: 'offers', component: OfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},

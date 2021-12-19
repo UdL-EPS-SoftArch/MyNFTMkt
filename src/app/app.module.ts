@@ -38,6 +38,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NftCreateComponent } from './nft/nft-create/nft-create.component';
 import { NftService } from './nft/nft.service';
+import { NftModifyComponent } from './nft-modify/nft-modify.component';
+import { NftDeleteComponent } from './nft-delete/nft-delete.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { NftService } from './nft/nft.service';
     SaleDeleteComponent,
     DecliningListComponent,
     NftCreateComponent,
+    NftModifyComponent,
+    NftDeleteComponent,
   ],
   imports: [
     BrowserModule,
