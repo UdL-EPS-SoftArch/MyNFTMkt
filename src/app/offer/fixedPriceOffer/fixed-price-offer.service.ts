@@ -9,7 +9,7 @@ import { FixedPriceOffer} from './fixedpriceoffer';
 export class FixedPriceOfferService extends RestService<FixedPriceOffer>{
 
   constructor(injector: Injector) {
-    super(FixedPriceOffer, 'FixedPriceOffers', injector);
+    super(FixedPriceOffer, 'fixedPriceOffers', injector);
   }
   public  findAllByPriceIsLessThanEqual(price: number): Observable<FixedPriceOffer[]> {
     const options: any = ({params: [{key: 'price', value: price}]});
