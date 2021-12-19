@@ -22,6 +22,7 @@ export class SearchByPriceComponent implements OnInit {
   getTextClick(textInput: string): void{
     console.warn(textInput);
     this.actualText = textInput;
+    // tslint:disable-next-line:radix
     this.searchedPrice = parseInt(textInput);
     // Cridaria funcio de cerca
     this.searchForResults();
