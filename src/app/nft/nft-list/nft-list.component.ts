@@ -26,6 +26,7 @@ export class NFTListComponent implements OnInit {
       (NFTs: NFT[]) => {
         this.NFTs = NFTs;
         this.totalNFTs = this.nftService.totalElement();
+        console.log(this.NFTs);
       });
   }
 

@@ -17,6 +17,7 @@ import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-
 import {UserWalletComponent} from './user/user-wallet/user-wallet.component';
 import {SaleComponent} from './sale/sale.component';
 import {NFTListComponent} from './nft/nft-list/nft-list.component';
+import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -29,7 +30,7 @@ const routes: Routes = [
   { path: 'bids/make/:id', component: BidMakeComponent, canActivate: [LoggedInGuard]},
 
   { path: 'nFTs', component: NFTListComponent, canActivate: [LoggedInGuard]},
-
+  { path: 'nFTs/:id', component: NftDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/add', component: HighestBidOfferAddComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers', component: HighestBidOfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/:id', component: HighestBidOfferDetailComponent, canActivate: [LoggedInGuard]},
