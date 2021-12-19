@@ -35,6 +35,6 @@ export class NFTListComponent implements OnInit {
   }
 
   detail(nft: NFT): void {
-    this.router.navigate(['NFTs', nft.id]);
+    this.router.navigate(['nFTs', nft.id]);
   }
 }

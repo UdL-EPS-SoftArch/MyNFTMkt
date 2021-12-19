@@ -7,7 +7,7 @@ import { NFT } from '../login-basic/nft';
 export class NftService extends RestService<NFT> {
 
   constructor(injector: Injector) {
-    super(NFT, 'NFTs', injector);
+    super(NFT, 'nFTs', injector);
   }
   public findByTitle(text: string): Observable<NFT[]> {
     const options: any = {params: [{key: 'title', value: text}]};
