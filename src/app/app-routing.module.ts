@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'highestBidOffers/:id', component: HighestBidOfferDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/:id/bid', component: BidMakeComponent , canActivate: [LoggedInGuard]},
 
-  { path: 'nft/create/', component: NftCreateComponent},
+  { path: 'nFTs/create', component: NftCreateComponent},
 
   { path: 'offers', component: OfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},

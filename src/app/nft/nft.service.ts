@@ -14,7 +14,7 @@ export class NftService extends RestService<NFT>{
 
   public findByTitle(title: string): Observable<NFT[]> {
     const options: any = {params: [ { key: 'title', value: title}]}
-    return this.search('findByTitle', options);
+    return this.search('findByBidder', options);
 
   }
 
