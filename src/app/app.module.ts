@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import {NFTListComponent} from './nft/nft-list/nft-list.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {UserListComponent} from './user/user-list/user-list.component';
@@ -39,6 +40,9 @@ import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {NftService} from './nft/nft.service';
+import {NFTSearchComponent} from './nft/nft-search/nft-search.component';
+import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +66,9 @@ import { environment } from '../environments/environment';
     UserSearchComponent,
     UserWalletComponent,
     SaleComponent,
+    NFTListComponent,
+    NFTSearchComponent,
+    NftDetailComponent,
     SaleDeleteComponent,
     DecliningListComponent,
   ],
@@ -86,7 +93,8 @@ import { environment } from '../environments/environment';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService, FixedPriceOfferService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService,
+    FixedPriceOfferService, NftService
   ],
   bootstrap: [AppComponent]
 })
