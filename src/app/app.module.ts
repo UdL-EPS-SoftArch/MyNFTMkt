@@ -43,7 +43,6 @@ import { environment } from '../environments/environment';
 import {NftAddComponent} from './nft/nft-add/ntf-add.component';
 import {NftService} from './nft/nft.service';
 import {NftListComponent} from './nft/nft-list/ntf-list.component';
-import {NftService} from './nft/nft.service';
 import {NFTSearchComponent} from './nft/nft-search/nft-search.component';
 import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
 
@@ -98,7 +97,7 @@ import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService, NftService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService,
     FixedPriceOfferService, NftService
   ],
   bootstrap: [AppComponent]
