@@ -5,7 +5,7 @@
     <div class="card-body row align-items-center">
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">ID</h6>
-        <a class="card-text" [routerLink]="['bid']" >{{highestBidOffer?.uri?.split('/')[2]}}</a>
+        {{highestBidOffer?.uri?.split('/')[2]}}
       </div>
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">Minimum Bid price </h6>
@@ -19,7 +19,13 @@
         <h6 class="card-subtitle text-muted">Expiration date Bid </h6>
         <p class="card-text" >{{ highestBidOffer.expiration | date : "medium"  }}</p>
       </div>
+
+      <div class="col-12 mt-2" >
+        <a  [routerLink]="['bid']" > <button type="button" class="btn m-1 btn-primary pull-right">Make Bid</button></a>
+      </div>
     </div>
+
   </div>
+
 </div>
 

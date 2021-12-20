@@ -1,23 +1,16 @@
-import {Injectable, Injector } from '@angular/core';
-import { RestService } from '@lagoshny/ngx-hal-client';
+import { Injectable, Injector } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-
+import { RestService } from '@lagoshny/ngx-hal-client';
 import { NFT } from '../login-basic/nft';
 
-
 @Injectable()
-export class NftService extends RestService<NFT>{
+export class NftService extends RestService<NFT> {
 
   constructor(injector: Injector) {
-    super(NFT, 'nfts', injector );
+    super(NFT, 'nFTs', injector);
   }
-
-  public findByTitle(title: string): Observable<NFT[]> {
-    const options: any = {params: [ { key: 'title', value: title}]}
-    return this.search('findByBidder', options);
-
+  public findByTitle(text: string): Observable<NFT[]> {
+    const options: any = {params: [{key: 'title', value: text}]};
+    return this.search('findByTitle', options);
   }
-
-
-
 }

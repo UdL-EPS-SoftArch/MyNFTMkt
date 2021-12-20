@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 })
 export class HighestBidOfferAddComponent implements OnInit {
   public highestBidOffer: HighestBidOffer;
+  public idNft: string;
 
   constructor(private router: Router,
               private location: Location,
@@ -19,9 +20,11 @@ export class HighestBidOfferAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.idNft = '/nft/' + this.router.url.split('/')[3];
     this.highestBidOffer = new HighestBidOffer();
   }
   onSubmit(): void {
+    this.highestBidOffer.nft = this.idNft;
     this.highestBidOfferService.create(this.highestBidOffer).subscribe(
       (newHighestBidOffer: HighestBidOffer) => {
         this.router.navigate(['']);
