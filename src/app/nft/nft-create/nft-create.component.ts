@@ -20,7 +20,7 @@ export class NftCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.idNFT = this.route.url.substr(0, this.route.url.lastIndexOf('/nft'));
+    this.idNFT = this.route.url.substr(0, this.route.url.lastIndexOf('/nFTs'));
     this.nft = new NFT();
   }
 
@@ -28,7 +28,7 @@ export class NftCreateComponent implements OnInit {
     this.nft.id = this.idNFT;
     this.nftService.create(this.nft).subscribe(
       (newNFT: NFT) => {
-        this.route.navigate(['nft']);
+        this.route.navigate(['nFTs']);
       }
     );
   }
