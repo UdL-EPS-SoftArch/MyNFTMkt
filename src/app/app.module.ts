@@ -40,8 +40,9 @@ import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { NftCreateComponent } from './nft/nft-create/nft-create.component';
+import { NftService } from './nft/nft.service';
 import {NftAddComponent} from './nft/nft-add/ntf-add.component';
-import {NftService} from './nft/nft.service';
 import {NftListComponent} from './nft/nft-list/ntf-list.component';
 import {NFTSearchComponent} from './nft/nft-search/nft-search.component';
 import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
@@ -73,6 +74,7 @@ import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
     NftDetailComponent,
     SaleDeleteComponent,
     DecliningListComponent,
+    NftCreateComponent,
     NftAddComponent,
     NftListComponent,
   ],
