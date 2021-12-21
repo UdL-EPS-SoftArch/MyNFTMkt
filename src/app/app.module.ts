@@ -30,9 +30,14 @@ import {HighestBidOfferService} from './highestBidOffer/highestBidOffer.service'
 import {HighestBidOfferAddComponent} from './highestBidOffer/highestBidOffer-add/highestBidOffer-add.component';
 import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-list/highestBidOffer-list.component';
 import {OfferService} from './offer/offer.service';
+import {FixedPriceOfferService} from './offer/fixedPriceOffer/fixed-price-offer.service';
 import {OfferListComponent} from './offer/offer-list/offer-list.component';
 import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-detail/highestBidOffer-list.component';
 import {SaleComponent} from './sale/sale.component';
+import {PreviewCardComponent} from './search-by-price/components/preview-card/preview-card.component';
+import {SearchByPriceComponent} from './search-by-price/search-by-price.component';
+import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
+import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {NftService} from './nft/nft.service';
@@ -49,6 +54,9 @@ import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
+    SaleComponent,
+    SearchByPriceComponent,
+    PreviewCardComponent,
     BidListComponent,
     BidMakeComponent,
     HighestBidOfferAddComponent,
@@ -61,6 +69,8 @@ import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
     NFTListComponent,
     NFTSearchComponent,
     NftDetailComponent,
+    SaleDeleteComponent,
+    DecliningListComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +93,8 @@ import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService, NftService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService,
+    FixedPriceOfferService, NftService
   ],
   bootstrap: [AppComponent]
 })
