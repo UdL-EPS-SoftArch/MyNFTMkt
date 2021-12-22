@@ -1,0 +1,33 @@
+<form id="bid-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+    <!-- Username input -->
+    <div class="form-group">
+      <label class="control-label" for="reservePrice">Starting price:</label>
+      <input id="reservePrice" name="price" type="number" class="form-control" required
+             [(ngModel)]="declining.startingPrice" #price="ngModel">
+      <div class="invalid-feedback">Starting price is required</div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="minimumBid">Ending price:</label>
+      <input id="minimumBid" name="price" type="number" class="form-control" required
+             [(ngModel)]="declining.endingPrice" #price="ngModel">
+      <div class="invalid-feedback">Ending price is required</div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="expiration">Expiration date:</label>
+      <input id="expiration" name="price" type="date" class="form-control" required
+             [(ngModel)]="declining.expiration" #price="ngModel">
+      <div class="invalid-feedback">Expiration date is required</div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <button id="submit" type="submit" class="btn m-1 btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
+      <button id="listBtn" type="button" (click)="onCancel()" class="btn m-1 btn-outline-primary pull-right">Back</button>
+    </div>
+
+  </fieldset>
+</form>

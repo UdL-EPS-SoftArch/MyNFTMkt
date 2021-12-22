@@ -37,6 +37,7 @@ import {DecliningListComponent} from './declining/declining-list/declining-list.
 import {DecliningDetailComponent} from './declining/declining-detail/declining-detail.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {DecliningAddComponent} from './declining/declining-add/declining-add.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { environment } from '../environments/environment';
     SaleDeleteComponent,
     DecliningListComponent,
     DecliningDetailComponent,
+    DecliningAddComponent,
   ],
   imports: [
     BrowserModule,
