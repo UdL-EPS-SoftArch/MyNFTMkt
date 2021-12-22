@@ -2,11 +2,19 @@
         class="btn m-1 btn-outline-primary pull-right">Back</button>
 <div class="card mb-4">
   <div class="card-block">
-    <div class="card-body row m-1">
-      <div class="col-md-4 p-3">
-        <h6 class="card-subtitle text-muted">Title</h6>
+    <div class="row">
+      <div class="col-5 p-5 text-center">
+        <p class="card-text">{{nft.content}}</p>
+      </div>
+      <div class="col-2 p-5 text-center">
         <p class="card-text">{{nft.title}}</p>
       </div>
+      <div class="col-2 p-5 text-center">
+        <p class="card-text">{{nft.owner.id}}</p>
+      </div>
+    </div>
+    <div class="card-body row m-1">
+
       <div class="col-md-4 p-3">
         <h6 class="card-subtitle text-muted">Description</h6>
         <p class="card-text">{{nft.description}}</p>
@@ -16,12 +24,7 @@
         <p class="card-text">{{nft.category}}</p>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-5 p-5 text-center">
-        <h6 class="card-subtitle text-muted">Content</h6>
-       <p class="card-text">{{nft.content}}</p>
-      </div>
-    </div>
+
     <div class="row justify-content-end">
       <div class = "col-1" *ngFor="let keyword of nft.keywords">
         <div class="col-1 p-1 row text-center">

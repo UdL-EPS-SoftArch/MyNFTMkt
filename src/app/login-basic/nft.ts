@@ -1,6 +1,6 @@
 import { Authority } from './authority';
 import { Resource } from '@lagoshny/ngx-hal-client';
-
+import { User } from './user';
 export class NFT extends Resource {
   id: number;
   title: string;
@@ -10,6 +10,8 @@ export class NFT extends Resource {
   mediaType: string;
   content: string;
   uri: string;
+  owner: User;
+  author: User;
   constructor(values: object = {}) {
     super();
     Object.assign(this as any, values);
