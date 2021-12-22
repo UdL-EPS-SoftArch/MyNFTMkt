@@ -35,9 +35,9 @@ import {SaleComponent} from './sale/sale.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import {DecliningDetailComponent} from './declining/declining-detail/declining-detail.component';
+import {DecliningAddComponent} from './declining/declining-add/declining-add.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import {DecliningAddComponent} from './declining/declining-add/declining-add.component';
 
 @NgModule({
   declarations: [

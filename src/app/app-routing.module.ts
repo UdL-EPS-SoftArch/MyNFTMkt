@@ -18,6 +18,7 @@ import {UserWalletComponent} from './user/user-wallet/user-wallet.component';
 import {SaleComponent} from './sale/sale.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import {DecliningDetailComponent} from './declining/declining-detail/declining-detail.component';
+import {DecliningAddComponent} from './declining/declining-add/declining-add.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 
 const routes: Routes = [
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
+  { path: 'decliningPriceOffers/add', component: DecliningAddComponent},
   { path: 'decliningPriceOffers', component: DecliningListComponent},
   { path: 'decliningPriceOffers/:id', component: DecliningDetailComponent},
   { path: 'sales/:id/delete', component: SaleDeleteComponent},
