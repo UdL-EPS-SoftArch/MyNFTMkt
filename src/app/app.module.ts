@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
+import {NFTListComponent} from './nft/nft-list/nft-list.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {UserListComponent} from './user/user-list/user-list.component';
@@ -29,15 +30,24 @@ import {HighestBidOfferService} from './highestBidOffer/highestBidOffer.service'
 import {HighestBidOfferAddComponent} from './highestBidOffer/highestBidOffer-add/highestBidOffer-add.component';
 import { HighestBidOfferListComponent } from './highestBidOffer/highestBidOffer-list/highestBidOffer-list.component';
 import {OfferService} from './offer/offer.service';
+import {FixedPriceOfferService} from './offer/fixedPriceOffer/fixed-price-offer.service';
 import {OfferListComponent} from './offer/offer-list/offer-list.component';
 import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-detail/highestBidOffer-list.component';
 import {SaleComponent} from './sale/sale.component';
+import {PreviewCardComponent} from './search-by-price/components/preview-card/preview-card.component';
+import {SearchByPriceComponent} from './search-by-price/search-by-price.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import {DecliningDetailComponent} from './declining/declining-detail/declining-detail.component';
 import {DecliningAddComponent} from './declining/declining-add/declining-add.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { NftCreateComponent } from './nft/nft-create/nft-create.component';
+import { NftService } from './nft/nft.service';
+import {NftAddComponent} from './nft/nft-add/ntf-add.component';
+import {NftListComponent} from './nft/nft-list/ntf-list.component';
+import {NFTSearchComponent} from './nft/nft-search/nft-search.component';
+import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +59,9 @@ import { environment } from '../environments/environment';
     UserEditComponent,
     UserDeleteComponent,
     UserSearchComponent,
+    SaleComponent,
+    SearchByPriceComponent,
+    PreviewCardComponent,
     BidListComponent,
     BidMakeComponent,
     HighestBidOfferAddComponent,
@@ -58,8 +71,14 @@ import { environment } from '../environments/environment';
     UserSearchComponent,
     UserWalletComponent,
     SaleComponent,
+    NFTListComponent,
+    NFTSearchComponent,
+    NftDetailComponent,
     SaleDeleteComponent,
     DecliningListComponent,
+    NftCreateComponent,
+    NftAddComponent,
+    NftListComponent,
     DecliningDetailComponent,
     DecliningAddComponent,
   ],
@@ -84,7 +103,8 @@ import { environment } from '../environments/environment';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: 'ExternalConfigurationService', useClass: ExternalConfigurationService },
-    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService
+    AuthenticationBasicService, LoggedInGuard, UserService , BidService, HighestBidOfferService, OfferService,
+    FixedPriceOfferService, NftService
   ],
   bootstrap: [AppComponent]
 })
