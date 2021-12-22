@@ -11,7 +11,6 @@ export class NFT extends Resource {
   content: string;
   uri: string;
   owner: User;
-  author: User;
   constructor(values: object = {}) {
     super();
     Object.assign(this as any, values);

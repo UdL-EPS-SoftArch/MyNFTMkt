@@ -4,7 +4,7 @@ import { NftService } from '../nft.service';
 import { NFT } from '../../login-basic/nft';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
-
+import { User } from '../../login-basic/user';
 @Component({
   selector: 'app-nft-detail',
   templateUrl: './nft-detail.component.html'
@@ -23,6 +23,7 @@ export class NftDetailComponent implements OnInit {
     this.nftService.get(id).subscribe(
       nft => {
         this.nft = nft;
+        nft.getRelation(User, 'owner').subscribe((owner: User) => {this.nft.owner = owner; });
         console.log(this.nft);
       });
   }
