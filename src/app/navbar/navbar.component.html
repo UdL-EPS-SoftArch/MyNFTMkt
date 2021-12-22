@@ -12,8 +12,10 @@
       </li>
       <li class="nav-item" ngbDropdown>
         <a class="nav-link dropdown-toggle" role="button"
-           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Offer</a>
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Offers</a>
         <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
+          <a class="dropdown-item"
+             [routerLink]="['/offers']"><span class="fas fa-list"></span> List offers </a>
           <a class="dropdown-item"
              [routerLink]="['//search-by-price']"><span class="fas fa-user-circle"></span>Search By Price </a>
         </div>
@@ -45,8 +47,6 @@
         <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
           <a class="dropdown-item"
              [routerLink]="['/bids']"><span class="fas fa-list"></span> List Bid</a>
-          <a class="dropdown-item"
-             [routerLink]="['/offers']"><span class="fas fa-list"></span> Offers </a>
         </div>
       </li>
       <li class="nav-item" ngbDropdown>
@@ -54,7 +54,7 @@
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>NFT</a>
         <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
           <a class="dropdown-item"
-             [routerLink]="['/nFTs']"><span class="fas fa-list"></span> List NFT</a>
+             [routerLink]="['/nFTs']"><span class="fas fa-list"></span> List NFTs</a>
           <a class="dropdown-item"
              [routerLink]="['/nFTs/add']"><span class="fas fa-plus-circle"></span> Create a new NTF</a>
         </div>
