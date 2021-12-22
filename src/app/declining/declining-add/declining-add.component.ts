@@ -14,14 +14,14 @@ export class DecliningAddComponent implements OnInit {
 
   constructor(private router: Router,
               private location: Location,
-              private DecliningService: DecliningService, ) {
+              private declineService: DecliningService, ) {
   }
 
   ngOnInit(): void {
     this.declining = new Declining();
   }
   onSubmit(): void {
-    this.DecliningService.create(this.declining).subscribe(
+    this.declineService.create(this.declining).subscribe(
       (newDeclining: Declining) => {
         this.router.navigate(['']);
       }
