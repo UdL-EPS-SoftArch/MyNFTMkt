@@ -34,6 +34,7 @@ import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-
 import {SaleComponent} from './sale/sale.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
+import {DecliningDetailComponent} from './declining/declining-detail/declining-detail.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
@@ -58,6 +59,7 @@ import { environment } from '../environments/environment';
     SaleComponent,
     SaleDeleteComponent,
     DecliningListComponent,
+    DecliningDetailComponent,
   ],
   imports: [
     BrowserModule,
