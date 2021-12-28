@@ -1,4 +1,4 @@
-import {Offer} from "../login-basic/offer";
+import {Offer} from '../login-basic/offer';
 
 export class Declining extends Offer{
   id: string;
