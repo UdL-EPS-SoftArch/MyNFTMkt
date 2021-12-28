@@ -55,7 +55,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
   { path: 'search-by-price', component: SearchByPriceComponent},
-  { path: 'decliningPriceOffers/add', component: DecliningAddComponent},
+
+  { path: 'decliningPriceOffers/add/:id', component: DecliningAddComponent},
   { path: 'decliningPriceOffers', component: DecliningListComponent},
   { path: 'decliningPriceOffers/:id', component: DecliningDetailComponent},
   { path: 'sales/:id/delete', component: SaleDeleteComponent},

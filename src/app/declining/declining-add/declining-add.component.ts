@@ -4,13 +4,13 @@ import {DecliningService} from '../declining.service';
 import {Declining} from '../declining';
 import {Location} from '@angular/common';
 
-
 @Component({
   selector: 'app-user-register',
   templateUrl: './declining-add.component.html'
 })
 export class DecliningAddComponent implements OnInit {
   public declining: Declining;
+  public idNft: string;
 
   constructor(private router: Router,
               private location: Location,
@@ -18,9 +18,11 @@ export class DecliningAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.idNft = '/nft/' + this.router.url.split('/')[3];
     this.declining = new Declining();
   }
   onSubmit(): void {
+    this.declining.nft = this.idNft;
     this.declineService.create(this.declining).subscribe(
       (newDeclining: Declining) => {
         this.router.navigate(['']);

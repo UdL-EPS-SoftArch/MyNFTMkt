@@ -1,8 +1,7 @@
-import {Resource} from '@lagoshny/ngx-hal-client';
+import {Offer} from "../login-basic/offer";
 
-export class Declining extends Resource{
-
-  id: number;
+export class Declining extends Offer{
+  id: string;
   startingPrice: number;
   endingPrice: number;
   expiration: Date;
