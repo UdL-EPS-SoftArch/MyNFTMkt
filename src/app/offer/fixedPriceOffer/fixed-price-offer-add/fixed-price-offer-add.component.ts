@@ -13,6 +13,7 @@ export class FixedPriceOfferAddComponent implements OnInit {
 
   public fixedPriceOffer: FixedPriceOffer;
   public idNft: string;
+  public routerUrl: string;
 
   constructor(private router: Router,
                 private location: Location,
@@ -22,6 +23,7 @@ export class FixedPriceOfferAddComponent implements OnInit {
     ngOnInit(): void {
       this.idNft = '/nft/' + this.router.url.split('/')[3];
       this.fixedPriceOffer = new FixedPriceOffer();
+      this.routerUrl = this.router.url;
     }
 
     onSubmit(): void {
