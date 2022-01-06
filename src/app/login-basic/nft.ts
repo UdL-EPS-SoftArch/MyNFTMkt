@@ -1,8 +1,7 @@
-import { Authority } from './authority';
 import { Resource } from '@lagoshny/ngx-hal-client';
 import { User } from './user';
 export class NFT extends Resource {
-  id: number;
+  id: string;
   title: string;
   description: string;
   keywords: string[];

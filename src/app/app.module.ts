@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
-import {NFTListComponent} from './nft/nft-list/nft-list.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {UserListComponent} from './user/user-list/user-list.component';
@@ -40,7 +39,10 @@ import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import {NftService} from './nft/nft.service';
+import { NftCreateComponent } from './nft/nft-create/nft-create.component';
+import { NftService } from './nft/nft.service';
+import {NftAddComponent} from './nft/nft-add/ntf-add.component';
+import {NftListComponent} from './nft/nft-list/nft-list.component';
 import {NFTSearchComponent} from './nft/nft-search/nft-search.component';
 import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
 
@@ -66,11 +68,13 @@ import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
     UserSearchComponent,
     UserWalletComponent,
     SaleComponent,
-    NFTListComponent,
     NFTSearchComponent,
     NftDetailComponent,
     SaleDeleteComponent,
     DecliningListComponent,
+    NftCreateComponent,
+    NftAddComponent,
+    NftListComponent,
   ],
   imports: [
     BrowserModule,
