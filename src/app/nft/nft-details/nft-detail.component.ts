@@ -7,7 +7,8 @@ import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 import { User } from '../../login-basic/user';
 @Component({
   selector: 'app-nft-detail',
-  templateUrl: './nft-detail.component.html'
+  templateUrl: './nft-detail.component.html',
+  styleUrls: ['nft-detail.component.css'],
 })
 export class NftDetailComponent implements OnInit {
   public nft: NFT = new NFT();
