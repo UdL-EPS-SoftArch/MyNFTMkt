@@ -18,7 +18,7 @@
 
     <div class="form-group">
       <label class="control-label" for="expiration">Expiration date:</label>
-      <input id="expiration" name="price" type="date" class="form-control" required
+      <input id="expiration" name="price" type="datetime-local" class="form-control" required
              [(ngModel)]="declining.expiration" #price="ngModel">
       <div class="invalid-feedback">Expiration date is required</div>
     </div>
