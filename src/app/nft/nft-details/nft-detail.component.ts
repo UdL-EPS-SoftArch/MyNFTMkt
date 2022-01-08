@@ -12,7 +12,6 @@ import { User } from '../../login-basic/user';
 })
 export class NftDetailComponent implements OnInit {
   public nft: NFT = new NFT();
-
   constructor(private route: ActivatedRoute,
               private nftService: NftService,
               private authenticationService: AuthenticationBasicService,
@@ -28,7 +27,18 @@ export class NftDetailComponent implements OnInit {
         console.log(this.nft);
       });
   }
-
+  getCurrentUser(): User {
+    return this.authenticationService.getCurrentUser();
+  }
+  onSubmit(): void {
+    const user = this.getCurrentUser();
+    user.getRelationArray(NFT, 'favoriteNFTs').subscribe( (favorites: any) => {
+      user.favoriteNFTs = favorites;
+    });
+    user.favoriteNFTs.push(this.nft);
+    console.log(user.favoriteNFTs.length);
+    console.log(user);
+  }
   open(content): void {
     this.modalService.open(content);
   }
