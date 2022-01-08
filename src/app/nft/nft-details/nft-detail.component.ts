@@ -12,6 +12,7 @@ import { User } from '../../login-basic/user';
 })
 export class NftDetailComponent implements OnInit {
   public nft: NFT = new NFT();
+  public status = false;
   constructor(private route: ActivatedRoute,
               private nftService: NftService,
               private authenticationService: AuthenticationBasicService,
@@ -35,9 +36,20 @@ export class NftDetailComponent implements OnInit {
     user.getRelationArray(NFT, 'favoriteNFTs').subscribe( (favorites: any) => {
       user.favoriteNFTs = favorites;
     });
-    user.favoriteNFTs.push(this.nft);
-    console.log(user.favoriteNFTs.length);
-    console.log(user);
+    if (!user.favoriteNFTs.some(e => e.id === this.nft.id)) {
+        user.favoriteNFTs.push(this.nft);
+        console.log('NFT added to favorites');
+        this.status = true;
+    }
+    else{
+        const index = user.favoriteNFTs.findIndex(e => e.id === this.nft.id);
+        if (user.favoriteNFTs.length === 1) {
+            user.favoriteNFTs.pop();
+        }
+        console.log('NFT removed from favorites');
+        user.favoriteNFTs = user.favoriteNFTs.slice(index, 1);
+        this.status = false;
+    }
   }
   open(content): void {
     this.modalService.open(content);
