@@ -47,26 +47,21 @@ export class NftDetailComponent implements OnInit {
   onSubmit(): void {
     if (!this.user.favoriteNFTs.some(e => e.id === this.nft.id)) {
         this.user.favoriteNFTs.push(this.nft);
-        this.userService.patch(this.user).subscribe(
-          () => {
-            this.router.navigate(['']);
-            console.log('NFT added to favorites');
-            this.status = true;
-          });
+        console.log('NFT added to favorites');
+        this.status = true;
+        this.user.updateRelation('favoriteNFTs', this.user.favoriteNFTs);
+        console.log(this.user.favoriteNFTs);
     }
     else{
         const index = this.user.favoriteNFTs.findIndex(e => e.id === this.nft.id);
         if (this.user.favoriteNFTs.length === 1) {
             this.user.favoriteNFTs.pop();
         }
-
         console.log('NFT removed from favorites');
         this.user.favoriteNFTs = this.user.favoriteNFTs.slice(index, 1);
-        this.userService.patch(this.user).subscribe(
-        () => {
-          this.router.navigate(['users']);
-        });
+        // this.user.updateRelation('favoriteNFTs', this.user.favoriteNFTs);
         this.status = false;
+        console.log(this.user.favoriteNFTs);
     }
   }
   open(content): void {
