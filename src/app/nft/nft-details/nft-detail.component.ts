@@ -62,8 +62,9 @@ export class NftDetailComponent implements OnInit {
         }
         console.log('NFT removed from favorites');
         this.user.favoriteNFTs = this.user.favoriteNFTs.slice(index, 1);
-        // this.user.updateRelation('favoriteNFTs', this.user.favoriteNFTs);
-        this.status = false;
+        this.user.deleteRelation('favoriteNFTs', this.nft).subscribe(() =>
+          this.status = false
+        );
         console.log(this.user.favoriteNFTs);
     }
   }
