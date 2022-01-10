@@ -47,7 +47,7 @@ export class NftDetailComponent implements OnInit {
     return this.authenticationService.getCurrentUser();
   }
   onSubmit(): void {
-    if (!this.user.favoriteNFTs.some(e => e.id === this.nft.id)) {
+    if (!this.user.favoriteNFTs.some(e => e.uri === this.nft.uri)) {
         this.user.favoriteNFTs.push(this.nft);
         console.log('NFT added to favorites');
         this.status = true;
@@ -55,7 +55,7 @@ export class NftDetailComponent implements OnInit {
         console.log(this.user.favoriteNFTs);
     }
     else{
-        const index = this.user.favoriteNFTs.findIndex(e => e.id === this.nft.id);
+        const index = this.user.favoriteNFTs.findIndex(e => e.uri === this.nft.uri);
         if (this.user.favoriteNFTs.length === 1) {
             this.user.favoriteNFTs.pop();
         }
