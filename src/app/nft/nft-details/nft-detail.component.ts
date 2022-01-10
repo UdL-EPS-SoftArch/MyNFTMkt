@@ -49,9 +49,10 @@ export class NftDetailComponent implements OnInit {
   onSubmit(): void {
     if (!this.user.favoriteNFTs.some(e => e.uri === this.nft.uri)) {
         this.user.favoriteNFTs.push(this.nft);
-        console.log('NFT added to favorites');
-        this.status = true;
-        this.user.updateRelation('favoriteNFTs', this.user.favoriteNFTs);
+        this.user.updateRelation('favoriteNFTs', this.user.favoriteNFTs).subscribe(() => {
+          console.log('NFT added to favorites');
+          this.status = true;
+        });
         console.log(this.user.favoriteNFTs);
     }
     else{
