@@ -27,13 +27,15 @@ export class NftDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.user = this.getCurrentUser();
-    this.user.getRelationArray(NFT, 'favoriteNFTs').subscribe( (favorites: any) => {
-      this.user.favoriteNFTs = favorites;
-    });
-    this.status = this.user.favoriteNFTs.some(e => e.id === this.nft.id);
-
     const id = this.route.snapshot.paramMap.get('id');
+    this.userService.get(this.getCurrentUser().id).subscribe(
+      user => {
+        this.user = user;
+        user.getRelationArray(NFT, 'favoriteNFTs').subscribe( (favorites: any) => {
+          this.user.favoriteNFTs = favorites;
+          this.status = this.user.favoriteNFTs.some(e => e.uri === '/nFTs/' + id);
+        });
+      });
     this.nftService.get(id).subscribe(
       nft => {
         this.nft = nft;
