@@ -12,7 +12,7 @@
         </div>
         <div class = "d-flex flex-row w-100">
           <div class="pt-3 pl-2 pb-5 text-center">
-            <p class="card-text text-center"><i class="bi-person-fill pr-2"></i>{{nft.owner.id}}</p>
+            <p class="card-text text-center"><i class="bi-person-fill pr-2"></i>{{nft.owner?.id}}</p>
           </div>
             <div class="pt-3 pl-5 justify-content-end">
               <button [ngClass]="status ? 'bi-heart-fill' : 'bi-heart'" type="submit" class="btn p-0 mr-2 ml-2" (click)="onSubmit() "></button>
@@ -28,7 +28,7 @@
             <a class="dropdown-item"
                [routerLink]="['/nFTs/']"> DecliningPriceOffer</a>
             <a class="dropdown-item"
-               [routerLink]="['/highestBidOffers/add/',nft.uri.split('/')[2]]"> HighestBidOffer</a>
+               [routerLink]="['/highestBidOffers/add/',nft.uri?.split('/')[2]]"> HighestBidOffer</a>
           </div>
         </div>
       </div>
