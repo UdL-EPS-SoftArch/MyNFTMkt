@@ -12,7 +12,7 @@
 
     <div class="form-group">
       <label class="control-label" for="expiration">Expiration date </label>
-      <input id="expiration" name="price" type="date" class="form-control"
+      <input id="expiration" name="price" type="dateTime-local" class="form-control"
              [(ngModel)]="fixedPriceOffer.dateTime" #price="ngModel">
       <div class="invalid-feedback">Introduce a valid expiration date.</div>
     </div>
