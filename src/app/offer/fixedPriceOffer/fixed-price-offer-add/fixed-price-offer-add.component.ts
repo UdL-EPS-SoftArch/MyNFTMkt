@@ -16,9 +16,9 @@ export class FixedPriceOfferAddComponent implements OnInit {
   public routerUrl: string;
 
   constructor(private router: Router,
-                private location: Location,
-                private fixedPriceOfferService: FixedPriceOfferService,)
-                 { }
+              private location: Location,
+              private fixedPriceOfferService: FixedPriceOfferService) {
+  }
 
     ngOnInit(): void {
       this.idNft = '/nft/' + this.router.url.split('/')[3];
@@ -28,6 +28,7 @@ export class FixedPriceOfferAddComponent implements OnInit {
 
     onSubmit(): void {
       this.fixedPriceOffer.nft = this.idNft;
+      this.fixedPriceOffer.dateTime = new Date(this.fixedPriceOffer.dateTime);
       this.fixedPriceOfferService.create(this.fixedPriceOffer).subscribe(
         (newFixedPriceOffer: FixedPriceOffer) => {
           this.router.navigate(['']);
