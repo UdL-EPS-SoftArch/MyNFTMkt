@@ -60,11 +60,14 @@ export class NftDetailComponent implements OnInit {
         const offersAll = [];
         this.offers = offers;
         this.totalOffers = this.offerService.totalElement();
-        console.log("Offers: " + this.totalOffers);
-        for (let i = 0; i < this.totalOffers; i++) {
-          if (this.offers[i].nft.uri === '/nFTs/' + id){
-            offersAll.push(this.offers[i]);
-          }
+        for (const offer of this.offers) {
+          offer.getRelation(NFT, 'nft').subscribe((nft: any) => {
+            offer.nft = nft.uri;
+            console.log(offer.nft);
+            if (offer.nft === '/nFTs/' + id){
+              offersAll.push(offer);
+            }
+          });
         }
         this.totalOffers = offersAll.length;
         this.offers = offersAll;

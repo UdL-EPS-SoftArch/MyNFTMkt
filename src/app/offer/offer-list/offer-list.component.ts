@@ -25,7 +25,6 @@ export class OfferListComponent implements OnInit {
       (offers: Offer[]) => {
         this.offers = offers;
         this.totalOffers = this.offerService.totalElement();
-        console.log(this.offers[0]);
       });
   }
 
