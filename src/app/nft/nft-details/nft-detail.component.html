@@ -44,6 +44,12 @@
             <p class="p-3 text-left m-auto h6 font-weight-normal d-inline-flex w-25">{{offer.expiration}}</p>
             <p class="p-3 text-left m-auto h6 font-weight-normal d-inline-flex w-25">{{getCurrentUser().id}}</p>
           </div>
+
+          <div *ngFor="let offer of fixedPriceOffers">
+            <p class="p-3 text-left m-auto h6 d-inline-flex w-50"><i class="bi bi-currency-euro align-text-bottom pr-1 h-100"></i>{{offer.price}}<span class="font-weight-normal pl-2">EUR</span></p>
+            <p class="p-3 text-left m-auto h6 font-weight-normal d-inline-flex w-25">{{offer.dateTime}}</p>
+            <p class="p-3 text-left m-auto h6 font-weight-normal d-inline-flex w-25">{{getCurrentUser().id}}</p>
+          </div>
         </div>
       </div>
     </div>

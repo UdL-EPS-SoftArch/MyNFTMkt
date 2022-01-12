@@ -11,6 +11,10 @@ import { User } from '../../login-basic/user';
 import {Subject} from 'rxjs';
 import {HighestBidOfferService} from "../../highestBidOffer/highestBidOffer.service";
 import {HighestBidOffer} from "../../login-basic/highestBidOffer";
+import {FixedPriceOfferService} from "../../offer/fixedPriceOffer/fixed-price-offer.service";
+import {FixedPriceOffer} from "../../offer/fixedPriceOffer/fixedpriceoffer";
+import {BidService} from "../../bid/bid.service";
+import {Bid} from "../../login-basic/bid";
 @Component({
   selector: 'app-nft-detail',
   templateUrl: './nft-detail.component.html',
@@ -23,20 +27,23 @@ export class NftDetailComponent implements OnInit {
   public users: User[] = [];
   public offers: Offer[] = [];
   public highestBidOffers: HighestBidOffer[] = [];
+  public fixedPriceOffers: FixedPriceOffer[] = [];
+  public bids: Bid[] = [];
   public pageSize = 5;
   public page = 1;
   public totalOffers = 0;
   public totalUsers = 0;
   public totalFavorites = 0;
   public totalHighestBidOffer = 0;
-  private success = new Subject<string>();
-  successMessage = '';
+  public totalBids = 0;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private nftService: NftService,
               private userService: UserService,
               private offerService: OfferService,
               private highestBidOfferService: HighestBidOfferService,
+              private fixedPriceOfferService: FixedPriceOfferService,
+              private bidService: BidService,
               private authenticationService: AuthenticationBasicService,
               config: NgbModalConfig, private modalService: NgbModal) {
   }
@@ -73,11 +80,14 @@ export class NftDetailComponent implements OnInit {
                   this.highestBidOffers.push(highestBidOffer);
                 });
               }
+              else if (offer.uri.split('/')[1] === 'fixedPriceOffers') {
+                this.fixedPriceOfferService.get(offer.uri.split('/')[2]).subscribe((fixedPriceOffer: FixedPriceOffer) => {
+                  this.fixedPriceOffers.push(fixedPriceOffer);
+                });
+              }
             }
           });
         }
-        this.offers = offersAll;
-        this.totalOffers = offersAll.length;
         console.log(this.offers[0]);
       });
     // How many favorites does an NFT have
