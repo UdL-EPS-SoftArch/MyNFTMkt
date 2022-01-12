@@ -58,6 +58,7 @@ const routes: Routes = [
 
   { path: 'decliningPriceOffers/add/:id', component: DecliningAddComponent},
   { path: 'decliningPriceOffers', component: DecliningListComponent},
+  { path: 'decliningPriceOffers/add', component: DecliningAddComponent},
   { path: 'decliningPriceOffers/:id', component: DecliningDetailComponent},
   { path: 'decliningPriceOffers/:id/bid', component: BidMakeComponent},
 
