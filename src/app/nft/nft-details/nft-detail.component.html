@@ -17,7 +17,7 @@
             <div class="pt-3 pl-5 justify-content-end">
               <button [ngClass]="status ? 'bi-heart-fill' : 'bi-heart'" type="submit" class="btn p-0 mr-2 ml-2" (click)="onSubmit() "></button>
             </div>
-          <p class="card-text pt-3">0 favorites</p>
+          <p class="card-text pt-3">{{totalFavorites}} favorites</p>
         </div>
         <div class="nav-item" ngbDropdown>
           <a class="nav-link dropdown-toggle" id="playerDropdownNTF" role="button"

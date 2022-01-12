@@ -18,10 +18,13 @@ export class NftDetailComponent implements OnInit {
   public nft: NFT = new NFT();
   public status = false;
   public user: User = new User();
+  public users: User[] = [];
   public offers: Offer[] = [];
   public pageSize = 5;
   public page = 1;
   public totalOffers = 0;
+  public totalUsers = 0;
+  public totalFavorites = 0;
   private success = new Subject<string>();
   successMessage = '';
   constructor(private route: ActivatedRoute,
@@ -64,6 +67,17 @@ export class NftDetailComponent implements OnInit {
         nft.getRelation(User, 'owner').subscribe((owner: User) => {this.nft.owner = owner; });
         console.log(this.nft);
       });
+    // How many favorites does an NFT have
+    this.userService.getAll({size: this.pageSize}).subscribe(
+      (users: User[]) => {
+        this.users = users;
+        this.totalUsers = this.userService.totalElement();
+        for (const user of this.users){
+          user.getRelationArray(NFT, 'favoriteNFTs').subscribe( (favorites: any) => {
+            this.totalFavorites += favorites.some(e => e.uri === '/nFTs/' + id) ? 1 : 0;
+          });
+        }
+      });
   }
   getCurrentUser(): User {
     return this.authenticationService.getCurrentUser();
@@ -74,20 +88,20 @@ export class NftDetailComponent implements OnInit {
         this.user.updateRelation('favoriteNFTs', this.user.favoriteNFTs).subscribe(() => {
           console.log('NFT added to favorites');
           this.status = true;
+          this.totalFavorites++;
         });
-        console.log(this.user.favoriteNFTs);
     }
     else{
         const index = this.user.favoriteNFTs.findIndex(e => e.uri === this.nft.uri);
         if (this.user.favoriteNFTs.length === 1) {
             this.user.favoriteNFTs.pop();
         }
-        console.log('NFT removed from favorites');
         this.user.favoriteNFTs = this.user.favoriteNFTs.slice(index, 1);
-        this.user.deleteRelation('favoriteNFTs', this.nft).subscribe(() =>
-          this.status = false
-        );
-        console.log(this.user.favoriteNFTs);
+        this.user.deleteRelation('favoriteNFTs', this.nft).subscribe(() => {
+          this.status = false;
+          this.totalFavorites--;
+          console.log('NFT removed from favorites');
+        });
     }
   }
   open(content): void {
