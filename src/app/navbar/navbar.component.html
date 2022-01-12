@@ -16,7 +16,10 @@
         <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
           <a class="dropdown-item"
              [routerLink]="['//search-by-price']"><span class="fas fa-user-circle"></span>Search By Price </a>
+          <a class="dropdown-item"
+             [routerLink]="['/fixedPriceOffers']"><span class="fas fa-user-circle"></span> Fixed Price Offers </a>
         </div>
+
       </li>
       <li class="nav-item" *ngIf="isRole('admin')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="playerDropdown" role="button"
