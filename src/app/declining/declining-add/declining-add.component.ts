@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {DecliningService} from '../declining.service';
 import {Declining} from '../declining';
 import {Location} from '@angular/common';
+import {FixedPriceOffer} from '../../offer/fixedPriceOffer/fixedpriceoffer';
 
 @Component({
   selector: 'app-user-register',
@@ -23,6 +24,7 @@ export class DecliningAddComponent implements OnInit {
   }
   onSubmit(): void {
     this.declining.nft = this.idNft;
+    this.declining.dateTime = new Date(this.declining.dateTime);
     this.declineService.create(this.declining).subscribe(
       (newDeclining: Declining) => {
         this.router.navigate(['']);
