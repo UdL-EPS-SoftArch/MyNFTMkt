@@ -37,8 +37,15 @@ export class NftDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    // Get nft
     const id = this.route.snapshot.paramMap.get('id');
+    this.nftService.get(id).subscribe(
+      nft => {
+        this.nft = nft;
+        nft.getRelation(User, 'owner').subscribe((owner: User) => {this.nft.owner = owner; });
+        console.log(this.nft);
+      });
+    // Get current user and check if this nft is one of his favorites
     this.userService.get(this.getCurrentUser().id).subscribe(
       user => {
         this.user = user;
@@ -47,7 +54,7 @@ export class NftDetailComponent implements OnInit {
           this.status = this.user.favoriteNFTs.some(e => e.uri === '/nFTs/' + id);
         });
       });
-
+    // Get all the offers on this nft
     this.offerService.getAll({size: this.pageSize}).subscribe(
       (offers: Offer[]) => {
         const offersAll = [];
@@ -65,12 +72,6 @@ export class NftDetailComponent implements OnInit {
       });
 
 
-    this.nftService.get(id).subscribe(
-      nft => {
-        this.nft = nft;
-        nft.getRelation(User, 'owner').subscribe((owner: User) => {this.nft.owner = owner; });
-        console.log(this.nft);
-      });
     // How many favorites does an NFT have
     this.userService.getAll({size: this.pageSize}).subscribe(
       (users: User[]) => {

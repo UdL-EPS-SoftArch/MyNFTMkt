@@ -23,19 +23,24 @@ export class HighestBidOfferAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.nftService.get('/nft/' + this.router.url.split('/')[3]).subscribe(
+    this.highestBidOffer = new HighestBidOffer();
+    console.log(this.router.url.split('/')[3]);
+    this.nftService.get(this.router.url.split('/')[3]).subscribe(
       nft => {
         this.nft = nft;
         nft.getRelation(User, 'owner').subscribe((owner: User) => {this.nft.owner = owner; });
         console.log(this.nft);
       });
-    this.highestBidOffer = new HighestBidOffer();
+
   }
   onSubmit(): void {
     this.highestBidOffer.nft = this.nft;
+    console.log(this.highestBidOffer.nft);
     this.highestBidOfferService.create(this.highestBidOffer).subscribe(
       (newHighestBidOffer: HighestBidOffer) => {
-        this.router.navigate(['']);
+        this.highestBidOffer.updateRelation('nft', this.nft).subscribe(() => {
+          this.router.navigate(['']);
+        });
       }
     );
   }
