@@ -15,6 +15,8 @@ import {FixedPriceOfferService} from "../../offer/fixedPriceOffer/fixed-price-of
 import {FixedPriceOffer} from "../../offer/fixedPriceOffer/fixedpriceoffer";
 import {BidService} from "../../bid/bid.service";
 import {Bid} from "../../login-basic/bid";
+import {Declining} from "../../declining/declining";
+import {DecliningService} from "../../declining/declining.service";
 @Component({
   selector: 'app-nft-detail',
   templateUrl: './nft-detail.component.html',
@@ -28,14 +30,13 @@ export class NftDetailComponent implements OnInit {
   public offers: Offer[] = [];
   public highestBidOffers: HighestBidOffer[] = [];
   public fixedPriceOffers: FixedPriceOffer[] = [];
+  public declines: Declining[] = [];
   public bids: Bid[] = [];
   public pageSize = 5;
   public page = 1;
   public totalOffers = 0;
   public totalUsers = 0;
   public totalFavorites = 0;
-  public totalHighestBidOffer = 0;
-  public totalBids = 0;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private nftService: NftService,
@@ -44,6 +45,7 @@ export class NftDetailComponent implements OnInit {
               private highestBidOfferService: HighestBidOfferService,
               private fixedPriceOfferService: FixedPriceOfferService,
               private bidService: BidService,
+              private decliningService: DecliningService,
               private authenticationService: AuthenticationBasicService,
               config: NgbModalConfig, private modalService: NgbModal) {
   }
@@ -83,6 +85,11 @@ export class NftDetailComponent implements OnInit {
               else if (offer.uri.split('/')[1] === 'fixedPriceOffers') {
                 this.fixedPriceOfferService.get(offer.uri.split('/')[2]).subscribe((fixedPriceOffer: FixedPriceOffer) => {
                   this.fixedPriceOffers.push(fixedPriceOffer);
+                });
+              }
+              else {
+                this.decliningService.get(offer.uri.split('/')[2]).subscribe( (declining: Declining) => {
+                  this.declines.push(declining);
                 });
               }
             }
