@@ -1,0 +1,28 @@
+<div class="card mb-1">
+  <div class="card-block row m-1 col-12">
+    <div class="card-body row align-items-center">
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">ID: </h6>
+        {{fixedPriceOffer?.uri?.split('/')[2]}}
+      </div>
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">NFT: </h6>
+        <p class="card-text">{{fixedPriceOffer.nft}}</p>
+      </div>
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Selling Price: </h6>
+        <p class="card-text">{{fixedPriceOffer.price}}</p>
+      </div>
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Expiration date: </h6>
+        <p class="card-text" >{{fixedPriceOffer.dateTime | date : "medium"  }}</p>
+      </div>
+
+      <div class="col-12 mt-2" >
+        <a  href="#" > <button type="button" class="btn m-1 btn-primary pull-right">Buy</button></a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
