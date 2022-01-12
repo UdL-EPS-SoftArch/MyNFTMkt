@@ -1,11 +1,12 @@
 import { Authority } from './authority';
 import { Resource } from '@lagoshny/ngx-hal-client';
+import {NFT} from './nft';
 
 export class Offer extends Resource {
   uri: string;
   id: string;
   dateTime: Date;
-  nft: string;
+  nft: NFT;
 
   constructor(values: object = {}) {
     super();

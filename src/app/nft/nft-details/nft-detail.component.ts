@@ -47,20 +47,24 @@ export class NftDetailComponent implements OnInit {
           this.status = this.user.favoriteNFTs.some(e => e.uri === '/nFTs/' + id);
         });
       });
-    let offersAll;
+
     this.offerService.getAll({size: this.pageSize}).subscribe(
       (offers: Offer[]) => {
-        offersAll = offers;
+        const offersAll = [];
+        this.offers = offers;
         this.totalOffers = this.offerService.totalElement();
-      });
-    console.log(this.totalOffers);
-    for (let i = 0; i < this.totalOffers; i++) {
-        if (offersAll[i].nft === this.nft){
-          this.offers.push(offersAll[i]);
+        console.log("Offers: " + this.totalOffers);
+        for (let i = 0; i < this.totalOffers; i++) {
+          if (this.offers[i].nft.uri === '/nFTs/' + id){
+            offersAll.push(this.offers[i]);
+          }
         }
-    }
-    this.totalOffers = this.offers.length;
-    console.log(this.totalOffers);
+        this.totalOffers = offersAll.length;
+        this.offers = offersAll;
+        console.log(this.totalOffers);
+      });
+
+
     this.nftService.get(id).subscribe(
       nft => {
         this.nft = nft;
