@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { NftService } from '../nft.service';
 import { UserService} from '../../user/user.service';
+import {OfferService} from '../../offer/offer.service';
+import {Offer} from '../../login-basic/offer';
 import { NFT } from '../../login-basic/nft';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
@@ -16,17 +18,23 @@ export class NftDetailComponent implements OnInit {
   public nft: NFT = new NFT();
   public status = false;
   public user: User = new User();
+  public offers: Offer[] = [];
+  public pageSize = 5;
+  public page = 1;
+  public totalOffers = 0;
   private success = new Subject<string>();
   successMessage = '';
   constructor(private route: ActivatedRoute,
               private router: Router,
               private nftService: NftService,
               private userService: UserService,
+              private offerService: OfferService,
               private authenticationService: AuthenticationBasicService,
               config: NgbModalConfig, private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
+
     const id = this.route.snapshot.paramMap.get('id');
     this.userService.get(this.getCurrentUser().id).subscribe(
       user => {
@@ -36,6 +44,20 @@ export class NftDetailComponent implements OnInit {
           this.status = this.user.favoriteNFTs.some(e => e.uri === '/nFTs/' + id);
         });
       });
+    let offersAll;
+    this.offerService.getAll({size: this.pageSize}).subscribe(
+      (offers: Offer[]) => {
+        offersAll = offers;
+        this.totalOffers = this.offerService.totalElement();
+      });
+    console.log(this.totalOffers);
+    for (let i = 0; i < this.totalOffers; i++) {
+        if (offersAll[i].nft === this.nft){
+          this.offers.push(offersAll[i]);
+        }
+    }
+    this.totalOffers = this.offers.length;
+    console.log(this.totalOffers);
     this.nftService.get(id).subscribe(
       nft => {
         this.nft = nft;
