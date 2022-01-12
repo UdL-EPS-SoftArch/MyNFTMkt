@@ -6,3 +6,6 @@ img {
 .btn:focus {
   box-shadow: none;
 }
+.bidSize{
+  font-size: 20px;
+}
