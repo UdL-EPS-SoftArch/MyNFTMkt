@@ -31,7 +31,7 @@ export class FixedPriceOfferAddComponent implements OnInit {
       this.fixedPriceOffer.dateTime = new Date(this.fixedPriceOffer.dateTime);
       this.fixedPriceOfferService.create(this.fixedPriceOffer).subscribe(
         (newFixedPriceOffer: FixedPriceOffer) => {
-          this.router.navigate(['']);
+          this.router.navigate([newFixedPriceOffer.uri]);
         }
       );
     }
