@@ -27,7 +27,7 @@ export class DecliningAddComponent implements OnInit {
     this.declining.dateTime = new Date(this.declining.dateTime);
     this.declineService.create(this.declining).subscribe(
       (newDeclining: Declining) => {
-        this.router.navigate(['']);
+        this.router.navigate([newDeclining.uri]);
       }
     );
   }
