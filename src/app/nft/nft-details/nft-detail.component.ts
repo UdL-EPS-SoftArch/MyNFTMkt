@@ -9,14 +9,14 @@ import { AuthenticationBasicService } from '../../login-basic/authentication-bas
 import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 import { User } from '../../login-basic/user';
 import {Subject} from 'rxjs';
-import {HighestBidOfferService} from "../../highestBidOffer/highestBidOffer.service";
-import {HighestBidOffer} from "../../login-basic/highestBidOffer";
-import {FixedPriceOfferService} from "../../offer/fixedPriceOffer/fixed-price-offer.service";
-import {FixedPriceOffer} from "../../offer/fixedPriceOffer/fixedpriceoffer";
-import {BidService} from "../../bid/bid.service";
-import {Bid} from "../../login-basic/bid";
-import {Declining} from "../../declining/declining";
-import {DecliningService} from "../../declining/declining.service";
+import {HighestBidOfferService} from '../../highestBidOffer/highestBidOffer.service';
+import {HighestBidOffer} from '../../login-basic/highestBidOffer';
+import {FixedPriceOfferService} from '../../offer/fixedPriceOffer/fixed-price-offer.service';
+import {FixedPriceOffer} from '../../offer/fixedPriceOffer/fixedpriceoffer';
+import {BidService} from '../../bid/bid.service';
+import {Bid} from '../../login-basic/bid';
+import {Declining} from '../../declining/declining';
+import {DecliningService} from '../../declining/declining.service';
 @Component({
   selector: 'app-nft-detail',
   templateUrl: './nft-detail.component.html',
@@ -57,7 +57,6 @@ export class NftDetailComponent implements OnInit {
       nft => {
         this.nft = nft;
         nft.getRelation(User, 'owner').subscribe((owner: User) => {this.nft.owner = owner; });
-        console.log(this.nft);
       });
     // Get current user and check if this nft is one of his favorites
     this.userService.get(this.getCurrentUser().id).subscribe(
@@ -69,34 +68,25 @@ export class NftDetailComponent implements OnInit {
         });
       });
     // Get all the offers on this nft
-    this.offerService.getAll({size: this.pageSize}).subscribe(
-      (offers: Offer[]) => {
-        this.offers = offers;
-        this.totalOffers = this.offerService.totalElement();
-        for (const offer of this.offers) {
-          offer.getRelation(NFT, 'nft').subscribe((nft: any) => {
-            offer.nft = nft.uri;
-            if (offer.nft === '/nFTs/' + id){
-              if (offer.uri.split('/')[1] === 'highestBidOffers') {
-                this.highestBidOfferService.get(offer.uri.split('/')[2]).subscribe((highestBidOffer: HighestBidOffer) => {
-                  this.highestBidOffers.push(highestBidOffer);
-                });
-              }
-              else if (offer.uri.split('/')[1] === 'fixedPriceOffers') {
-                this.fixedPriceOfferService.get(offer.uri.split('/')[2]).subscribe((fixedPriceOffer: FixedPriceOffer) => {
-                  this.fixedPriceOffers.push(fixedPriceOffer);
-                });
-              }
-              else {
-                this.decliningService.get(offer.uri.split('/')[2]).subscribe( (declining: Declining) => {
-                  this.declines.push(declining);
-                });
-              }
-            }
+    this.offerService.findByNftOrderByDateTime(this.nft).subscribe( (offers: Offer[]) => {
+      this.offers = offers;
+      const offer = offers[0];
+      if (offer !== null) {
+        if (offer.uri.split('/')[1] === 'highestBidOffers') {
+          this.highestBidOfferService.get(offer.uri.split('/')[2]).subscribe((highestBidOffer: HighestBidOffer) => {
+            this.highestBidOffers.push(highestBidOffer);
+          });
+        } else if (offer.uri.split('/')[1] === 'fixedPriceOffers') {
+          this.fixedPriceOfferService.get(offer.uri.split('/')[2]).subscribe((fixedPriceOffer: FixedPriceOffer) => {
+            this.fixedPriceOffers.push(fixedPriceOffer);
+          });
+        } else {
+          this.decliningService.get(offer.uri.split('/')[2]).subscribe((declining: Declining) => {
+            this.declines.push(declining);
           });
         }
-        console.log(this.offers[0]);
-      });
+      }
+    });
     // How many favorites does an NFT have
     this.userService.getAll({size: this.pageSize}).subscribe(
       (users: User[]) => {
@@ -115,6 +105,7 @@ export class NftDetailComponent implements OnInit {
   onSubmit(): void {
     if (!this.user.favoriteNFTs.some(e => e.uri === this.nft.uri)) {
         this.user.favoriteNFTs.push(this.nft);
+        console.log(this.user.favoriteNFTs);
         this.user.updateRelation('favoriteNFTs', this.user.favoriteNFTs).subscribe(() => {
           console.log('NFT added to favorites');
           this.status = true;
