@@ -38,6 +38,8 @@ import {PreviewCardComponent} from './search-by-price/components/preview-card/pr
 import {SearchByPriceComponent} from './search-by-price/search-by-price.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
+import {DecliningDetailComponent} from './declining/declining-detail/declining-detail.component';
+import {DecliningAddComponent} from './declining/declining-add/declining-add.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NftCreateComponent } from './nft/nft-create/nft-create.component';
@@ -80,6 +82,8 @@ import { FixedPriceOfferListComponent } from './offer/fixedPriceOffer/fixed-pric
     NftCreateComponent,
     NftAddComponent,
     NftListComponent,
+    DecliningDetailComponent,
+    DecliningAddComponent,
     FixedPriceOfferAddComponent,
     FixedPriceOfferDetailComponent,
     FixedPriceOfferListComponent,

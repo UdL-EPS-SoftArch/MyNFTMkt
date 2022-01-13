@@ -21,6 +21,8 @@ import {NftListComponent} from './nft/nft-list/ntf-list.component';
 import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
 import {SearchByPriceComponent} from './search-by-price/search-by-price.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
+import {DecliningDetailComponent} from './declining/declining-detail/declining-detail.component';
+import {DecliningAddComponent} from './declining/declining-add/declining-add.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {NftCreateComponent} from './nft/nft-create/nft-create.component';
 import { FixedPriceOfferAddComponent } from './offer/fixedPriceOffer/fixed-price-offer-add/fixed-price-offer-add.component';
@@ -60,7 +62,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
   { path: 'search-by-price', component: SearchByPriceComponent},
+
+  { path: 'decliningPriceOffers/add/:id', component: DecliningAddComponent},
   { path: 'decliningPriceOffers', component: DecliningListComponent},
+  { path: 'decliningPriceOffers/add', component: DecliningAddComponent},
+  { path: 'decliningPriceOffers/:id', component: DecliningDetailComponent},
+  { path: 'decliningPriceOffers/:id/bid', component: BidMakeComponent},
+
   { path: 'sales/:id/delete', component: SaleDeleteComponent},
 ];
 
