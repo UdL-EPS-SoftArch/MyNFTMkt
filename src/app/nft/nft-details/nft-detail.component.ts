@@ -56,7 +56,29 @@ export class NftDetailComponent implements OnInit {
     this.nftService.get(id).subscribe(
       nft => {
         this.nft = nft;
-        nft.getRelation(User, 'owner').subscribe((owner: User) => {this.nft.owner = owner; });
+        nft.getRelation(User, 'owner').subscribe((owner: User) => {
+          this.nft.owner = owner;
+          // Get all the offers on this nft
+          this.offerService.findByNftOrderByDateTime(this.nft).subscribe( (offers: Offer[]) => {
+            this.offers = offers;
+            const offer = offers[0];
+            if (offer !== null) {
+              if (offer.uri.split('/')[1] === 'highestBidOffers') {
+                this.highestBidOfferService.get(offer.uri.split('/')[2]).subscribe((highestBidOffer: HighestBidOffer) => {
+                  this.highestBidOffers.push(highestBidOffer);
+                });
+              } else if (offer.uri.split('/')[1] === 'fixedPriceOffers') {
+                this.fixedPriceOfferService.get(offer.uri.split('/')[2]).subscribe((fixedPriceOffer: FixedPriceOffer) => {
+                  this.fixedPriceOffers.push(fixedPriceOffer);
+                });
+              } else {
+                this.decliningService.get(offer.uri.split('/')[2]).subscribe((declining: Declining) => {
+                  this.declines.push(declining);
+                });
+              }
+            }
+          });
+        });
       });
     // Get current user and check if this nft is one of his favorites
     this.userService.get(this.getCurrentUser().id).subscribe(
@@ -67,26 +89,7 @@ export class NftDetailComponent implements OnInit {
           this.status = this.user.favoriteNFTs.some(e => e.uri === '/nFTs/' + id);
         });
       });
-    // Get all the offers on this nft
-    this.offerService.findByNftOrderByDateTime(this.nft).subscribe( (offers: Offer[]) => {
-      this.offers = offers;
-      const offer = offers[0];
-      if (offer !== null) {
-        if (offer.uri.split('/')[1] === 'highestBidOffers') {
-          this.highestBidOfferService.get(offer.uri.split('/')[2]).subscribe((highestBidOffer: HighestBidOffer) => {
-            this.highestBidOffers.push(highestBidOffer);
-          });
-        } else if (offer.uri.split('/')[1] === 'fixedPriceOffers') {
-          this.fixedPriceOfferService.get(offer.uri.split('/')[2]).subscribe((fixedPriceOffer: FixedPriceOffer) => {
-            this.fixedPriceOffers.push(fixedPriceOffer);
-          });
-        } else {
-          this.decliningService.get(offer.uri.split('/')[2]).subscribe((declining: Declining) => {
-            this.declines.push(declining);
-          });
-        }
-      }
-    });
+
     // How many favorites does an NFT have
     this.userService.getAll({size: this.pageSize}).subscribe(
       (users: User[]) => {
