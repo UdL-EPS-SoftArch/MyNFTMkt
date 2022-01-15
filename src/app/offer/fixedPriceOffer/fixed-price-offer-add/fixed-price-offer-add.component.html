@@ -1,0 +1,28 @@
+<p>Create a fixed price offer for {{this.routerUrl}}</p>
+
+<form id="bid-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+    <div class="form-group">
+      <label class="control-label" for="Price">Price to be sold *</label>
+      <input id="Price" name="price" type="number" class="form-control" required
+             [(ngModel)]="fixedPriceOffer.price" #price="ngModel">
+      <div class="invalid-feedback">Price is required to create a fixed price offer.</div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="expiration">Expiration date </label>
+      <input id="expiration" name="price" type="dateTime-local" class="form-control"
+             [(ngModel)]="fixedPriceOffer.dateTime" #price="ngModel">
+      <div class="invalid-feedback">Introduce a valid expiration date.</div>
+    </div>
+
+
+    <!-- Button -->
+    <div class="form-group">
+      <button id="submit" type="submit" class="btn m-1 btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
+      <button id="listBtn" type="button" (click)="onCancel()" class="btn m-1 btn-outline-primary pull-right">Back</button>
+    </div>
+
+  </fieldset>
+</form>

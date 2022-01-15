@@ -16,7 +16,7 @@
             <a class="card-text" [routerLink]="['/decliningPriceOffers', decliningvalue.id]">{{decliningvalue.id}}</a>
             <div class="card-text"><b>Starting price:</b> {{decliningvalue.startingPrice}}</div>
             <div class="card-text"><b>Ending price:</b> {{decliningvalue.endingPrice}}</div>
-            <div class="card-text"><b>Expiration date:</b> {{decliningvalue.expiration| date : 'dd/MM/yyyy hh:mm:ss'}}</div>
+            <div class="card-text"><b>Expiration date:</b> {{decliningvalue.expiration| date : 'full'}}</div>
           </div>
         </div>
       </div>
