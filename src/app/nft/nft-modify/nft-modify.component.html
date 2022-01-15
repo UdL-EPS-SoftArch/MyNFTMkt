@@ -1,0 +1,71 @@
+<form id="bid-form" (ngSubmit)="onSubmit()" #form="ngForm">
+  <fieldset>
+
+
+    <!--  title-->
+    <div class="form-group" >
+      <label class="control-label" for="title">New Title</label>
+      <input id="title" name="title" type="text" class="form-control" required
+             [(ngModel)]="nft.title" #title="ngModel">
+    </div>
+
+    <!-- description -->
+
+    <div class="form-group" >
+      <label class="control-label" for="description">New Description</label>
+      <input id="description" name="description" type="text" class="form-control"
+             [(ngModel)]="nft.description" #description="ngModel">
+    </div>
+
+    <!-- keywords
+
+    <div class="form-group" >
+      <label class="control-label" for="keywords">Keywords</label>
+      <input id="keywords" name="keywords" type="text" class="form-control"
+             [(ngModel)]="nft.keywords" #keywords="ngModel">
+    </div>
+    -->
+    <!--category-->
+    <div class="form-group" >
+      <label class="control-label" for="keywords">New Category</label>
+      <input id="category" name="category" type="text" class="form-control"
+             [(ngModel)]="nft.category" #category="ngModel">
+    </div>
+
+    <!--mediaType -->
+    <div class="form-group" >
+      <label class="control-label" for="keywords">New MediaType</label>
+      <input id="mediaType" name="mediaType" type="text" class="form-control"
+             [(ngModel)]="nft.mediaType" #mediaType="ngModel">
+    </div>
+
+    <!--content  -->
+    <div class="form-group" >
+      <label class="control-label" for="keywords">New Content</label>
+      <input id="content" name="content" type="text" class="form-control"
+             [(ngModel)]="nft.content" #content="ngModel">
+    </div>
+
+
+    <!-- Button -->
+    <div class="form-group">
+      <button id="submit" type="submit" class="btn m-1 btn-success pull-right" [disabled]="!form.form.valid">Submit</button>
+
+    </div>
+
+
+
+    <!-- description -->
+
+    <!-- keywords -->
+
+    <!--category-->
+
+    <!--mediaType -->
+
+    <!--content  -->
+
+
+
+  </fieldset>
+</form>

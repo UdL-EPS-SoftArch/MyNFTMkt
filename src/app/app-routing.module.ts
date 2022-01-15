@@ -18,6 +18,7 @@ import {UserWalletComponent} from './user/user-wallet/user-wallet.component';
 import {SaleComponent} from './sale/sale.component';
 import {NftAddComponent} from './nft/nft-add/ntf-add.component';
 import {NftDeleteComponent} from './nft/nft-delete/nft-delete.component';
+import {NftModifyComponent} from './nft/nft-modify/nft-modify.component';
 import {NftListComponent} from './nft/nft-list/ntf-list.component';
 import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
 import {SearchByPriceComponent} from './search-by-price/search-by-price.component';
@@ -57,6 +58,7 @@ const routes: Routes = [
   { path: 'nFTs', component: NftListComponent , canActivate: [LoggedInGuard]},
   { path: 'nFTs/:id', component: NftDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'nFTs/delete/:id', component: NftDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'nFTs/modify/:id', component:  NftModifyComponent, canActivate: [LoggedInGuard]},
 
   { path: 'offers', component: OfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},

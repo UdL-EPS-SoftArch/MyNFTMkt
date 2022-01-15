@@ -48,6 +48,7 @@ import {NftAddComponent} from './nft/nft-add/ntf-add.component';
 import {NftListComponent} from './nft/nft-list/ntf-list.component';
 import {NFTSearchComponent} from './nft/nft-search/nft-search.component';
 import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
+import {NftModifyComponent} from './nft/nft-modify/nft-modify.component';
 import { FixedPriceOfferAddComponent } from './offer/fixedPriceOffer/fixed-price-offer-add/fixed-price-offer-add.component';
 import { FixedPriceOfferDetailComponent } from './offer/fixedPriceOffer/fixed-price-offer-detail/fixed-price-offer-detail.component';
 import { FixedPriceOfferListComponent } from './offer/fixedPriceOffer/fixed-price-offer-list/fixed-price-offer-list.component';
@@ -77,6 +78,7 @@ import { FixedPriceOfferListComponent } from './offer/fixedPriceOffer/fixed-pric
     NFTListComponent,
     NFTSearchComponent,
     NftDetailComponent,
+    NftModifyComponent,
     SaleDeleteComponent,
     DecliningListComponent,
     NftCreateComponent,
