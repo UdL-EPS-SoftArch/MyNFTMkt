@@ -56,7 +56,7 @@ const routes: Routes = [
   { path: 'nFTs/add', component: NftAddComponent , canActivate: [LoggedInGuard]},
   { path: 'nFTs', component: NftListComponent , canActivate: [LoggedInGuard]},
   { path: 'nFTs/:id', component: NftDetailComponent, canActivate: [LoggedInGuard]},
-  { path: 'nFTs/:id/delete', component: nftDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'nFTs/delete/:id', component: nftDeleteComponent, canActivate: [LoggedInGuard]},
 
   { path: 'offers', component: OfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
