@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {NFT} from '../../login-basic/nft';
 import {NftService} from '../nft.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Location } from '@angular/common';
 
 @Component({
   selector: 'app-nft-delete',
@@ -14,7 +15,8 @@ export class NftDeleteComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private nftService: NftService) { }
+              private nftService: NftService,
+              private location: Location) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -26,6 +28,10 @@ export class NftDeleteComponent implements OnInit {
       () => {
         this.router.navigate(['/nFTs']);
       });
+  }
+
+  onCancel(): void {
+    this.location.back();
   }
 
 }
