@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {Location } from '@angular/common'
+import {Location } from '@angular/common';
 
 import {NFT} from '../../login-basic/nft';
-import {NftService } from '../nft.service'
+import {NftService } from '../nft.service';
 
 @Component({
   selector: 'app-nft-create',
@@ -15,12 +15,12 @@ export class NftCreateComponent implements OnInit {
 
   constructor(private route: Router,
               private location: Location,
-             private nftService: NftService,
+              private nftService: NftService,
   ) {
   }
 
   ngOnInit(): void {
-    this.idNFT = this.route.url.substr(0, this.route.url.lastIndexOf('/nft'));
+    this.idNFT = this.route.url.substr(0, this.route.url.lastIndexOf('/nFTs'));
     this.nft = new NFT();
   }
 
@@ -28,7 +28,7 @@ export class NftCreateComponent implements OnInit {
     this.nft.id = this.idNFT;
     this.nftService.create(this.nft).subscribe(
       (newNFT: NFT) => {
-        this.route.navigate(['nft']);
+        this.route.navigate(['nFTs']);
       }
     );
   }

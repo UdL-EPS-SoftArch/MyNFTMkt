@@ -1,4 +1,3 @@
-import { Authority } from './authority';
 import { Resource } from '@lagoshny/ngx-hal-client';
 
 export class NFT extends Resource {
@@ -9,9 +8,10 @@ export class NFT extends Resource {
   category: string;
   mediaType: string;
   content: string;
-
+  uri: string;
   constructor(values: object = {}) {
     super();
     Object.assign(this as any, values);
   }
 }
+

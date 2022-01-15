@@ -8,6 +8,7 @@ export class Bid extends Resource {
   dateTime: Date;
   uri: string;
   offer: string;
+  bidder: string;
 
 
 

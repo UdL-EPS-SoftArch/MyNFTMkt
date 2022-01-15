@@ -1,6 +1,19 @@
 <!-- <app-bid-search (emitResults)="detail($event)"></app-bid-search> -->
+<div class="card-block row m-1 col-12">
+  <div class="card-body row align-items-center">
 
+    <div class="col-4 mt-2" >
+      <a  [routerLink]="['../fixedPriceOffers']" > <button type="button" class="btn m-1 btn-primary pull-right"> Fixed Price Offer</button></a>
+    </div>
+    <div class="col-4 mt-2" >
+      <a href="#"> <button type="button" class="btn m-1 btn-primary pull-right"> Declining Price Offer</button></a>
+    </div>
+    <div class="col-4 mt-2" >
+      <a  [routerLink]="['../highestBidOffers']" > <button type="button" class="btn m-1 btn-primary pull-right"> Highest Bid Offer</button></a>
+    </div>
 
+  </div>
+</div>
 <div class="card mb-1" *ngFor="let offer of offers">
 
   <div class="card-block row m-1 col-12">
