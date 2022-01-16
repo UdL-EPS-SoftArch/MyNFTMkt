@@ -17,6 +17,8 @@ import {BidService} from '../../bid/bid.service';
 import {Bid} from '../../login-basic/bid';
 import {Declining} from '../../declining/declining';
 import {DecliningService} from '../../declining/declining.service';
+import {switchMap} from 'rxjs/operators';
+import {Observable} from 'rxjs/internal/Observable';
 @Component({
   selector: 'app-nft-detail',
   templateUrl: './nft-detail.component.html',
@@ -28,9 +30,9 @@ export class NftDetailComponent implements OnInit {
   public user: User = new User();
   public users: User[] = [];
   public offers: Offer[] = [];
-  public highestBidOffers: HighestBidOffer[] = [];
-  public fixedPriceOffers: FixedPriceOffer[] = [];
-  public declines: Declining[] = [];
+  public highestBidOffer: HighestBidOffer = new HighestBidOffer();
+  public fixedPriceOffer: FixedPriceOffer = new FixedPriceOffer();
+  public decline: Declining = new Declining();
   public bids: Bid[] = [];
   public pageSize = 5;
   public page = 1;
@@ -49,11 +51,36 @@ export class NftDetailComponent implements OnInit {
               private authenticationService: AuthenticationBasicService,
               config: NgbModalConfig, private modalService: NgbModal) {
   }
-
+  deriveOffer(offer: Offer): Observable<any> {
+    if (offer !== null) {
+      if (offer.uri.split('/')[1] === 'highestBidOffers') {
+        return this.highestBidOfferService.get(offer.uri.split('/')[2]);
+      } else if (offer.uri.split('/')[1] === 'fixedPriceOffers') {
+        return this.fixedPriceOfferService.get(offer.uri.split('/')[2]);
+      } else {
+        return this.decliningService.get(offer.uri.split('/')[2]);
+      }
+    }
+  }
   ngOnInit(): void {
     // Get nft
     const id = this.route.snapshot.paramMap.get('id');
-    this.nftService.get(id).subscribe(
+    // Find nft, then find all the offers for that nft, display the newest offer
+    this.nftService.get(id).pipe(
+      switchMap( nft => { this.nft = nft; return this.offerService.findByNftOrderByDateTime(nft); }),
+      switchMap( offers => this.deriveOffer(offers[0]))
+    ).subscribe((offer: any) => {
+      if (offer instanceof HighestBidOffer) {
+        this.highestBidOffer = offer;
+      }
+      else if (offer instanceof FixedPriceOffer) {
+        this.fixedPriceOffer = offer;
+      }
+      else {
+        this.decline = offer;
+      }
+    });
+    /*this.nftService.get(id).subscribe(
       nft => {
         this.nft = nft;
         nft.getRelation(User, 'owner').subscribe((owner: User) => {
@@ -79,7 +106,7 @@ export class NftDetailComponent implements OnInit {
             }
           });
         });
-      });
+      });*/
     // Get current user and check if this nft is one of his favorites
     this.userService.get(this.getCurrentUser().id).subscribe(
       user => {
