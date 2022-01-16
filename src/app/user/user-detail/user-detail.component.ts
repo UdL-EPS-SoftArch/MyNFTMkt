@@ -8,7 +8,8 @@ import {NFT} from '../../login-basic/nft';
 
 @Component({
   selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html'
+  templateUrl: './user-detail.component.html',
+  styleUrls: ['user-detail.component.css'],
 })
 export class UserDetailComponent implements OnInit {
   public user: User = new User();
