@@ -62,13 +62,17 @@ export class NftDetailComponent implements OnInit {
       }
     }
   }
+  checkIfEmpty(obj: any): boolean {
+    return Object.keys(obj).length === 0;
+  }
   ngOnInit(): void {
     // Get nft
     const id = this.route.snapshot.paramMap.get('id');
     // Find nft, then find all the offers for that nft, display the newest offer
     this.nftService.get(id).pipe(
-      switchMap( nft => { this.nft = nft; return this.offerService.findByNftOrderByDateTime(nft); }),
-      switchMap( offers => this.deriveOffer(offers[0]))
+      switchMap( nft => { this.nft = nft; return this.nft.getRelation(User, 'owner'); }),
+      switchMap( owner => { this.nft.owner = owner; return this.offerService.findByNftOrderByDateTime(this.nft); }),
+      switchMap( offers => this.deriveOffer(offers[0])),
     ).subscribe((offer: any) => {
       if (offer instanceof HighestBidOffer) {
         this.highestBidOffer = offer;
