@@ -36,4 +36,10 @@ export class OfferListComponent implements OnInit {
   detail(offer: Offer): void {
     this.router.navigate(['Offer', offer.id]);
   }
+  deleteRow(offer): void{
+    this.offerService.delete(offer).subscribe(() => {
+      console.log('Offer removed');
+      window.location.reload();
+    });
+  }
 }

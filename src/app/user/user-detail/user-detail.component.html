@@ -25,17 +25,20 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body container">
+          <div class="modal-body container d-flex row">
+            <div class="col-5 p-5 m-auto text-center d-flex row">
+              <img src={{item.content}}>
+              <h5 class="m-auto">{{item.title}}</h5>
+            </div>
+            <div>
             <h5 class="card-subtitle text-muted ">- Description: </h5>
             <p class="ml-3 pl-3 pt-2">{{item.description}}</p>
             <h5 class="card-subtitle text-muted ">- Keywords: </h5>
             <p *ngFor="let keyword of item.keywords" class="ml-3 pl-3 pt-2 pb-0">{{keyword}}</p>
             <h5 class="card-subtitle text-muted ">- Category: </h5>
             <p class="ml-3 pl-3 pt-2">{{item.category}}</p>
-            <h5 class="card-subtitle text-muted ">- Media type: </h5>
-            <p class="ml-3 pl-3 pt-2">{{item.mediaType}}</p>
-            <h5 class="card-subtitle text-muted ">- Content: </h5>
-            <p class="ml-3 pl-3 pt-2">{{item.content}}</p>
+            </div>
+
           </div>
 
         </ng-template>

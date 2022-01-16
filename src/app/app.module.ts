@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
-import {NFTListComponent} from './nft/nft-list/nft-list.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {UserListComponent} from './user/user-list/user-list.component';
@@ -45,7 +44,7 @@ import { environment } from '../environments/environment';
 import { NftCreateComponent } from './nft/nft-create/nft-create.component';
 import { NftService } from './nft/nft.service';
 import {NftAddComponent} from './nft/nft-add/ntf-add.component';
-import {NftListComponent} from './nft/nft-list/ntf-list.component';
+import {NftListComponent} from './nft/nft-list/nft-list.component';
 import {NFTSearchComponent} from './nft/nft-search/nft-search.component';
 import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
 import { FixedPriceOfferAddComponent } from './offer/fixedPriceOffer/fixed-price-offer-add/fixed-price-offer-add.component';
@@ -74,7 +73,6 @@ import { FixedPriceOfferListComponent } from './offer/fixedPriceOffer/fixed-pric
     UserSearchComponent,
     UserWalletComponent,
     SaleComponent,
-    NFTListComponent,
     NFTSearchComponent,
     NftDetailComponent,
     SaleDeleteComponent,

@@ -1,16 +1,36 @@
 <app-nft-search (emitResults)="detail($event)"></app-nft-search>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Title</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let nft of NFTs">
+    <th scope="row" class = "align-middle">{{nft.uri.split('/')[2]}}</th>
+    <th scope="col" class ="align-middle"><a class="card-text" [routerLink]="[nft.uri]">{{nft.title}}</a></th>
+    <th scope="col">
 
-<div class="card mb-1" *ngFor="let nft of NFTs">
-  <div class="card-block row m-1 col-12">
-    <div class="card-body row align-items-center">
-      <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Title</h6>
-        <a class="card-text" [routerLink]="[nft.uri]">{{nft.title}}</a>
+      <div class="nav-item" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="playerDropdownNTF" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Create an offer</a>
+        <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
+          <a class="dropdown-item"
+             [routerLink]="['/fixedPriceOffers/add/',nft.uri.split('/')[2]]"> FixedPriceOffer </a>
+          <a class="dropdown-item"
+             [routerLink]="['/decliningPriceOffers/add/',nft.uri.split('/')[2]]"> DecliningPriceOffer</a>
+          <a class="dropdown-item"
+             [routerLink]="['/highestBidOffers/add/',nft.uri.split('/')[2]]"> HighestBidOffer</a>
+          <a class="dropdown-item"
+             [routerLink]="['/nFTs/delete/', nft.uri.split('/')[2]]"> Delete NFT</a>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-
+    </th>
+  </tr>
+  </tbody>
+</table>
 <ngb-pagination class="d-flex justify-content-center"
                 [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalNFTs"
                 (pageChange)="changePage()"></ngb-pagination>

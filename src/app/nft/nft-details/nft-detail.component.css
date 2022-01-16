@@ -1,0 +1,11 @@
+img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.btn:focus {
+  box-shadow: none;
+}
+.bidSize{
+  font-size: 20px;
+}
