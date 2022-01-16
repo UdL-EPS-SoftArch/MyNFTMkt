@@ -2,6 +2,9 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NftService } from '../nft.service';
 import { NFT } from '../../login-basic/nft';
+import  { User } from '../../login-basic/user';
+import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
+
 
 @Component({
   selector: 'app-bid-list',
@@ -15,7 +18,8 @@ export class NftListComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private nftService: NftService) {
+    private nftService: NftService,
+    private authenticationBasicService: AuthenticationBasicService, ) {
   }
 
   ngOnInit(): void {
@@ -23,6 +27,7 @@ export class NftListComponent implements OnInit {
       (nfts: NFT[]) => {
         this.nfts = nfts;
         console.log(this.nfts);
+        
         this.totalNfts = this.nftService.totalElement();
       });
   }
@@ -30,5 +35,9 @@ export class NftListComponent implements OnInit {
   changePage(): void {
     this.nftService.page(this.page - 1).subscribe(
       (nft: NFT[]) => this.nfts = nft);
+  }
+
+  getCurrentUser(): User {
+    return this.authenticationBasicService.getCurrentUser();
   }
 }

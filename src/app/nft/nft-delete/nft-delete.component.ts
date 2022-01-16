@@ -1,7 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import {NFT} from '../../login-basic/nft';
+import {User} from '../../login-basic/user';
 import {NftService} from '../nft.service';
+import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location } from '@angular/common';
 
@@ -16,6 +18,7 @@ export class NftDeleteComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private nftService: NftService,
+              private authenticationService: AuthenticationBasicService,
               private location: Location) { }
 
   ngOnInit(): void {
@@ -32,6 +35,10 @@ export class NftDeleteComponent implements OnInit {
 
   onCancel(): void {
     this.location.back();
+  }
+
+  getCurrentUser(): User {
+    return this.authenticationService.getCurrentUser();
   }
 
 }

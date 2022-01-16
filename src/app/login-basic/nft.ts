@@ -1,4 +1,5 @@
 import { Resource } from '@lagoshny/ngx-hal-client';
+import { User } from '../login-basic/user';
 
 export class NFT extends Resource {
   id: string;
@@ -9,6 +10,9 @@ export class NFT extends Resource {
   mediaType: string;
   content: string;
   uri: string;
+  owner: User;
+  author: User;
+
   constructor(values: object = {}) {
     super();
     Object.assign(this as any, values);

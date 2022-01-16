@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {Location } from '@angular/common';
-
+import { Location } from '@angular/common';
+import  { User } from '../../login-basic/user';
+import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import {NFT} from '../../login-basic/nft';
 import {NftService } from '../nft.service';
 
@@ -12,10 +13,14 @@ import {NftService } from '../nft.service';
 export class NftCreateComponent implements OnInit {
   public nft: NFT;
   public idNFT: string;
+  public author: User;
+  public owner: User;
+
 
   constructor(private route: Router,
               private location: Location,
               private nftService: NftService,
+              private autenticationBasicService: AuthenticationBasicService,
   ) {
   }
 
@@ -26,6 +31,8 @@ export class NftCreateComponent implements OnInit {
 
   onSubmit(): void{
     this.nft.id = this.idNFT;
+    this.nft.author = this.autenticationBasicService.getCurrentUser();
+    this.nft.owner = this.autenticationBasicService.getCurrentUser();
     this.nftService.create(this.nft).subscribe(
       (newNFT: NFT) => {
         this.route.navigate(['nFTs']);
