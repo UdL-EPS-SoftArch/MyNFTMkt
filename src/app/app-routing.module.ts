@@ -17,12 +17,18 @@ import {HighestBidOfferDetailComponent} from './highestBidOffer/highestBidOffer-
 import {UserWalletComponent} from './user/user-wallet/user-wallet.component';
 import {SaleComponent} from './sale/sale.component';
 import {NftAddComponent} from './nft/nft-add/ntf-add.component';
+import {NftDeleteComponent} from './nft/nft-delete/nft-delete.component';
 import {NftListComponent} from './nft/nft-list/nft-list.component';
 import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
 import {SearchByPriceComponent} from './search-by-price/search-by-price.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
+import {DecliningDetailComponent} from './declining/declining-detail/declining-detail.component';
+import {DecliningAddComponent} from './declining/declining-add/declining-add.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {NftCreateComponent} from './nft/nft-create/nft-create.component';
+import { FixedPriceOfferAddComponent } from './offer/fixedPriceOffer/fixed-price-offer-add/fixed-price-offer-add.component';
+import { FixedPriceOfferDetailComponent } from './offer/fixedPriceOffer/fixed-price-offer-detail/fixed-price-offer-detail.component';
+import { FixedPriceOfferListComponent } from './offer/fixedPriceOffer/fixed-price-offer-list/fixed-price-offer-list.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -34,11 +40,14 @@ const routes: Routes = [
   { path: 'bids', component: BidListComponent, canActivate: [LoggedInGuard]},
   { path: 'bids/make/:id', component: BidMakeComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/add/:id', component: HighestBidOfferAddComponent, canActivate: [LoggedInGuard]},
-  { path: 'highestBidOffers/add/:id', component: HighestBidOfferAddComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/add', component: HighestBidOfferAddComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers', component: HighestBidOfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/:id', component: HighestBidOfferDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'highestBidOffers/:id/bid', component: BidMakeComponent , canActivate: [LoggedInGuard]},
+
+  { path: 'fixedPriceOffers/add/:id', component: FixedPriceOfferAddComponent, canActivate: [LoggedInGuard]},
+  { path: 'fixedPriceOffers', component: FixedPriceOfferListComponent, canActivate: [LoggedInGuard]},
+  { path: 'fixedPriceOffers/:id', component: FixedPriceOfferDetailComponent, canActivate: [LoggedInGuard]},
 
   { path: 'nFTs/create', component: NftCreateComponent},
 
@@ -46,6 +55,7 @@ const routes: Routes = [
   { path: 'nFTs/add', component: NftAddComponent , canActivate: [LoggedInGuard]},
   { path: 'nFTs', component: NftListComponent , canActivate: [LoggedInGuard]},
   { path: 'nFTs/:id', component: NftDetailComponent, canActivate: [LoggedInGuard]},
+  { path: 'nFTs/delete/:id', component: NftDeleteComponent, canActivate: [LoggedInGuard]},
 
   { path: 'offers', component: OfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
@@ -53,7 +63,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
   { path: 'search-by-price', component: SearchByPriceComponent},
+
+  { path: 'decliningPriceOffers/add/:id', component: DecliningAddComponent},
   { path: 'decliningPriceOffers', component: DecliningListComponent},
+  { path: 'decliningPriceOffers/add', component: DecliningAddComponent},
+  { path: 'decliningPriceOffers/:id', component: DecliningDetailComponent},
+  { path: 'decliningPriceOffers/:id/bid', component: BidMakeComponent},
+
   { path: 'sales/:id/delete', component: SaleDeleteComponent},
 ];
 
