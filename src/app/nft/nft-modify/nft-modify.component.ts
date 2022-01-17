@@ -6,11 +6,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-nft-delete',
-  templateUrl: './nft-delete.component.html',
+  templateUrl: './nft-modify.component.html',
 })
-export class NftDeleteComponent implements OnInit {
-  public nft: NFT = new NFT();
-  public id: string;
+export class NftModifyComponent implements OnInit {
+  public nft: NFT;
+  public idNFT: string;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -18,19 +18,21 @@ export class NftDeleteComponent implements OnInit {
               private location: Location) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.nftService.get(this.id).subscribe(
+    const id = this.route.snapshot.paramMap.get('id');
+    this.nftService.get(id).subscribe(
       nft => this.nft = nft);
   }
-  delete(): void {
-    this.nftService.delete(this.nft).subscribe(
-      () => {
-        this.router.navigate(['/nFTs']);
+
+  onSubmit(): void{
+    this.nftService.update(this.nft).subscribe(
+      (newNFT: NFT) => {
+        this.router.navigate(['nFTs']);
       });
   }
 
-  onCancel(): void {
+  onCancel(): void{
     this.location.back();
   }
 
 }
+
