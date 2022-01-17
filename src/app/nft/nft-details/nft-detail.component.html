@@ -69,5 +69,22 @@
       </div>
     </div>
 
+
+
 </div>
+
+
 </div>
+
+
+<div class="nav-item"  align="right">
+  <button id="deleteBtn" type="button"
+          [routerLink]="['/nFTs/delete/', nft.uri.split('/')[2]]"
+          class="btn btn-outline-danger m-1">Delete</button>
+  <button id="modifyBtn" type="button"
+          [routerLink]="['/nFTs/modify/', nft.uri.split('/')[2]]"
+          class="btn m-1 btn-outline-primary pull-right">Modify</button>
+
+
+</div>
+
