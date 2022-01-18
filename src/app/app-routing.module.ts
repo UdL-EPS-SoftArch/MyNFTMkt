@@ -29,6 +29,7 @@ import {NftCreateComponent} from './nft/nft-create/nft-create.component';
 import { FixedPriceOfferAddComponent } from './offer/fixedPriceOffer/fixed-price-offer-add/fixed-price-offer-add.component';
 import { FixedPriceOfferDetailComponent } from './offer/fixedPriceOffer/fixed-price-offer-detail/fixed-price-offer-detail.component';
 import { FixedPriceOfferListComponent } from './offer/fixedPriceOffer/fixed-price-offer-list/fixed-price-offer-list.component';
+import { NftModifyComponent } from './nft/nft-modify/nft-modify.component';
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -56,6 +57,7 @@ const routes: Routes = [
   { path: 'nFTs', component: NftListComponent , canActivate: [LoggedInGuard]},
   { path: 'nFTs/:id', component: NftDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'nFTs/delete/:id', component: NftDeleteComponent, canActivate: [LoggedInGuard]},
+  { path: 'nFTs/modify/:id', component: NftModifyComponent, canActivate: [LoggedInGuard]},
 
   { path: 'offers', component: OfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},

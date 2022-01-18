@@ -101,6 +101,10 @@ export class NftDetailComponent implements OnInit {
   getCurrentUser(): User {
     return this.authenticationService.getCurrentUser();
   }
+
+  ownerIsLoggedIn(): boolean {
+    return this.getCurrentUser().id === this.nft.owner.id;
+  }
   onSubmit(): void {
     if (!this.user.favoriteNFTs.some(e => e.uri === this.nft.uri)) {
         this.user.favoriteNFTs.push(this.nft);
