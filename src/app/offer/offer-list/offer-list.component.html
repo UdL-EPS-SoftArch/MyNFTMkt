@@ -3,7 +3,7 @@
   <div class="card-body row align-items-center">
 
     <div class="col-4 mt-2" >
-      <a  href="#" > <button type="button" class="btn m-1 btn-primary pull-right"> Fixed Price Offer</button></a>
+      <a  [routerLink]="['../fixedPriceOffers']" > <button type="button" class="btn m-1 btn-primary pull-right"> Fixed Price Offer</button></a>
     </div>
     <div class="col-4 mt-2" >
       <a href="#"> <button type="button" class="btn m-1 btn-primary pull-right"> Declining Price Offer</button></a>
@@ -23,11 +23,13 @@
         <a class="card-text" [routerLink]="[offer.uri]">{{offer.uri.split('/')[2]}}</a>
       </div>
 
-      <div class="col-6 mt-1">
+      <div class="col-5 mt-1">
         <h6 class="card-subtitle text-muted">Data</h6>
         <p class="card-text">{{offer.dateTime | date : "medium"}}</p>
       </div>
-
+      <div class="pt-3 pl-5 justify-content-end">
+        <button  type="submit" class="btn p-0 mr-2 ml-2 bi-trash fa-lg" (click)="deleteRow(offer) "></button>
+      </div>
 
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">Tipus</h6>

@@ -14,7 +14,7 @@ export class FixedPriceOfferService extends RestService<FixedPriceOffer>{
   public  findAllByPriceIsLessThanEqual(price: number): Observable<FixedPriceOffer[]> {
     const options: any = ({params: [{key: 'price', value: price}]});
     return this.search('findAllByPriceIsLessThanEqual', options);
-}
   }
+}
 
 

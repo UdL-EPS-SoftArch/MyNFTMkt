@@ -8,7 +8,9 @@
     <div class="col-3 mt-2" >
       <a href="#"> <button type="button" class="btn m-1 btn-primary pull-right"> Declining Price Offer</button></a>
     </div>
-
+    <div class="col-3 mt-2" >
+      <a  [routerLink]="['../highestBidOffers']" > <button type="button" class="btn m-1 btn-primary pull-right"> Highest Bid Offer</button></a>
+    </div>
     <div class="col-3 mt-2" >
       <a  [routerLink]="['../offers']" > <button type="button" class="btn m-1 btn-primary pull-right"> All offers</button></a>
     </div>
@@ -16,29 +18,29 @@
   </div>
 </div>
 
-<div class="card mb-1" *ngFor="let highestBidOffer of highestBidOffers">
+<div class="card mb-1" *ngFor="let fixedPriceOffer of fixedPriceOffers">
   <div class="card-block row m-1 col-12">
     <div class="card-body row align-items-center">
       <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">ID</h6>
-        <a class="card-text" [routerLink]="[highestBidOffer.uri]" >{{highestBidOffer.uri.split('/')[2]}}</a>
+        <h6 class="card-subtitle text-muted">ID: </h6>
+        {{fixedPriceOffer?.uri?.split('/')[2]}}
       </div>
       <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Minimum Bid price </h6>
-        <p class="card-text">{{highestBidOffer.minimumBid}}</p>
+        <h6 class="card-subtitle text-muted">NFT: </h6>
+        <p class="card-text">{{fixedPriceOffer.nft}}</p>
       </div>
       <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Reserve Price Bid</h6>
-        <p class="card-text">{{highestBidOffer.reservePrice}}</p>
+        <h6 class="card-subtitle text-muted">Selling Price: </h6>
+        <p class="card-text">{{fixedPriceOffer.price}}</p>
       </div>
       <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Expiration date Bid </h6>
-        <p class="card-text" >{{ highestBidOffer.expiration | date : "medium"  }}</p>
+        <h6 class="card-subtitle text-muted">Expiration date: </h6>
+        <p class="card-text" >{{fixedPriceOffer.dateTime | date : "medium"  }}</p>
       </div>
     </div>
   </div>
 </div>
 
 <ngb-pagination class="d-flex justify-content-center"
-                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalHighestBidOffer"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="sizeFixedPriceOffers"
                 (pageChange)="changePage()"></ngb-pagination>

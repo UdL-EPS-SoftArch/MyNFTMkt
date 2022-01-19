@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
-import {NFTListComponent} from './nft/nft-list/nft-list.component';
 import {UserRegisterComponent} from './user/user-register/user-register.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {UserListComponent} from './user/user-list/user-list.component';
@@ -38,14 +37,19 @@ import {PreviewCardComponent} from './search-by-price/components/preview-card/pr
 import {SearchByPriceComponent} from './search-by-price/search-by-price.component';
 import {SaleDeleteComponent} from './sale/sale-delete/sale-delete.component';
 import {DecliningListComponent} from './declining/declining-list/declining-list.component';
+import {DecliningDetailComponent} from './declining/declining-detail/declining-detail.component';
+import {DecliningAddComponent} from './declining/declining-add/declining-add.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NftCreateComponent } from './nft/nft-create/nft-create.component';
 import { NftService } from './nft/nft.service';
 import {NftAddComponent} from './nft/nft-add/ntf-add.component';
-import {NftListComponent} from './nft/nft-list/ntf-list.component';
+import {NftListComponent} from './nft/nft-list/nft-list.component';
 import {NFTSearchComponent} from './nft/nft-search/nft-search.component';
 import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
+import { FixedPriceOfferAddComponent } from './offer/fixedPriceOffer/fixed-price-offer-add/fixed-price-offer-add.component';
+import { FixedPriceOfferDetailComponent } from './offer/fixedPriceOffer/fixed-price-offer-detail/fixed-price-offer-detail.component';
+import { FixedPriceOfferListComponent } from './offer/fixedPriceOffer/fixed-price-offer-list/fixed-price-offer-list.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +73,6 @@ import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
     UserSearchComponent,
     UserWalletComponent,
     SaleComponent,
-    NFTListComponent,
     NFTSearchComponent,
     NftDetailComponent,
     SaleDeleteComponent,
@@ -77,6 +80,11 @@ import {NftDetailComponent} from './nft/nft-details/nft-detail.component';
     NftCreateComponent,
     NftAddComponent,
     NftListComponent,
+    DecliningDetailComponent,
+    DecliningAddComponent,
+    FixedPriceOfferAddComponent,
+    FixedPriceOfferDetailComponent,
+    FixedPriceOfferListComponent,
   ],
   imports: [
     BrowserModule,
