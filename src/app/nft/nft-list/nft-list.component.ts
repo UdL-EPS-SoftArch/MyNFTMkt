@@ -2,17 +2,17 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NftService } from '../nft.service';
 import { NFT } from '../../login-basic/nft';
-import {User} from "../../login-basic/user";
-import {switchMap} from "rxjs/operators";
-import {OfferService} from "../../offer/offer.service";
-import {HighestBidOffer} from "../../login-basic/highestBidOffer";
-import {FixedPriceOffer} from "../../offer/fixedPriceOffer/fixedpriceoffer";
-import {HighestBidOfferService} from "../../highestBidOffer/highestBidOffer.service";
-import {FixedPriceOfferService} from "../../offer/fixedPriceOffer/fixed-price-offer.service";
-import {DecliningService} from "../../declining/declining.service";
-import {Offer} from "../../login-basic/offer";
-import {Observable} from "rxjs/internal/Observable";
-import {Declining} from "../../declining/declining";
+import {User} from '../../login-basic/user';
+import {switchMap} from 'rxjs/operators';
+import {OfferService} from '../../offer/offer.service';
+import {HighestBidOffer} from '../../login-basic/highestBidOffer';
+import {FixedPriceOffer} from '../../offer/fixedPriceOffer/fixedpriceoffer';
+import {HighestBidOfferService} from '../../highestBidOffer/highestBidOffer.service';
+import {FixedPriceOfferService} from '../../offer/fixedPriceOffer/fixed-price-offer.service';
+import {DecliningService} from '../../declining/declining.service';
+import {Offer} from '../../login-basic/offer';
+import {Observable} from 'rxjs/internal/Observable';
+import {Declining} from '../../declining/declining';
 
 @Component({
   selector: 'app-nft-list',
