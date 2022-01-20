@@ -13,6 +13,7 @@ import {DecliningService} from '../../declining/declining.service';
 import {Offer} from '../../login-basic/offer';
 import {Observable} from 'rxjs/internal/Observable';
 import {Declining} from '../../declining/declining';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-nft-list',
@@ -36,34 +37,35 @@ export class NftListComponent implements OnInit {
     private fixedPriceOfferService: FixedPriceOfferService,
     private decliningService: DecliningService) {
   }
-  deriveOffer(offer: Offer): Observable<any> {
-    if (offer !== null) {
-      if (offer.uri.split('/')[1] === 'highestBidOffers') {
-        return this.highestBidOfferService.get(offer.uri.split('/')[2]);
-      } else if (offer.uri.split('/')[1] === 'fixedPriceOffers') {
-        return this.fixedPriceOfferService.get(offer.uri.split('/')[2]);
+  deriveOffer(offers: Offer[]): Observable<any> {
+    if (offers.length > 0) {
+      if (offers[0].uri.split('/')[1] === 'highestBidOffers') {
+        return this.highestBidOfferService.get(offers[0].uri.split('/')[2]);
+      } else if (offers[0].uri.split('/')[1] === 'fixedPriceOffers') {
+        return this.fixedPriceOfferService.get(offers[0].uri.split('/')[2]);
       } else {
-        return this.decliningService.get(offer.uri.split('/')[2]);
+        return this.decliningService.get(offers[0].uri.split('/')[2]);
       }
     }
+    return of(undefined);
   }
-  checkIfEmpty(obj: any): boolean {
-    return Object.keys(obj).length === 0;
+  checkNftAvailability(nft: NFT): string {
+    if (nft.offer instanceof  HighestBidOffer) {
+      return 'Open for bids starting at €' + nft.offer.minimumBid;
+    } else if (nft.offer instanceof  FixedPriceOffer) {
+      return 'Purchase for €' + nft.offer.price;
+    } else if (nft.offer instanceof  Declining) {
+      return 'Declining auction starting at €' + nft.offer.startingPrice;
+    } else {
+      return 'Not available for purchase';
+    }
   }
   getNftOffers(NFTs: NFT[]): void {
     for (const nft of this.NFTs) {
       this.offerService.findByNftOrderByDateTime(nft).pipe(
-        switchMap( offers => this.deriveOffer(offers[0])),
+        switchMap( offers => this.deriveOffer(offers)),
       ).subscribe((offer: any) => {
-        if (offer instanceof HighestBidOffer) {
-          this.highestBidOffer = offer;
-        }
-        else if (offer instanceof FixedPriceOffer) {
-          this.fixedPriceOffer = offer;
-        }
-        else {
-          this.decline = offer;
-        }
+        nft.offer = offer;
       });
     }
   }
