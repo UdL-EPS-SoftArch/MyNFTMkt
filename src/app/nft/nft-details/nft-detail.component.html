@@ -19,7 +19,7 @@
             </div>
           <p class="card-text pt-3">{{totalFavorites}} favorites</p>
         </div>
-        <div class="nav-item" ngbDropdown>
+        <div class="nav-item" ngbDropdown *ngIf="ownerIsLoggedIn()">
           <a class="nav-link dropdown-toggle" id="playerDropdownNTF" role="button"
              aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Create an offer</a>
           <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
