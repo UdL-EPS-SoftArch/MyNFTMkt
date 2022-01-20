@@ -19,31 +19,40 @@
             </div>
           <p class="card-text pt-3">{{totalFavorites}} favorites</p>
         </div>
-        <div class="nav-item" ngbDropdown>
+        <div class="nav-item" ngbDropdown *ngIf="ownerIsLoggedIn()">
           <a class="nav-link dropdown-toggle" id="playerDropdownNTF" role="button"
              aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Create an offer</a>
           <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
             <a class="dropdown-item"
-               [routerLink]="['/nFTs/']"> FixedPriceOffer</a>
+               [routerLink]="['/fixedPriceOffers/add/', nft.uri?.split('/')[2]]"> FixedPriceOffer</a>
             <a class="dropdown-item"
-               [routerLink]="['/nFTs/']"> DecliningPriceOffer</a>
+               [routerLink]="['/decliningPriceOffers/add/', nft.uri?.split('/')[2]]"> DecliningPriceOffer</a>
             <a class="dropdown-item"
-               [routerLink]="['/highestBidOffers/add/',nft.uri?.split('/')[2]]"> HighestBidOffer</a>
+               [routerLink]="['/highestBidOffers/add/', nft.uri?.split('/')[2]]"> HighestBidOffer</a>
           </div>
         </div>
-        <div class="text-left border rounded-top w-100 mt-5">
-
-          <p class="p-3 text-left m-auto h5"> <i class="bi bi-list-ul align-text-bottom pr-2"></i>Offer</p>
+        <div class="text-left border rounded-top w-100 mt-5"
+             *ngIf="!checkIfEmpty(highestBidOffer) || !checkIfEmpty(fixedPriceOffer) || !checkIfEmpty(decline)">
+          <p class="p-3 text-left m-auto h5"> <i class="bi bi-list-ul align-text-bottom pr-2"></i>Available</p>
         </div>
         <div class="text-left border-left border-right border-bottom rounded-bottom w-100">
           <div *ngIf="!checkIfEmpty(highestBidOffer)">
-            <p class="p-3 text-left m-auto h6 d-inline-flex w-50"><i class="bi bi-currency-euro align-text-bottom pr-1 h-100"></i>{{highestBidOffer.minimumBid}}<span class="font-weight-normal pl-2">EUR</span></p>
+            <p class="p-3 text-left m-auto h6 d-inline-flex w-50">
+              Highest bid starting from <i class="bi bi-currency-euro align-text-bottom pr-1 h-100"></i>{{highestBidOffer.minimumBid}}
+            </p>
+            <a class="btn btn-danger pull-right disabled">Bid</a>
           </div>
           <div *ngIf="!checkIfEmpty(fixedPriceOffer)">
-            <p class="p-3 text-left m-auto h6 d-inline-flex w-50"><i class="bi bi-currency-euro align-text-bottom pr-1 h-100"></i>{{fixedPriceOffer.price}}<span class="font-weight-normal pl-2">EUR</span></p>
+            <p class="p-3 text-left m-auto h6 d-inline-flex w-50">
+              <i class="bi bi-currency-euro align-text-bottom pr-1 h-100"></i>{{fixedPriceOffer.price}}
+            </p>
+            <a class="btn btn-danger pull-right disabled">Purchase</a>
           </div>
           <div *ngIf="!checkIfEmpty(decline)">
-            <p class="p-3 text-left m-auto h6 d-inline-flex w-50"><i class="bi bi-currency-euro align-text-bottom pr-1 h-100"></i>{{decline.startingPrice}}<span class="font-weight-normal pl-2">EUR</span></p>
+            <p class="p-3 text-left m-auto h6 d-inline-flex w-50">
+              Declining price down from <i class="bi bi-currency-euro align-text-bottom pr-1 h-100"></i>{{decline.startingPrice}}
+            </p>
+            <a class="btn btn-danger pull-right disabled">Bid</a>
           </div>
         </div>
       </div>

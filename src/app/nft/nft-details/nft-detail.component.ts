@@ -16,6 +16,7 @@ import {Declining} from '../../declining/declining';
 import {DecliningService} from '../../declining/declining.service';
 import {switchMap} from 'rxjs/operators';
 import {Observable} from 'rxjs/internal/Observable';
+import { of } from 'rxjs';
 @Component({
   selector: 'app-nft-detail',
   templateUrl: './nft-detail.component.html',
@@ -45,7 +46,7 @@ export class NftDetailComponent implements OnInit {
               config: NgbModalConfig, private modalService: NgbModal) {
   }
   deriveOffer(offer: Offer): Observable<any> {
-    if (offer !== null) {
+    if (offer) {
       if (offer.uri.split('/')[1] === 'highestBidOffers') {
         return this.highestBidOfferService.get(offer.uri.split('/')[2]);
       } else if (offer.uri.split('/')[1] === 'fixedPriceOffers') {
@@ -54,6 +55,7 @@ export class NftDetailComponent implements OnInit {
         return this.decliningService.get(offer.uri.split('/')[2]);
       }
     }
+    return of(undefined);
   }
   checkIfEmpty(obj: any): boolean {
     return Object.keys(obj).length === 0;
@@ -73,7 +75,7 @@ export class NftDetailComponent implements OnInit {
       else if (offer instanceof FixedPriceOffer) {
         this.fixedPriceOffer = offer;
       }
-      else {
+      else if (offer instanceof Declining) {
         this.decline = offer;
       }
     });
@@ -103,7 +105,7 @@ export class NftDetailComponent implements OnInit {
   }
 
   ownerIsLoggedIn(): boolean {
-    return this.getCurrentUser().id === this.nft.owner.id;
+    return this.getCurrentUser().id === this.nft?.owner?.id;
   }
   onSubmit(): void {
     if (!this.user.favoriteNFTs.some(e => e.uri === this.nft.uri)) {
