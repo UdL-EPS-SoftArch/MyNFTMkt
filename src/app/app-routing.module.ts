@@ -50,12 +50,12 @@ const routes: Routes = [
   { path: 'fixedPriceOffers', component: FixedPriceOfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'fixedPriceOffers/:id', component: FixedPriceOfferDetailComponent, canActivate: [LoggedInGuard]},
 
-  { path: 'nFTs/create', component: NftCreateComponent},
+  { path: 'nFTs/create', component: NftCreateComponent, canActivate: [LoggedInGuard]},
 
 
-  { path: 'nFTs/add', component: NftAddComponent , canActivate: [LoggedInGuard]},
-  { path: 'nFTs', component: NftListComponent , canActivate: [LoggedInGuard]},
-  { path: 'nFTs/:id', component: NftDetailComponent, canActivate: [LoggedInGuard]},
+  { path: 'nFTs/add', component: NftAddComponent, canActivate: [LoggedInGuard]},
+  { path: 'nFTs', component: NftListComponent },
+  { path: 'nFTs/:id', component: NftDetailComponent },
   { path: 'nFTs/delete/:id', component: NftDeleteComponent, canActivate: [LoggedInGuard]},
   { path: 'nFTs/modify/:id', component: NftModifyComponent, canActivate: [LoggedInGuard]},
 
