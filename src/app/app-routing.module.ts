@@ -62,7 +62,7 @@ const routes: Routes = [
   { path: 'offers', component: OfferListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
-  { path: '', redirectTo: 'about', pathMatch: 'full'},
+  { path: '', redirectTo: 'nFTs', pathMatch: 'full'},
   { path: 'sales', component: SaleComponent},
   { path: 'search-by-price', component: SearchByPriceComponent},
 
