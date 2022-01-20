@@ -24,11 +24,11 @@
              aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Create an offer</a>
           <div class="dropdown-menu" aria-labelledby="playerDropdownBid" ngbDropdownMenu>
             <a class="dropdown-item"
-               [routerLink]="['/nFTs/']"> FixedPriceOffer</a>
+               [routerLink]="['/fixedPriceOffers/add/', nft.uri?.split('/')[2]]"> FixedPriceOffer</a>
             <a class="dropdown-item"
-               [routerLink]="['/nFTs/']"> DecliningPriceOffer</a>
+               [routerLink]="['/decliningPriceOffers/add/', nft.uri?.split('/')[2]]"> DecliningPriceOffer</a>
             <a class="dropdown-item"
-               [routerLink]="['/highestBidOffers/add/',nft.uri?.split('/')[2]]"> HighestBidOffer</a>
+               [routerLink]="['/highestBidOffers/add/', nft.uri?.split('/')[2]]"> HighestBidOffer</a>
           </div>
         </div>
         <div class="text-left border rounded-top w-100 mt-5">
